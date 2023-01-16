@@ -1,6 +1,8 @@
 //---- GLOBAL VARIABLES ----//
 // let game: Game;
 // let sound: p5.SoundFile
+let player: Player;
+let playerImage: p5.Image;
 
 /**
  * Built in preload function in P5
@@ -8,6 +10,8 @@
  * sound files, images etc...
  */
 function preload() {
+  playerImage = loadImage("assets/images/BOWL.svg");
+
     // sound: p5.SoundFile = loadSound('../assets/mySound.wav');
 }
 
@@ -21,7 +25,8 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     frameRate(60);
     // noCursor();
-    
+    player = new Player(playerImage, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
+
     // game = new Game();
 }
 
@@ -37,8 +42,9 @@ function draw() {
     strokeWeight(10);
     circle(width * .5, height * .5, width * 0.2);
 
-    // game.update();
-    // game.draw();
+    player.handleInput();
+    player.update();
+    player.draw();
 }
 
 
