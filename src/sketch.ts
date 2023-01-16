@@ -15,10 +15,10 @@ function preload() {
 
   // DESIGN
   const logoImage = loadImage("assets/images/logo.svg");
-  const bigFrostingStartSiteImage = loadImage("assets/images/BigFrostingStartSite.svg");
-  const pinkFrostingImage = loadImage("assets/images/PinkFrosting.svg");
+  const frostingBigImage = loadImage("assets/images/frostingBig.svg");
+  const frostingSmalImage = loadImage("assets/images/frostingSmal.svg");
   const sprinkelsImage = loadImage("assets/images/sprinkels.svg");
-  const tableClothBackgroundImage = loadImage("assets/images/tableClothBackground.svg");
+  const tableClothImage = loadImage("assets/images/tableCloth.svg");
   const starOutlineImage = loadImage("assets/images/starOutline.svg");
   const starImage = loadImage("assets/images/star.svg");
 
