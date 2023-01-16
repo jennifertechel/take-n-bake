@@ -13,7 +13,7 @@ function preload() {
   playerImage = loadImage("assets/images/BOWL.svg");
 
   // DESIGN
-  const logoImage = loadImage("assets/images/apple.svg");
+  const logoImage = loadImage("assets/images/logo.svg");
   const bigFrostingStartSiteImage = loadImage("assets/images/BigFrostingStartSite.svg");
   const smallerPinkFrostingImage = loadImage("assets/images/SmallerPinkFrosting.svg");
   const sprinklesFrameImage = loadImage("assets/images/sprinklesFrame.svg");
@@ -29,16 +29,16 @@ function preload() {
 
 
   // INGRIDIENTS
-  const appleImage = loadImage("assets/images/apple.svg");
-  const bananaImage = loadImage("assets/images/banana.svg");
-  const butterImage = loadImage("assets/images/butter.svg");
-  const cherryImage = loadImage("assets/images/cherry.svg");
-  const chocolateImage = loadImage("assets/images/chocolate.svg");
-  const eggImage = loadImage("assets/images/egg.svg");
-  const flourImage = loadImage("assets/images/flour.svg");
-  const milkImage = loadImage("assets/images/milk.svg");
-  const strawberryImage = loadImage("assets/images/strawberry.svg");
-  const sugarImage = loadImage("assets/images/sugar.svg");
+  const appleImage = loadImage("assets/images/Ingredients/apple.svg");
+  const bananaImage = loadImage("assets/images/Ingredients/banana.svg");
+  const butterImage = loadImage("assets/images/Ingredients/butter.svg");
+  const cherryImage = loadImage("assets/images/Ingredients/cherry.svg");
+  const chocolateImage = loadImage("assets/images/Ingredients/chocolate.svg");
+  const eggImage = loadImage("assets/images/Ingredients/egg.svg");
+  const flourImage = loadImage("assets/images/Ingredients/flour.svg");
+  const milkImage = loadImage("assets/images/Ingredients/milk.svg");
+  const strawberryImage = loadImage("assets/images/Ingredients/strawberry.svg");
+  const sugarImage = loadImage("assets/images/Ingredients/sugar.svg");
 
 
     // sound: p5.SoundFile = loadSound('../assets/mySound.wav');
