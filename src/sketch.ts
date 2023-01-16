@@ -31,7 +31,7 @@ function setup() {
     frameRate(60);
     // noCursor();
     player = new Player(playerImage, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
-    loserFrame = new LoserFrame(createVector(width * 0.25, height * .08), createVector(850, 850), "#C6E3DE", "#F5F5F5", loserImage, "testmeddelande yey");
+    loserFrame = new LoserFrame(createVector(width * 0.25, height * .08), createVector(850, 850), "#C6E3DE", "#F5F5F5", loserImage, "Ops...try again!");
 }
 
 /**
