@@ -4,6 +4,12 @@ class Player extends movingObject {
   }
 
   public handleInput() {
+    // make sure the object never goes out of screen
+    if (this.position.x < 0 || this.position.x + this.size.x > width) {
+      this.velocity.x = 0;
+      this.position.x = constrain(this.position.x, 0, width - this.size.x);
+  }
+
       // handle arrow key input to update the player's velocity
       if (keyIsDown(LEFT_ARROW)) {
           this.velocity.x = -5;
