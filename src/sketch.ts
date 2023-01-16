@@ -4,6 +4,9 @@
 let player: Player;
 let playerImage: p5.Image;
 
+let loserFrame: LoserFrame;
+let loserImage: p5.Image;
+
 /**
  * Built in preload function in P5
  * This is a good place to load assets such as
@@ -11,6 +14,7 @@ let playerImage: p5.Image;
  */
 function preload() {
   playerImage = loadImage("assets/images/BOWL.svg");
+  loserImage = loadImage("assets/images/spilled-bowl.svg");
 
     // sound: p5.SoundFile = loadSound('../assets/mySound.wav');
 }
@@ -21,13 +25,13 @@ function preload() {
  * and save it as a global variable so it can be used
  * in the draw function below
  */
+
 function setup() {
     createCanvas(windowWidth, windowHeight);
     frameRate(60);
     // noCursor();
     player = new Player(playerImage, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
-
-    // game = new Game();
+    loserFrame = new LoserFrame(createVector(width * 0.25, height * .08), createVector(850, 850), "#C6E3DE", "#F5F5F5", loserImage, "testmeddelande yey");
 }
 
 /**
@@ -45,6 +49,8 @@ function draw() {
     player.handleInput();
     player.update();
     player.draw();
+
+    loserFrame.draw();
 }
 
 
