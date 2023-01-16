@@ -6,7 +6,9 @@ class Player extends movingObject {
   public handleInput() {
     // make sure the object never goes out of screen
     if (this.position.x < 0 || this.position.x + this.size.x > width) {
+      // do not move object if it's at the left or right side of the screen
       this.velocity.x = 0;
+      // set the position = constrain(value to constrain, lowest value, highest value)
       this.position.x = constrain(this.position.x, 0, width - this.size.x);
   }
 
