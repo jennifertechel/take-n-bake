@@ -1,31 +1,23 @@
 class LoserFrame {
     protected position: p5.Vector;
     protected size: p5.Vector;
-    protected backgroundColor: String;
+    protected borderColor: String;
     protected messageBackgroundColor: String;
     protected image: p5.Image;
     protected textMessage: String;
-    // protected button: object;
-    // protected button2: object;
+    protected backgroundImg: p5.Image;
 
     constructor (
-        position: p5.Vector,
-        size: p5.Vector,
-        backgroundColor: String = "C6E3DE",
-        messageBackgroundColor: String = "F5F5F5",
-        image: p5.Image,
-        textMessage: String = "testmeddelande yey",
-        // button: object,
-        // button2: object
-    ) {
-        this.position = position;
-        this.size = size;
-        this.backgroundColor = backgroundColor;
-        this.messageBackgroundColor = messageBackgroundColor;
+        image: p5.Image)
+     {
+        this.position = createVector(width/2 - 525, height/2 - 305.5);
+        this.size = createVector(1050, 611);
+        this.borderColor = "C6E3DE";
+        this.messageBackgroundColor = "F5F5F5";
         this.image = image;
-        this.textMessage = textMessage;
-        // this.button = button;
-        // this.button2 = button2;
+        this.textMessage = "Ops...try again!";
+        this.backgroundImg = loadImage("assets/images/Logo.svg");
+
     }
 
     public update() {
@@ -34,16 +26,34 @@ class LoserFrame {
     
     public draw() {
         push();
-        let bgColor = color("#"+ this.backgroundColor);
+        let borderColor = color("#"+ this.borderColor);
         let bgColorMessage = color("#"+ this.messageBackgroundColor);
-        fill(bgColor)
-        rect(this.position.x, this.position.y, this.size.x, this.size.y);
         fill(bgColorMessage)
+        stroke(borderColor);
+        strokeWeight(60);
         rect(this.position.x, this.position.y, this.size.x, this.size.y);
-        image(this.image, this.position.x, this.position.y, this.size.x, this.size.y);
-        text(this.textMessage, this.position.x, this.position.y, this.size.x, this.size.y);
-        // button(this.button, this.position.x, this.position.y, this.size.x, this.size.y);
-        // button(this.button2, this.position.x, this.position.y, this.size.x, this.size.y);
+        image(this.image, width/2-200, height/2 - 130, 400, 300);
+        
+        textSize(64);
+        fill('black');
+        noStroke();
+        textStyle(BOLD);
+        text(this.textMessage, width/2 - 256, height/2 - 195, this.size.x, this.size.y);
+
+        let button = createButton('Menu');;
+        let button2 = createButton('Restart');
+        button.position(width/2 - 182,  height/2 + 150);
+        button2.position(width/2 + 10, height/2 + 150);
+        button.style('background-color', borderColor)
+        button2.style('background-color', borderColor)
+        button.size(160, 70)
+        button2.size(160, 70)
+        button.style('border', 0)
+        button2.style('border', 0)
+        button.style('font-size', 22 + 'px')
+        button2.style('font-size', 22 + 'px')
+        button.style('color', "#fff")
+        button2.style('color', "#fff")
         pop();
     }
 }
@@ -54,7 +64,5 @@ class LoserFrame {
 // }
 
 // class button {
-//     button = createButton('click me');
-//     button.position(0, 0);
 //     button.mousePressed(changeBG);
 // }
