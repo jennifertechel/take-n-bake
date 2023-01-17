@@ -65,7 +65,7 @@ function setup() {
     frameRate(60);
     // noCursor();
     player = new Player(playerImage, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
-    startPage = new StartPage();
+    startPage = new StartPage(bigFrostingImage);
     // game = new Game();
 }
 
