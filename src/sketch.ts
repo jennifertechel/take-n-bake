@@ -3,6 +3,7 @@
 // let sound: p5.SoundFile
 let player: Player;
 let playerImage: p5.Image;
+let ingredient: Ingredients;
 
 /**
  * Built in preload function in P5
@@ -26,7 +27,7 @@ function setup() {
     frameRate(60);
     // noCursor();
     player = new Player(playerImage, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
-
+    ingredient = new Ingredients('banana');
     // game = new Game();
 }
 
