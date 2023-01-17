@@ -1,8 +1,10 @@
 //---- GLOBAL VARIABLES ----//
 // let game: Game;
 // let sound: p5.SoundFile
-let player: Player;
-let playerImage: p5.Image;
+//let player: Player;
+//let playerImage: p5.Image;
+let gameMenu: GameMenu;
+let smalFrosting: p5.Image;
 
 /**
  * Built in preload function in P5
@@ -10,32 +12,33 @@ let playerImage: p5.Image;
  * sound files, images etc...
  */
 function preload() {
-  playerImage = loadImage("assets/images/BOWL.svg");
+  //playerImage = loadImage("assets/images/BOWL.svg");
+  gameMenu = loadImage("assets/images/frostingSmal.svg");
 
 
   // DESIGN
-  const logoImage = loadImage("assets/images/logo.svg");
-  const logo2Image = loadImage("assets/images/logo.png");
-  const frostingBigImage = loadImage("assets/images/frostingBig.svg");
-  const frostingStartsiteImage = loadImage("assets/images/frostingStartsite.png");
-  const frostingSmalImage = loadImage("assets/images/frostingSmal.svg");
-  const frostingTopImage = loadImage("assets/images/frostingTop.png");
-  const sprinklesImage = loadImage("assets/images/sprinkles.svg");
-  const sprinkles2Image = loadImage("assets/images/sprinkles.png");
-  const tableClothImage = loadImage("assets/images/tableCloth.svg");
-  const tableClothRedImage = loadImage("assets/images/tableClothRed.png");
-  const starOutlineImage = loadImage("assets/images/starOutline.svg");
-  const starImage = loadImage("assets/images/star.svg");
+  //const logoImage = loadImage("assets/images/logo.svg");
+  //const logo2Image = loadImage("assets/images/logo.png");
+ // const frostingBigImage = loadImage("assets/images/frostingBig.svg");
+  //const frostingStartsiteImage = loadImage("assets/images/frostingStartsite.png");
+  //const frostingSmalImage = loadImage("assets/images/frostingSmal.svg");
+  //const frostingTopImage = loadImage("assets/images/frostingTop.png");
+  //const sprinklesImage = loadImage("assets/images/sprinkles.svg");
+  //const sprinkles2Image = loadImage("assets/images/sprinkles.png");
+  //const tableClothImage = loadImage("assets/images/tableCloth.svg");
+  //const tableClothRedImage = loadImage("assets/images/tableClothRed.png");
+  //const starOutlineImage = loadImage("assets/images/starOutline.svg");
+  //const starImage = loadImage("assets/images/star.svg");
 
   // CAKES
-  const pancakeImage = loadImage("assets/images/pancake.svg");
-  const pieImage = loadImage("assets/images/pie.svg");
-  const chocolateCakeImage = loadImage("assets/images/logo.svg");
-  const spilledBowlImage = loadImage("assets/images/spilled-bowl.svg");
+  //const pancakeImage = loadImage("assets/images/pancake.svg");
+  //const pieImage = loadImage("assets/images/pie.svg");
+  //const chocolateCakeImage = loadImage("assets/images/logo.svg");
+  //const spilledBowlImage = loadImage("assets/images/spilled-bowl.svg");
 
 
   // INGRIDIENTS
-  const appleImage = loadImage("assets/images/Ingredients/apple.svg");
+  /*const appleImage = loadImage("assets/images/Ingredients/apple.svg");
   const bananaImage = loadImage("assets/images/Ingredients/banana.svg");
   const butterImage = loadImage("assets/images/Ingredients/butter.svg");
   const cherryImage = loadImage("assets/images/Ingredients/cherry.svg");
@@ -47,7 +50,7 @@ function preload() {
   const sugarImage = loadImage("assets/images/Ingredients/sugar.svg");
 
 
-
+*/
     // sound: p5.SoundFile = loadSound('../assets/mySound.wav');
 }
 
@@ -61,9 +64,10 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     frameRate(60);
     // noCursor();
-    player = new Player(playerImage, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
+    //player = new Player(playerImage, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
 
     // game = new Game();
+    gameMenu = new GameMenu();
 }
 
 /**
@@ -78,9 +82,13 @@ function draw() {
     strokeWeight(10);
     circle(width * .5, height * .5, width * 0.2);
 
-    player.handleInput();
-    player.update();
-    player.draw();
+    //player.handleInput();
+    //player.update();
+    //player.draw();
+
+    gameMenu.draw();
+    gameMenu.setup();
+    gameMenu.update();
 }
 
 
