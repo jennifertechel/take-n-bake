@@ -1,27 +1,27 @@
-class Ingredients {
-    protected name: string;
+class Ingredients extends movingObject {
     protected ingredients: string[] = [];
+    protected name: string;
 
     constructor (
+        image: p5.Image, 
+        position: p5.Vector, 
+        size: p5.Vector, 
+        velocity: p5.Vector,
         name: string,
-    ){
-     
+        ingredients: string[]
+    ) {
+        super(image, position, size, velocity);
         this.name = name;
+        this.ingredients.push(...ingredients);
     }
 
-    addIngredients(ingredient: string){
-        this.ingredients.push(ingredient);
+    addIngredients(ingredient: string[]){
+        this.ingredients.push(...ingredient);
     }
 }
 
-let ingredients = new Ingredients('Banana');
-ingredients.addIngredients("Apple");
-ingredients.addIngredients("Butter");
-ingredients.addIngredients("Cherry");
-ingredients.addIngredients("Chocolate");
-ingredients.addIngredients("Egg");
-ingredients.addIngredients("Flour");
-ingredients.addIngredients("Milk");
-ingredients.addIngredients("Strawberry");
-ingredients.addIngredients("Sugar");
-ingredients.addIngredients("Blueberry");
+let ingredients = new Ingredients(image, position, size, velocity, "Banana", ["Apple","Butter"]);
+ingredients.addIngredients(["Cherry","Chocolate","Egg","Flour","Milk","Strawberry","Sugar","Blueberry"]);
+ingredients.update();
+ingredients.draw();
+
