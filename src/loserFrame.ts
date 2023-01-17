@@ -1,7 +1,11 @@
+let buttonHover= 200;
+let button2Hover= 0;
+
 class LoserFrame {
     protected position: p5.Vector;
     protected size: p5.Vector;
     protected borderColor: String;
+    protected hoverColor: String;
     protected messageBackgroundColor: String;
     protected image: p5.Image;
     protected textMessage: String;
@@ -13,11 +17,11 @@ class LoserFrame {
         this.position = createVector(width/2 - 525, height/2 - 305.5);
         this.size = createVector(1050, 611);
         this.borderColor = "C6E3DE";
+        this.hoverColor = "23c471"
         this.messageBackgroundColor = "F5F5F5";
         this.image = image;
         this.textMessage = "Ops...try again!";
         this.backgroundImg = loadImage("assets/images/Logo.svg");
-
     }
 
     public update() {
@@ -54,6 +58,29 @@ class LoserFrame {
         button2.style('font-size', 22 + 'px')
         button.style('color', "#fff")
         button2.style('color', "#fff")
+
+        let hoverCol = color("#C6E3DE");
+
+        // create a hover button; 
+        button.mouseOver(() => {
+            button.style('color', "#000")
+            console.log("over")
+        });
+
+        button.mouseOut(() => {
+            button.style('background', "#C6E3DE")
+            console.log("out")
+        });
+
+        button2.mouseOver(() => {
+            button2.style('background-color', "#C6E3DE")
+            console.log("over")
+        });
+
+        button2.mouseOut(() => {
+            button2.style('background-color', borderColor.toString())
+            console.log("out")
+        });
         pop();
     }
 }
