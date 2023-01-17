@@ -1,23 +1,26 @@
 class Recipe {
-    let allRecipes: (string[])[] = [];
-    let pancakeRecipe: string[] = ["eggs", "butter", "milk"];
-    let blueberryPieRecipe: string[] = ["eggs", "butter", "blueberries", "flour", "suger"];
-    let chocolateCakeRecipe: string[] = ["eggs", "butter", "milk", "flour", "suger", "chocolate", "strawberries"];
+    private allRecipes: (string[])[] = [];
 
-    allRecipes.push(pancakeRecipe);
-    allRecipes.push(blueberryPieRecipe);
-    allRecipes.push(chocolateCakeRecipe);
+    constructor() {
+        this.pancakeRecipe = ["eggs", "butter", "milk"];
+        this.blueberryPieRecipe = ["eggs", "butter", "blueberries", "flour", "sugar"];
+        this.chocolateCakeRecipe = ["eggs", "butter", "milk", "flour", "sugar", "chocolate", "strawberries"];
 
-    console.log(allRecipes);   
+        this.allRecipes.push(this.pancakeRecipe);
+        this.allRecipes.push(this.blueberryPieRecipe);
+        this.allRecipes.push(this.chocolateCakeRecipe);
 
+    }
+
+    private pancakeRecipe: string[];
+    private blueberryPieRecipe: string[];
+    private chocolateCakeRecipe: string[];
+
+    private amountIngredients: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9]
 
 }
 
-// let allRecipes: string[] = ["Pancake", "Blueberry pie", "Chocolate cake"];
+let recipe = new Recipe();
+console.log(recipe);
 
-// let pancakeRecipe: string[] = ["eggs", "butter", "milk"];
-// let blueberryPieRecipe: string[] = ["eggs", "butter", "blueberries", "flour", "sugger"];
-// let chocolateCakeRecipe: string[] = ["eggs", "butter", "milk", "flouer", "sugger", "chocolate", "strawberries"];
-
-let amountIngredients: number[] = [1, 2, 3, 4, 5, 6, 7, 8, 9];
 
