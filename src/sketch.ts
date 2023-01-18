@@ -51,41 +51,6 @@ interface Images {
 function preload() {
   playerImage = loadImage("assets/images/BOWL.svg");
 
-
-  // DESIGN
-//   const logoImage = loadImage("assets/images/logo.svg");
-//   const logo2Image = loadImage("assets/images/logo.png");
-//   const frostingBigImage = loadImage("assets/images/frostingBig.svg");
-//   const frostingStartsiteImage = loadImage("assets/images/frostingStartsite.png");
-//   const frostingSmalImage = loadImage("assets/images/frostingSmal.svg");
-//   const frostingTopImage = loadImage("assets/images/frostingTop.png");
-//   const sprinklesImage = loadImage("assets/images/sprinkles.svg");
-//   const sprinkles2Image = loadImage("assets/images/sprinkles.png");
-//   const tableClothImage = loadImage("assets/images/tableCloth.svg");
-//   const tableClothRedImage = loadImage("assets/images/tableClothRed.png");
-//   const starOutlineImage = loadImage("assets/images/starOutline.svg");
-//   const starImage = loadImage("assets/images/star.svg");
-
-//   // CAKES
-//   const pancakeImage = loadImage("assets/images/pancake.svg");
-//   const pieImage = loadImage("assets/images/pie.svg");
-//   const chocolateCakeImage = loadImage("assets/images/logo.svg");
-//   const spilledBowlImage = loadImage("assets/images/spilled-bowl.svg");
-
-
-//   // INGRIDIENTS
-//   const appleImage = loadImage("assets/images/Ingredients/apple.svg");
-//   const bananaImage = loadImage("assets/images/Ingredients/banana.svg");
-//   const butterImage = loadImage("assets/images/Ingredients/butter.svg");
-//   const cherryImage = loadImage("assets/images/Ingredients/cherry.svg");
-//   const chocolateImage = loadImage("assets/images/Ingredients/chocolate.svg");
-//   const eggImage = loadImage("assets/images/Ingredients/egg.svg");
-//   const flourImage = loadImage("assets/images/Ingredients/flour.svg");
-//   const milkImage = loadImage("assets/images/Ingredients/milk.svg");
-//   const strawberryImage = loadImage("assets/images/Ingredients/strawberry.svg");
-//   const sugarImage = loadImage("assets/images/Ingredients/sugar.svg");
-
-
     images = {
         logo: loadImage("assets/images/logo.svg"),
         starOutlined: loadImage("assets/images/starOutline.svg"),
@@ -136,8 +101,11 @@ function setup() {
     // Move this and change player image 
     player = new Player(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
 
-    menuButton = new Button(windowWidth/2 - 182, windowHeight/2 + 150, "Menu", "#C6E3DE", "#23c471");
-    restartButton = new Button(windowWidth/2 + 10, windowHeight/2 + 150, "Restart", "#C6E3DE", "#23c471");
+    menuButton = new Button(createVector(windowWidth/2-230, 550), createVector(200, 70), "Menu");
+    restartButton = new Button(createVector(windowWidth/2+30, 550), createVector(200, 70), "Restart");
+
+    // menuButton = new Button(windowWidth/2 - 182, windowHeight/2 + 150, "Menu", "#C6E3DE", "#23c471");
+    // restartButton = new Button(windowWidth/2 + 10, windowHeight/2 + 150, "Restart", "#C6E3DE", "#23c471");
     // game = new Game();
 }
 
@@ -149,8 +117,7 @@ function setup() {
 function draw() {
     background('blue');
     fill('green');
-    stroke('white');
-    strokeWeight(10);
+    noStroke();
     circle(width * .5, height * .5, width * 0.2);
 
     player.handleInput();
@@ -158,6 +125,8 @@ function draw() {
     player.draw();
     menuButton.draw();
     restartButton.draw();
+    menuButton.checkHover();
+    restartButton.checkHover();
 }
 
 
