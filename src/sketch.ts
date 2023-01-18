@@ -92,7 +92,9 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     frameRate(60);
     // noCursor();
-    player = new Player(playerImage, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
+
+    // Move this and change player image 
+    player = new Player(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
 
     // game = new Game();
 }
