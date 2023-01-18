@@ -39,10 +39,6 @@ interface Images {
         tableCloth: p5.Image;
     }
 }
-
-let loserFrame: LoserFrame;
-let loserImage: p5.Image;
-
 /**
  * Built in preload function in P5
  * This is a good place to load assets such as
@@ -98,7 +94,6 @@ function setup() {
 
     // Move this and change player image 
     player = new Player(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
-    loserFrame = new LoserFrame(images.spilledBowl);
 
     // game = new Game();
 
