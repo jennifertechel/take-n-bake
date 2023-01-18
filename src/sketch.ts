@@ -101,11 +101,9 @@ function setup() {
     // Move this and change player image 
     player = new Player(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
 
+    // Buttons should be moved
     menuButton = new Button(createVector(windowWidth/2-230, 550), createVector(200, 70), "Menu");
     restartButton = new Button(createVector(windowWidth/2+30, 550), createVector(200, 70), "Restart");
-
-    // menuButton = new Button(windowWidth/2 - 182, windowHeight/2 + 150, "Menu", "#C6E3DE", "#23c471");
-    // restartButton = new Button(windowWidth/2 + 10, windowHeight/2 + 150, "Restart", "#C6E3DE", "#23c471");
     // game = new Game();
 }
 
