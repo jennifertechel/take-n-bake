@@ -1,3 +1,4 @@
+import { MessageBox } from './messageBox';
 class LoserFrame extends MessageBox {
     private text: string;
     private button1: Button;
