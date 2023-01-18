@@ -65,8 +65,8 @@ function setup() {
     // noCursor();
     player = new Player(playerImage, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
 
-    let menuButton = new Button(windowWidth/2 - 182, windowHeight/2 + 150, "Menu", "#C6E3DE", "#23c471");
-    let restartButton = new Button(windowWidth/2 + 10, windowHeight/2 + 150, "Restart", "#C6E3DE", "#23c471");
+    menuButton = new Button(windowWidth/2 - 182, windowHeight/2 + 150, "Menu", "#C6E3DE", "#23c471");
+    restartButton = new Button(windowWidth/2 + 10, windowHeight/2 + 150, "Restart", "#C6E3DE", "#23c471");
     // game = new Game();
 }
 
@@ -87,7 +87,6 @@ function draw() {
     player.draw();
     menuButton.draw();
     restartButton.draw();
-    
 }
 
 
