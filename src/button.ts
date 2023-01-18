@@ -1,4 +1,4 @@
-class Button {
+export class Button {
     private position: p5.Vector;
     private size: p5.Vector;
     private text: string;
