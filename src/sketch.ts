@@ -1,13 +1,8 @@
 //---- GLOBAL VARIABLES ----//
 // let game: Game;
-
-// import { LoserFrame } from "./loserFrame";
-// import { Button } from "./button";
-
 // let sound: p5.SoundFile
 let player: Player;
 let images: Images;
-// let loserFrame: LoserFrame;
 
 type IngredientKey = keyof Images['ingredients'];
 type RecipeKey = keyof Images['recipes'];
@@ -101,9 +96,6 @@ function setup() {
     player = new Player(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
 
     // game = new Game();
-
-// loserFrame = new LoserFrame("Ops...try again!", "Sorry, you lost the game", new Button("Retry"), new Button("Menu"), images.spilledBowl);
-// loserFrame = new LoserFrame("Ops...try again!", "Sorry, you lost the game", button1, button2, images.spilledBowl);
 }
 
 /**
@@ -121,8 +113,6 @@ function draw() {
     player.handleInput();
     player.update();
     player.draw();
-
-    // loserFrame.draw();
 }
 
 /**
