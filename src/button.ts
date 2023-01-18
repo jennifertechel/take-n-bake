@@ -22,41 +22,24 @@ class Button {
     }
 
     public draw() {
+        let button = createButton('');
 
-        let borderColor = "000";
-        let button = createButton('Menu');;
-        let button2 = createButton('Restart');
+        let borderColor = "#C6E3DE";
         button.position(width/2 - 182,  height/2 + 150);
-        button2.position(width/2 + 10, height/2 + 150);
         button.style('background-color', borderColor)
-        button2.style('background-color', borderColor)
         button.size(160, 70)
-        button2.size(160, 70)
         button.style('border', 0)
-        button2.style('border', 0)
         button.style('font-size', 22 + 'px')
-        button2.style('font-size', 22 + 'px')
         button.style('color', "#fff")
-        button2.style('color', "#fff")
         
         // create a hover button; 
         button.mouseOver(() => {
-            button.style('color', "#C6E3DE")
+            button.style('background-color', "#23c471")
             console.log("over")
         });
     
         button.mouseOut(() => {
             button.style('background', "#C6E3DE")
-            console.log("out")
-        });
-    
-        button2.mouseOver(() => {
-            button2.style('background-color', "#C6E3DE")
-            console.log("over")
-        });
-    
-        button2.mouseOut(() => {
-            button2.style('background-color', borderColor.toString())
             console.log("out")
         });
     }
