@@ -1,8 +1,13 @@
 //---- GLOBAL VARIABLES ----//
 // let game: Game;
+
+// import { LoserFrame } from "./loserFrame";
+// import { Button } from "./button";
+
 // let sound: p5.SoundFile
 let player: Player;
 let images: Images;
+// let loserFrame: LoserFrame;
 
 type IngredientKey = keyof Images['ingredients'];
 type RecipeKey = keyof Images['recipes'];
@@ -39,6 +44,7 @@ interface Images {
         tableCloth: p5.Image;
     }
 }
+
 /**
  * Built in preload function in P5
  * This is a good place to load assets such as
@@ -75,7 +81,6 @@ function preload() {
             sprinkles: loadImage("assets/images/sprinkles.svg"),
             tableCloth: loadImage("assets/images/tableCloth.svg")
         }
-
     }
     // sound: p5.SoundFile = loadSound('../assets/mySound.wav');
 }
@@ -97,6 +102,8 @@ function setup() {
 
     // game = new Game();
 
+// loserFrame = new LoserFrame("Ops...try again!", "Sorry, you lost the game", new Button("Retry"), new Button("Menu"), images.spilledBowl);
+// loserFrame = new LoserFrame("Ops...try again!", "Sorry, you lost the game", button1, button2, images.spilledBowl);
 }
 
 /**
@@ -115,9 +122,8 @@ function draw() {
     player.update();
     player.draw();
 
-    loserFrame.draw();
+    // loserFrame.draw();
 }
-
 
 /**
  *  Built in windowResize listener function in P5
