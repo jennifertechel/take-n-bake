@@ -6,9 +6,11 @@ class Recipe {
         this.blueberryPieRecipe = ["eggs", "butter", "blueberries", "flour", "sugar"];
         this.chocolateCakeRecipe = ["eggs", "butter", "milk", "flour", "sugar", "chocolate", "strawberries"];
 
-        this.allRecipes.push(this.pancakeRecipe);
+        /*this.allRecipes.push(this.pancakeRecipe);
         this.allRecipes.push(this.blueberryPieRecipe);
-        this.allRecipes.push(this.chocolateCakeRecipe);
+        this.allRecipes.push(this.chocolateCakeRecipe);*/
+
+        // ta bort den gemensamma arreyen
 
     }
 
@@ -20,6 +22,8 @@ class Recipe {
 
     private chocolateCakeRecipe: string[] = ["eggs", "butter", "milk", "flour", "sugar", "chocolate", "strawberries"];
     private chocolateCakeAmount: number[] = [3, 1, 5, 3, 2, 3, 4]
+
+
 
     public update() {
         
