@@ -1,5 +1,5 @@
 class Recipe {
-    private allRecipes: (string[])[] = [];
+   // private allRecipes: (string[])[] = [];
 
     constructor() {
         this.pancakeRecipe = ["eggs", "butter", "milk"];
@@ -28,7 +28,7 @@ class Recipe {
     public update() {
         
     }
-
+/*
     public draw() {
         for (let i = 0; i < this.allRecipes.length; i++) {
             let recipe = this.allRecipes[i];
@@ -46,6 +46,7 @@ class Recipe {
             }
         }
     }
+    */
     
 }
 
