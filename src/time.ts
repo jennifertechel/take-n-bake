@@ -1,3 +1,3 @@
-class time {
+class Time {
     
 }
