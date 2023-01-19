@@ -29,8 +29,6 @@ class Game implements IScene {
 
     public update() {
 
-        // player.update();
-
       this.time += deltaTime;
       if (this.time > 1000) {
        // skapa en ny ingrediens
@@ -46,6 +44,7 @@ class Game implements IScene {
         //this.recipeScene.update(); // todo ändra. 
       } else if (this.activeScene === "levelScene") {
         this.menuScene.update(); // todo ändra. 
+        player.update();
       } else if (this.activeScene === "winnerScene") {
         this.menuScene.update(); // todo ändra. 
       } else if (this.activeScene === "looserScene") {
@@ -59,8 +58,8 @@ class Game implements IScene {
     //   this.looserScene.draw();
       this.levelScene.draw();
 
-      player.handleInput();
-      player.draw();
+        player.handleInput();
+        player.draw();
     }
 
     public setActiveScene(scene: Scene) {
