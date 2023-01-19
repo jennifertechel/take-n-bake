@@ -26,6 +26,8 @@ class LooserScene extends MessageBox {
         textSize(32);
         this.buttonRestart.draw();
         this.buttonQuit.draw();
+        this.buttonRestart.checkHover();
+        this.buttonQuit.checkHover();
         image(this.image, innerWidth/2-150, innerHeight/2-130);
     }
 }
