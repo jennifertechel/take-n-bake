@@ -19,9 +19,9 @@ class Game implements IScene {
       this.menuScene = new MenuScene(this);
       this.recipeScene = new RecipeScene();
       this.levelScene = new LevelScene();
-      this.winnerScene = new WinnerScene();
+      this.winnerScene = new WinnerScene(this);
       this.looserScene = new LooserScene(this);
-      this.activeScene = "startScene";
+      this.activeScene = "winnerScene";
       this.time = 0;
     }
 
@@ -49,6 +49,7 @@ class Game implements IScene {
 
     public draw() {
       this.menuScene.draw();
+      this.winnerScene.draw();
     }
 
     public setActiveScene(scene: Scene) {
