@@ -1,4 +1,4 @@
-export class MessageBox {
+class MessageBox {
     private title: string;
 
     constructor(title: string) {

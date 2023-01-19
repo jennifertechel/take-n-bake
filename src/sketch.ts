@@ -2,6 +2,9 @@
 // let game: Game;
 // let sound: p5.SoundFile
 let player: Player;
+let menuButton: Button;
+let restartButton: Button;
+let playerImage: p5.Image;
 let images: Images;
 
 type IngredientKey = keyof Images['ingredients'];
@@ -46,6 +49,8 @@ interface Images {
  * sound files, images etc...
  */
 function preload() {
+  playerImage = loadImage("assets/images/BOWL.svg");
+
     images = {
         logo: loadImage("assets/images/logo.svg"),
         starOutlined: loadImage("assets/images/starOutline.svg"),
@@ -106,13 +111,16 @@ function setup() {
 function draw() {
     background('blue');
     fill('green');
-    stroke('white');
-    strokeWeight(10);
+    noStroke();
     circle(width * .5, height * .5, width * 0.2);
 
     player.handleInput();
     player.update();
     player.draw();
+    // menuButton.draw();
+    // restartButton.draw();
+    // menuButton.checkHover();
+    // restartButton.checkHover();
 }
 
 /**
