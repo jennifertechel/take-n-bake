@@ -1,4 +1,4 @@
-class GameMenu {
+class MenuScene {
   private game: Game;
 
   constructor(game: Game) {
