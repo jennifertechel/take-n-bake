@@ -1,4 +1,4 @@
-type Scene = "play" | "menu" | "loss" | "win";
+type Scene = "startScene" | "menuScene" | "recipeScene" | "levelScene" | "winnerScene" | "looserScene" ;
 
 interface IScene {
   setActiveScene(scene: Scene): void;
@@ -6,8 +6,12 @@ interface IScene {
 
 class Game implements IScene {
     private gameMenu: GameMenu
-    private winnerScene: WinnerScene;
+    private startScene: StartScene;
+    private menuScene: MenuScene;
+    private recipeScene: RecipeScene;
+    private levelScene: LevelScene;
     private looserScene: LooserScene;
+    private winnerScene: WinnerScene;
     private activeScene: Scene;
     private time: number;
 
@@ -15,7 +19,7 @@ class Game implements IScene {
       this.gameMenu = new GameMenu(this);
       this.winnerScene = new WinnerScene();
       this.looserScene = new LooserScene(this);
-      this.activeScene = "menu";
+      this.activeScene = "startScene";
       this.time = 0;
     }
 
@@ -26,15 +30,22 @@ class Game implements IScene {
         this.time = 0;
       }
 
-      if (this.activeScene === "menu") {
+      if (this.activeScene === "startScene") {
         this.gameMenu.update();
-      } else if (this.activeScene === "play") {
+      } else if (this.activeScene === "menuScene") {
+        this.gameMenu.update(); // todo ändra. 
+      } else if (this.activeScene === "recipeScene") {
+        this.recipeScene.update(); // todo ändra. 
+      } else if (this.activeScene === "levelScene") {
+        this.gameMenu.update(); // todo ändra. 
+      } else if (this.activeScene === "winnerScene") {
+        this.gameMenu.update(); // todo ändra. 
+      } else if (this.activeScene === "looserScene") {
         this.gameMenu.update(); // todo ändra. 
       }
     }
 
     public draw() {
-
       this.gameMenu.draw();
     }
 
