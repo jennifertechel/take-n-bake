@@ -49,9 +49,6 @@ interface Images {
  * sound files, images etc...
  */
 function preload() {
-  playerImage = loadImage("assets/images/BOWL.svg");
-  bigFrostingImage = loadImage("assets/images/frostingBig.svg");
-
     images = {
         logo: loadImage("assets/images/logo.svg"),
         starOutlined: loadImage("assets/images/starOutline.svg"),
