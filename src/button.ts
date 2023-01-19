@@ -1,12 +1,12 @@
-export class Button {
+class Button {
     private position: p5.Vector;
     private size: p5.Vector;
     private text: string;
     private hover: boolean;
 
-    constructor(position: p5.Vector, size: p5.Vector, text: string) {
+    constructor(position: p5.Vector, text: string) {
         this.position = position;
-        this.size = size;
+        this.size = createVector(200, 70);
         this.text = text;
         this.hover = false;
     }

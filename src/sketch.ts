@@ -81,9 +81,7 @@ function preload() {
             sprinkles: loadImage("assets/images/sprinkles.svg"),
             tableCloth: loadImage("assets/images/tableCloth.svg")
         }
-
     }
-
     // sound: p5.SoundFile = loadSound('../assets/mySound.wav');
 }
 
@@ -93,6 +91,7 @@ function preload() {
  * and save it as a global variable so it can be used
  * in the draw function below
  */
+
 function setup() {
     createCanvas(windowWidth, windowHeight);
     frameRate(60);
@@ -101,9 +100,6 @@ function setup() {
     // Move this and change player image 
     player = new Player(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
 
-    // Buttons should be moved
-    menuButton = new Button(createVector(windowWidth/2-230, 550), createVector(200, 70), "Menu");
-    restartButton = new Button(createVector(windowWidth/2+30, 550), createVector(200, 70), "Restart");
     // game = new Game();
 }
 
@@ -121,12 +117,11 @@ function draw() {
     player.handleInput();
     player.update();
     player.draw();
-    menuButton.draw();
-    restartButton.draw();
-    menuButton.checkHover();
-    restartButton.checkHover();
+    // menuButton.draw();
+    // restartButton.draw();
+    // menuButton.checkHover();
+    // restartButton.checkHover();
 }
-
 
 /**
  *  Built in windowResize listener function in P5

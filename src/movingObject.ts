@@ -1,4 +1,4 @@
-class movingObject {
+class MovingObject {
     protected image: p5.Image;
     protected position: p5.Vector;
     protected size: p5.Vector;
