@@ -5,6 +5,7 @@
 //let playerImage: p5.Image;
 let gameMenu: GameMenu;
 let smalFrosting: p5.Image;
+let logo: p5.Image;
 
 /**
  * Built in preload function in P5
@@ -14,6 +15,8 @@ let smalFrosting: p5.Image;
 function preload() {
   //playerImage = loadImage("assets/images/BOWL.svg");
   gameMenu = loadImage("assets/images/frostingSmal.svg");
+  //logoImage =  loadImage("assets/images/Logo.svg");
+
 
 
   // DESIGN
@@ -68,6 +71,7 @@ function setup() {
 
     // game = new Game();
     gameMenu = new GameMenu();
+
 }
 
 /**

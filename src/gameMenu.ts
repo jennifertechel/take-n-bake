@@ -13,7 +13,7 @@ class GameMenu {
 
     }
     public draw() {
-        image(this.image,0, 0);
+        image(this.image,-120, -120);
     }
     public update() {
 
