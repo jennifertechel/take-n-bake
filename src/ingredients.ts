@@ -1,5 +1,6 @@
-class Ingredients extends movingObject {
-    protected ingredients: string[] = [];
+/// <reference path="movingObject.ts" />
+
+class Ingredients extends MovingObject {
     protected name: string;
 
     constructor (
@@ -7,21 +8,19 @@ class Ingredients extends movingObject {
         position: p5.Vector, 
         size: p5.Vector, 
         velocity: p5.Vector,
-        name: string,
-        ingredients: string[]
+        name: IngredientKey
     ) {
         super(image, position, size, velocity);
         this.name = name;
-        this.ingredients.push(...ingredients);
+        this.image = images.ingredients[name];
     }
 
-    addIngredients(ingredient: string[]){
-        this.ingredients.push(...ingredient);
-    }
 }
 
-let ingredients = new Ingredients(image, position, size, velocity, "Banana", ["Apple","Butter"]);
-ingredients.addIngredients(["Cherry","Chocolate","Egg","Flour","Milk","Strawberry","Sugar","Blueberry"]);
-ingredients.update();
-ingredients.draw();
+
+
+
+
+
+
 
