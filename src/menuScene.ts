@@ -33,10 +33,10 @@ class MenuScene {
     
 }
 
-//lägga till 1 logo
-//lägga till 1 bakgrundsbild
-//lägga till strössel
+//lägga till 1 logo ok
+//lägga till 1 bakgrundsbild ok
+//lägga till strössel ok
 //lägga till 2 texter
-//lägga till 2 knappar
-//lägga till hover effekt
+//lägga till 2 knappar ok
+//lägga till hover effekt ok
 //lägga till tryckfunktion till nästa scen. 
