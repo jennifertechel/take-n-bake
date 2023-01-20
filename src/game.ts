@@ -59,6 +59,7 @@ class Game implements IScene {
       // this.levelScene.draw();
 
         player.handleInput();
+        player.update();
         player.draw();
     }
 

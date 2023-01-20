@@ -1,4 +1,4 @@
-type Ingredient = "apple" | "";
+type Ingredient = "apple" | "banana" | "blueberry" | "butter" | "cherry" | "chocolate" | "egg" | "flour" | "milk" | "strawberry" | "sugar";
 
 interface IIngredientData {
   name: Ingredient;
@@ -19,27 +19,58 @@ class RecipeFactory {
       name: "Pancakes",
       image: images.recipes.pancake,
       ingredients: [{
-        name: '',
+        name: 'egg',
         amount: 2
       }, {
-        name: '',
-        amount: 2
+        name: 'butter',
+        amount: 1
       }, {
-        name: '',
-        amount: 2
+        name: 'milk',
+        amount: 3
       }]
     }, {
       name: "Blueberry Pie",
       image: images.recipes.pie,
       ingredients: [{
-        name: '',
+        name: 'egg',
+        amount: 1
+      }, {
+        name: 'sugar',
         amount: 2
       }, {
-        name: '',
+        name: 'butter',
+        amount: 1
+      }, {
+        name: 'flour',
+        amount: 3
+      }, {
+        name: 'blueberry',
+        amount: 4
+      }]
+    }, {
+      name: "Chocolate Cake",
+      image: images.recipes.chocolateCake,
+      ingredients: [{
+        name: 'egg',
+        amount: 3
+      }, {
+        name: 'butter',
+        amount: 1
+      }, {
+        name: 'flour',
+        amount: 5
+      }, {
+        name: 'milk',
+        amount: 3
+      }, {
+        name: 'sugar',
         amount: 2
       }, {
-        name: '',
-        amount: 2
+        name: 'chocolate',
+        amount: 3
+      }, {
+        name: 'strawberry',
+        amount: 4
       }]
     }]
   }
@@ -49,9 +80,10 @@ class RecipeFactory {
     return new Recipe(recipeData)
   }
 
-  public getIngredient(name: Ingredient) {
+
+  /*public getIngredient(name: Ingredient) {
     if (name === "apple") {
-      return new Ingredient(name, images.ingredients.apple);
+      return new Ingredients(name, images.ingredients.apple);
     }
-  }
+  }*/
 }
