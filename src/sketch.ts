@@ -5,7 +5,6 @@ let player: Player;
 let menuButton: Button;
 let restartButton: Button;
 let images: Images;
-let banana: Ingredients;
 
 type IngredientKey = keyof Images['ingredients'];
 type RecipeKey = keyof Images['recipes'];
