@@ -18,14 +18,17 @@ class Game implements IScene {
       this.startScene = new StartScene(this);
       this.menuScene = new MenuScene(this);
       this.recipeScene = new RecipeScene();
-      this.levelScene = new LevelScene();
-      this.winnerScene = new WinnerScene();
+      this.levelScene = new LevelScene(this);
+      this.winnerScene = new WinnerScene(this);
       this.looserScene = new LooserScene(this);
-      this.activeScene = "startScene";
+      this.activeScene = "winnerScene";
+      this.activeScene = "looserScene";
+
       this.time = 0;
     }
 
     public update() {
+
       this.time += deltaTime;
       if (this.time > 1000) {
        // skapa en ny ingrediens
@@ -34,12 +37,14 @@ class Game implements IScene {
 
       if (this.activeScene === "startScene") {
         this.menuScene.update();
+        
       } else if (this.activeScene === "menuScene") {
         this.menuScene.update(); // todo ändra. 
       } else if (this.activeScene === "recipeScene") {
         //this.recipeScene.update(); // todo ändra. 
       } else if (this.activeScene === "levelScene") {
         this.menuScene.update(); // todo ändra. 
+        player.update();
       } else if (this.activeScene === "winnerScene") {
         this.menuScene.update(); // todo ändra. 
       } else if (this.activeScene === "looserScene") {
@@ -49,7 +54,12 @@ class Game implements IScene {
 
     public draw() {
       this.menuScene.draw();
-      this.startScene.draw();
+    //   this.winnerScene.draw();
+    //   this.looserScene.draw();
+      // this.levelScene.draw();
+
+        player.handleInput();
+        player.draw();
     }
 
     public setActiveScene(scene: Scene) {

@@ -4,7 +4,6 @@
 let player: Player;
 let menuButton: Button;
 let restartButton: Button;
-let playerImage: p5.Image;
 let images: Images;
 let game: Game;
 
@@ -50,6 +49,7 @@ interface Images {
  * sound files, images etc...
  */
 function preload() {
+
     images = {
         logo: loadImage("assets/images/logo.svg"),
         starOutlined: loadImage("assets/images/starOutline.svg"),
@@ -112,12 +112,12 @@ function draw() {
     fill('green');
     noStroke();
     circle(width * .5, height * .5, width * 0.2);
-
+    textFont("Josefin Sans")
     player.handleInput();
     player.update();
     player.draw();
+    game.update();
     game.draw();
-
     // menuButton.draw();
     // restartButton.draw();
     // menuButton.checkHover();
