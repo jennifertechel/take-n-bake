@@ -1,18 +1,11 @@
 //---- GLOBAL VARIABLES ----//
 // let game: Game;
 // let sound: p5.SoundFile
-<<<<<<< HEAD
-//let player: Player;
-//let playerImage: p5.Image;
-let gameMenu: GameMenu;
-let smalFrosting: p5.Image;
-let logo: p5.Image;
-=======
 let player: Player;
 let menuButton: Button;
 let restartButton: Button;
-let playerImage: p5.Image;
 let images: Images;
+let game: Game;
 
 type IngredientKey = keyof Images['ingredients'];
 type RecipeKey = keyof Images['recipes'];
@@ -49,7 +42,6 @@ interface Images {
         tableCloth: p5.Image;
     }
 }
->>>>>>> origin
 
 /**
  * Built in preload function in P5
@@ -57,49 +49,7 @@ interface Images {
  * sound files, images etc...
  */
 function preload() {
-  //playerImage = loadImage("assets/images/BOWL.svg");
-  gameMenu = loadImage("assets/images/frostingSmal.svg");
-  //logoImage =  loadImage("assets/images/Logo.svg");
 
-
-<<<<<<< HEAD
-
-  // DESIGN
-  //const logoImage = loadImage("assets/images/logo.svg");
-  //const logo2Image = loadImage("assets/images/logo.png");
- // const frostingBigImage = loadImage("assets/images/frostingBig.svg");
-  //const frostingStartsiteImage = loadImage("assets/images/frostingStartsite.png");
-  //const frostingSmalImage = loadImage("assets/images/frostingSmal.svg");
-  //const frostingTopImage = loadImage("assets/images/frostingTop.png");
-  //const sprinklesImage = loadImage("assets/images/sprinkles.svg");
-  //const sprinkles2Image = loadImage("assets/images/sprinkles.png");
-  //const tableClothImage = loadImage("assets/images/tableCloth.svg");
-  //const tableClothRedImage = loadImage("assets/images/tableClothRed.png");
-  //const starOutlineImage = loadImage("assets/images/starOutline.svg");
-  //const starImage = loadImage("assets/images/star.svg");
-
-  // CAKES
-  //const pancakeImage = loadImage("assets/images/pancake.svg");
-  //const pieImage = loadImage("assets/images/pie.svg");
-  //const chocolateCakeImage = loadImage("assets/images/logo.svg");
-  //const spilledBowlImage = loadImage("assets/images/spilled-bowl.svg");
-
-
-  // INGRIDIENTS
-  /*const appleImage = loadImage("assets/images/Ingredients/apple.svg");
-  const bananaImage = loadImage("assets/images/Ingredients/banana.svg");
-  const butterImage = loadImage("assets/images/Ingredients/butter.svg");
-  const cherryImage = loadImage("assets/images/Ingredients/cherry.svg");
-  const chocolateImage = loadImage("assets/images/Ingredients/chocolate.svg");
-  const eggImage = loadImage("assets/images/Ingredients/egg.svg");
-  const flourImage = loadImage("assets/images/Ingredients/flour.svg");
-  const milkImage = loadImage("assets/images/Ingredients/milk.svg");
-  const strawberryImage = loadImage("assets/images/Ingredients/strawberry.svg");
-  const sugarImage = loadImage("assets/images/Ingredients/sugar.svg");
-
-
-*/
-=======
     images = {
         logo: loadImage("assets/images/logo.svg"),
         starOutlined: loadImage("assets/images/starOutline.svg"),
@@ -131,7 +81,6 @@ function preload() {
             tableCloth: loadImage("assets/images/tableCloth.svg")
         }
     }
->>>>>>> origin
     // sound: p5.SoundFile = loadSound('../assets/mySound.wav');
 }
 
@@ -146,15 +95,11 @@ function setup() {
     createCanvas(windowWidth, windowHeight);
     frameRate(60);
     // noCursor();
-<<<<<<< HEAD
-    //player = new Player(playerImage, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
-=======
 
     // Move this and change player image 
     player = new Player(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
->>>>>>> origin
 
-    // game = new Game();
+    game = new Game();
     gameMenu = new GameMenu();
 
 }
@@ -169,24 +114,16 @@ function draw() {
     fill('green');
     noStroke();
     circle(width * .5, height * .5, width * 0.2);
-
-<<<<<<< HEAD
-    //player.handleInput();
-    //player.update();
-    //player.draw();
-
-    gameMenu.draw();
-    gameMenu.setup();
-    gameMenu.update();
-=======
+    textFont("Josefin Sans")
     player.handleInput();
     player.update();
     player.draw();
+    game.update();
+    game.draw();
     // menuButton.draw();
     // restartButton.draw();
     // menuButton.checkHover();
     // restartButton.checkHover();
->>>>>>> origin
 }
 
 /**
