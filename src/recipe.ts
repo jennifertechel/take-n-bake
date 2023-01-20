@@ -1,37 +1,15 @@
 class Recipe {
-    
-   private pancakeRecipe: Array <string> [] = [];
-   private blueberryPieRecipe: Array <string> [] = [];
-   private chocolateCakeRecipe: Array <string> [] = [];
-   private text: string
+  private ingredients: IIngredientData[];
+  private image: p5.Image;
+  private name: string;
 
-   private ingredientAmount: number[] = [];
+  constructor(recipe: IRecipeData) {
+    this.ingredients = recipe.ingredients;
+    this.image = recipe.image;
+    this.name = recipe.name;
+  } 
 
-    constructor(text: string) {
-        this.pancakeRecipe = [];
-        this.blueberryPieRecipe = [];
-        this.chocolateCakeRecipe = [];
-        this.text = text;
-
-    }
-
-    public update() {
-        
-    }
-
-    public draw() {
-
-        textSize(28);
-        textStyle(NORMAL)
-        textAlign(CENTER, CENTER)
-        text(this.text,this.pancakeRecipe, this.blueberryPieRecipe, this.chocolateCakeRecipe, this.ingredientAmount);
-    
-    }
+  // byt namn på update till mer konkret, ex reduceIngredient
+  public update() {}
+  public draw() {}
 }
-
-// försök skapa ett obejekt för varje resept med ingredienser som är koplade till jennifer
-
-let pancakeRecipe = new Recipe("Pancake Recipe");
-let blueberryPieRecipe = new Recipe("Blueberry Pie Recipe");
-let chocolateCakeRecipe = new Recipe("Chocolate Cake Recipe");
-
