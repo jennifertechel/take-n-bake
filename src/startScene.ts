@@ -22,10 +22,10 @@ class StartScene {
 
     public draw() {
         this.buttonGoToGame.draw();
+        this.buttonGoToGame.checkHover();
         image(this.image, 0, 0);
         image(this.image2, width - this.image2.width, height - this.image2.height ); // position x y, bild x y
         image(this.logo, 500, 300, 300, 200); // position x y, bild ändra storlek och kanske designen i figma eller 
     }
-
 
     }
