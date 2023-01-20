@@ -29,6 +29,8 @@ class Game implements IScene {
 
     public update() {
 
+      player.update();
+
       this.time += deltaTime;
       if (this.time > 1000) {
        // skapa en ny ingrediens
