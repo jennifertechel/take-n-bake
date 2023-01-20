@@ -4,7 +4,6 @@
 let player: Player;
 let menuButton: Button;
 let restartButton: Button;
-let playerImage: p5.Image;
 let images: Images;
 let game: Game;
 
@@ -50,7 +49,6 @@ interface Images {
  * sound files, images etc...
  */
 function preload() {
-  playerImage = loadImage("assets/images/BOWL.svg");
 
     images = {
         logo: loadImage("assets/images/logo.svg"),
