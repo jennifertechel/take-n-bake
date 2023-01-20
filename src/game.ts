@@ -22,14 +22,10 @@ class Game implements IScene {
       this.winnerScene = new WinnerScene(this);
       this.looserScene = new LooserScene(this);
       this.activeScene = "winnerScene";
-      this.activeScene = "looserScene";
-
       this.time = 0;
     }
 
     public update() {
-
-      player.update();
 
       this.time += deltaTime;
       if (this.time > 1000) {
@@ -39,29 +35,36 @@ class Game implements IScene {
 
       if (this.activeScene === "startScene") {
         this.menuScene.update();
-        
       } else if (this.activeScene === "menuScene") {
-        this.menuScene.update(); // todo ändra. 
+        this.menuScene.update();
       } else if (this.activeScene === "recipeScene") {
         //this.recipeScene.update(); // todo ändra. 
       } else if (this.activeScene === "levelScene") {
-        this.menuScene.update(); // todo ändra. 
+        this.levelScene.update();
         player.update();
       } else if (this.activeScene === "winnerScene") {
-        this.menuScene.update(); // todo ändra. 
+        this.winnerScene.update();
       } else if (this.activeScene === "looserScene") {
-        this.menuScene.update(); // todo ändra. 
+        this.looserScene.update();
       }
     }
 
     public draw() {
-      this.menuScene.draw();
-      // this.winnerScene.draw();
-      // this.looserScene.draw();
-      this.levelScene.draw();
-
+      if (this.activeScene === "startScene") {
+        // this.startScene.draw(); // todo ändra
+      } else if (this.activeScene === "menuScene") {
+        this.menuScene.draw();
+      } else if (this.activeScene === "recipeScene") {
+        //this.recipeScene.draw(); // todo ändra. 
+      } else if (this.activeScene === "levelScene") {
+        this.levelScene.draw();
         player.handleInput();
         player.draw();
+      } else if (this.activeScene === "winnerScene") {
+        this.winnerScene.draw();
+      } else if (this.activeScene === "looserScene") {
+        this.looserScene.draw();
+      }
     }
 
     public setActiveScene(scene: Scene) {
