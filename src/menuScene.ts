@@ -7,8 +7,6 @@ class MenuScene {
   private sprinklesImage: p5.Image;
   private buttonStartGame: Button;
   private buttonQuitGame: Button;
-  
-
 
   constructor(game: IScene) {
     this.game = game;
@@ -24,8 +22,8 @@ class MenuScene {
   }
 
   public draw() {
-    image(this.bgImage, 0, 0);
-    image(this.logoImage, 150, 150, 100, 100);
+    image(this.bgImage, 0, 0, innerWidth, this.bgImage.height);
+    image(this.logoImage, 50, 150, 100, 100);
     image(this.sprinklesImage, width - this.sprinklesImage.width, height - this.sprinklesImage.height );
     this.buttonStartGame.draw();
     this.buttonQuitGame.draw();
