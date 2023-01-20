@@ -15,17 +15,17 @@ class MenuScene {
     this.bgImage = images.backgroundObjects.frostingSmall;
     this.logoImage = images.logo;
     this.sprinklesImage = images.backgroundObjects.sprinkles;
-    this.buttonStartGame = new Button (createVector (250, 250), "Start");
-    this.buttonQuitGame = new Button (createVector (200, 200), "Quit");
+    this.buttonStartGame = new Button (createVector(innerWidth/2-225, 580), "Start");
+    this.buttonQuitGame = new Button (createVector(innerWidth/2+25, 580), "Quit");
+    //första värdet vågrätt, andra värdet lodrätt
   }
-
   public update() {
     
   }
 
   public draw() {
-    image(this.logoImage, 150, 150, 100, 100);
     image(this.bgImage, 0, 0);
+    image(this.logoImage, 150, 150, 100, 100);
     image(this.sprinklesImage, width - this.sprinklesImage.width, height - this.sprinklesImage.height );
     this.buttonStartGame.draw();
     this.buttonQuitGame.draw();
