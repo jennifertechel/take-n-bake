@@ -5,6 +5,7 @@ let player: Player;
 let menuButton: Button;
 let restartButton: Button;
 let images: Images;
+let game: Game;
 
 type IngredientKey = keyof Images['ingredients'];
 type RecipeKey = keyof Images['recipes'];
@@ -97,8 +98,8 @@ function setup() {
 
     // Move this and change player image 
     player = new Player(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
-    // game = new Game();
 
+    game = new Game();
 }
 
 /**
@@ -115,7 +116,8 @@ function draw() {
     player.handleInput();
     player.update();
     player.draw();
-
+    game.update();
+    game.draw();
     // menuButton.draw();
     // restartButton.draw();
     // menuButton.checkHover();
