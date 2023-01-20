@@ -112,7 +112,7 @@ function draw() {
     fill('green');
     noStroke();
     circle(width * .5, height * .5, width * 0.2);
-
+    textFont("Josefin Sans")
     player.handleInput();
     player.update();
     player.draw();

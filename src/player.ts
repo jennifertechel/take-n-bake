@@ -1,6 +1,5 @@
 /// <reference path="movingObject.ts" />
 
-
 class Player extends MovingObject {
     constructor (image: p5.Image, position: p5.Vector, size: p5.Vector, velocity: p5.Vector) {
       super(image, position, size, velocity);
