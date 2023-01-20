@@ -49,9 +49,9 @@ class RecipeFactory {
     return new Recipe(recipeData)
   }
 
-  public getIngredient(name: Ingredient) {
-    if (name === "apple") {
-      return new Ingredient(name, images.ingredients.apple);
-    }
-  }
+  // public getIngredient(name: Ingredient) {
+  //   if (name === "apple") {
+  //     return new Ingredient(name, images.ingredients.apple);
+  //   }
+  // }
 }
