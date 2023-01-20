@@ -29,6 +29,8 @@ class Game implements IScene {
 
     public update() {
 
+      player.update();
+
       this.time += deltaTime;
       if (this.time > 1000) {
        // skapa en ny ingrediens
@@ -54,9 +56,9 @@ class Game implements IScene {
 
     public draw() {
       this.menuScene.draw();
-    //   this.winnerScene.draw();
-    //   this.looserScene.draw();
-      // this.levelScene.draw();
+      // this.winnerScene.draw();
+      // this.looserScene.draw();
+      this.levelScene.draw();
 
         player.handleInput();
         player.draw();
