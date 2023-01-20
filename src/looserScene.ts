@@ -9,14 +9,15 @@ class LooserScene extends MessageBox {
     constructor(game: IScene) {
         super("Ops...try again!");
         this.game = game;
-        this.buttonRestart = new Button(createVector(innerWidth/2-225, 580), "Restart");
-        this.buttonQuit = new Button(createVector(innerWidth/2+25, 580), "Quit game");
+        this.buttonRestart = new Button(createVector(innerWidth/2-225, 580), "Restart", "levelScene");
+        this.buttonQuit = new Button(createVector(innerWidth/2+25, 580), "Quit game", "startScene");
         this.image = images.spilledBowl;
     }
 
     public update() {
         const wasClicked = this.buttonRestart.update();
         this.buttonQuit.update();
+        this.buttonRestart.update();
         // this.game.setActiveScene("play")
    }
 
