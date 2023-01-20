@@ -15,7 +15,7 @@ class Game implements IScene {
     private time: number;
 
     constructor() {
-      this.startScene = new StartScene();
+      this.startScene = new StartScene(this);
       this.menuScene = new MenuScene(this);
       this.recipeScene = new RecipeScene();
       this.levelScene = new LevelScene();
@@ -49,6 +49,7 @@ class Game implements IScene {
 
     public draw() {
       this.menuScene.draw();
+      this.startScene.draw();
     }
 
     public setActiveScene(scene: Scene) {

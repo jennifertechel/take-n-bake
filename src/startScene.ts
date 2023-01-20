@@ -6,24 +6,24 @@ class StartScene {
 
     
 
-    constructor() { 
-        this.game = new Game;
-        this.buttonGoToGame = new Button(createVector(300, 300), "Restart");
+    constructor(game: IScene) { 
+        this.game = game;
+        this.buttonGoToGame = new Button(createVector(600, 600), "Start game");
         this.image = images.backgroundObjects.frostingBig;
+    }
+
+    public update() {
+        this.buttonGoToGame.update();
     }
 
     public draw() {
         fill("#000");
         textSize(32);
         this.buttonGoToGame.draw();
-        image(this.image, innerWidth/2 - 150, innerHeight/2 + 100);
+        image(this.image, 0, 0);
     }
 
-    public setup() {
 
-    }
 
-    public update() {
 
-    }
     }
