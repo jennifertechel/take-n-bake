@@ -22,10 +22,10 @@ class LooserScene extends MessageBox {
 
     public draw() {
         super.draw();
-        fill("#000");
-        textSize(32);
         this.buttonRestart.draw();
         this.buttonQuit.draw();
-        image(this.image, innerWidth/2-150, innerHeight/2-130);
+        this.buttonRestart.checkHover();
+        this.buttonQuit.checkHover();
+        image(this.image, innerWidth/2-150, innerHeight/2-145);
     }
 }
