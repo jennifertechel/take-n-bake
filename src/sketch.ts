@@ -100,7 +100,6 @@ function setup() {
     player = new Player(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
 
     game = new Game();
-    gameMenu = new GameMenu();
 
 }
 
