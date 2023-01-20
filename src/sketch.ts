@@ -4,8 +4,8 @@
 let player: Player;
 let menuButton: Button;
 let restartButton: Button;
-let playerImage: p5.Image;
 let images: Images;
+let banana: Ingredients;
 
 type IngredientKey = keyof Images['ingredients'];
 type RecipeKey = keyof Images['recipes'];
@@ -49,7 +49,6 @@ interface Images {
  * sound files, images etc...
  */
 function preload() {
-  playerImage = loadImage("assets/images/BOWL.svg");
 
     images = {
         logo: loadImage("assets/images/logo.svg"),
@@ -99,8 +98,8 @@ function setup() {
 
     // Move this and change player image 
     player = new Player(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
-
     // game = new Game();
+
 }
 
 /**
@@ -117,6 +116,7 @@ function draw() {
     player.handleInput();
     player.update();
     player.draw();
+
     // menuButton.draw();
     // restartButton.draw();
     // menuButton.checkHover();
