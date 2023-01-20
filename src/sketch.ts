@@ -94,7 +94,7 @@ function preload() {
 function setup() {
     createCanvas(windowWidth, windowHeight);
     frameRate(60);
-    noCursor();
+    //noCursor();
 
     // Move this and change player image 
     player = new Player(images.playerBowl, createVector(width * 0.5, height * .70), createVector(290, 290), createVector(0, 0));
