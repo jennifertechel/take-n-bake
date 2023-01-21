@@ -13,8 +13,8 @@ class MenuScene {
     this.bgImage = images.backgroundObjects.frostingSmall;
     this.logoImage = images.logo;
     this.sprinklesImage = images.backgroundObjects.sprinkles;
-    this.buttonStartGame = new Button (createVector(innerWidth/2-225, 580), "Start");
-    this.buttonQuitGame = new Button (createVector(innerWidth/2+25, 580), "Quit");
+    this.buttonStartGame = new Button (createVector(innerWidth/2-225, 580), "Start", "recipeScene");
+    this.buttonQuitGame = new Button (createVector(innerWidth/2+25, 580), "Quit", "startScene");
     //första värdet vågrätt, andra värdet lodrätt
   }
   public update() {
