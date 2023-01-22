@@ -30,14 +30,22 @@ class LevelScene extends Player {
        stroke("#C6E3DE")
        fill("#F5F5F5");
        rect(30, 30, 220, 362);
+
+       let recipeLines = this.recipe.split("\n"); // Needs to change when we import recipe
+       let yPos = 125; // start position for first line of text
+
+       
        // Recipe text
-       // textLeading do not work for some reason
-       textLeading(50);
        textSize(26);
        fill("#A74272");
        textAlign(LEFT, TOP);
        noStroke()
-       text(this.recipe, 60, 125);
+
+       for (let i = 0; i < recipeLines.length; i++) {
+         text(recipeLines[i], 60, yPos);
+         yPos += 40; // increment the y-position for next line of text
+       }
+    //    text(this.recipe, 60, 125);
        textStyle(BOLD);
        text(this.recipeTitle, 60, 70);
        textSize(38);
