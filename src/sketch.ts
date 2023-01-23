@@ -97,7 +97,9 @@ function setup() {
 
     // Move this and change player image 
     player = new Player(images.playerBowl, createVector(width * 0.5, height * .70), createVector(290, 290), createVector(0, 0));
+
     game = new Game();
+
 }
 
 /**
@@ -110,6 +112,7 @@ function draw() {
     textFont("Josefin Sans")
     game.update();
     game.draw();
+
 }
 
 /**
