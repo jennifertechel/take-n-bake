@@ -1,20 +1,24 @@
 class Score {
-    private time: Number;
-    private stars: Number;
+    private time: number;
+    private stars: number;
 
     constructor(time: number) {
-        this.time= 3.12;
-        this.stars = this.nrOfStars(time);
+        this.time = time;
+        this.stars = this.setNrOfStars(time);
     }
 
-    public nrOfStars(time: Number) {
+    public setNrOfStars(time: number) {
         if (time <= 1) {
             this.stars = 3;
-        } else if (time <= 3) {
+        } else if (time <= 2) {
             this.stars = 2;
         } else {
             this.stars = 1;
         }
+        return this.stars;
+    }
+
+    public getStars() {
         return this.stars;
     }
 }
