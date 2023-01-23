@@ -14,7 +14,7 @@ class LevelScene extends Player {
         this.recipeTitle = "Pancakes"
         this.recipe = "1 sugar \n4 eggs \n3 milk";
         this.recipeBackground = createVector((innerWidth/4-225), 580, 50);
-        this.timer = 1.34
+        this.timer = 0;
         this.game = game;
     }
 
