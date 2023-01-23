@@ -19,7 +19,10 @@ class Game implements IScene {
       this.menuScene = new MenuScene(this);
       this.recipeScene = new RecipeScene();
       this.levelScene = new LevelScene(this);
-      this.winnerScene = new WinnerScene(this);
+      // let time = Time.getTime();
+      // Bör ändras till ett ice-statiskt värde
+      // this.winnerScene = new WinnerScene(this, time);
+      this.winnerScene = new WinnerScene(this, 1);
       this.looserScene = new LooserScene(this);
       this.activeScene = "winnerScene";
       this.time = 0;
