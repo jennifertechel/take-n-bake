@@ -18,5 +18,13 @@ class Recipe {
   public update() {}
 
   // ritar ut texten 
-  public draw() {}
+  public draw() {
+    textSize(20);
+    textAlign(LEFT, TOP);
+    this.ingredients.forEach((ingredient, index) => {
+      text(`${ingredient.amount} ${ingredient.name}`, 10, 10 + (index * 30));
+    });
+    this.image,
+    this.name;
+  }
 }
