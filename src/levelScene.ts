@@ -24,7 +24,7 @@ class LevelScene extends Player {
     
     public draw() {
        this.recipeBackground
-
+       noCursor();
        // Recipe background
        strokeWeight(20);
        stroke("#C6E3DE")
