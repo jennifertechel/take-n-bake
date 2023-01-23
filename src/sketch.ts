@@ -91,21 +91,16 @@ function preload() {
  * in the draw function below
  */
 
-let apple: Ingredients;
-let flour: Ingredients;
-let strawberry: Ingredients;
-
 function setup() {
     createCanvas(windowWidth, windowHeight);
     frameRate(60);
-    noCursor();
+    //noCursor();
 
     // Move this and change player image 
     player = new Player(images.playerBowl, createVector(width * 0.5, height * .70), createVector(290, 290), createVector(0, 0));
-    apple = new Ingredients(images.ingredients.apple,createVector(width * 0.5, height * .1), createVector(120, 120), createVector(0, 0), "apple")
-    flour = new Ingredients(images.ingredients.flour,createVector(width * 0.5, height * .4), createVector(150, 150), createVector(0, 0), "flour")
-    strawberry = new Ingredients(images.ingredients.strawberry,createVector(width * 0.5, height * .2), createVector(120, 120), createVector(0, 0), "strawberry")
+
     game = new Game();
+
 }
 
 /**
@@ -118,15 +113,6 @@ function draw() {
     textFont("Josefin Sans")
     game.update();
     game.draw();
-
-    apple.update();
-    apple.draw();
-
-    flour.update();
-    flour.draw();
-
-    strawberry.update();
-    strawberry.draw();
 
 }
 
