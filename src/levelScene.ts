@@ -23,37 +23,37 @@ class LevelScene extends Player {
     }
     
     public draw() {
-        noCursor();
+    noCursor();
 
-        // Recipe background
-        this.recipeBackground
-       strokeWeight(20);
-       stroke("#C6E3DE")
-       fill("#F5F5F5");
-       rect(30, 30, 220, 362);
+    // Recipe background
+    this.recipeBackground
+    strokeWeight(20);
+    stroke("#C6E3DE")
+    fill("#F5F5F5");
+    rect(30, 30, 220, 362);
 
-       // Recipe text
-       let recipeLines = this.recipe.split("\n");
-       let yPos = 125; // start position for first line of text
-       textSize(26);
-       fill("#A74272");
-       textAlign(LEFT, TOP);
-       noStroke()
+    // Recipe text
+    let recipeLines = this.recipe.split("\n");
+    let yPos = 125; // start position for first line of text
+    textSize(26);
+    fill("#A74272");
+    textAlign(LEFT, TOP);
+    noStroke()
 
-       for (let i = 0; i < recipeLines.length; i++) {
-         text(recipeLines[i], 60, yPos);
-         yPos += 40; // increment the y-position for next line of text
-       }
+    for (let i = 0; i < recipeLines.length; i++) {
+        text(recipeLines[i], 60, yPos);
+        yPos += 40; // increment the y-position for next line of text
+    }
 
-       // Recipe title
-       textStyle(BOLD);
-       text(this.recipeTitle, 60, 70);
-       textSize(38);
+    // Recipe title
+    textStyle(BOLD);
+    text(this.recipeTitle, 60, 70);
+    textSize(38);
 
-       // Timer
-       text(this.timer, windowWidth -120, 40);
+    // Timer
+    text(this.timer, windowWidth -120, 40);
 
-       // Tablecloth
-       image(this.tableCloth, 0, innerHeight-180, innerWidth, 180);
-   }
+    // Tablecloth
+    image(this.tableCloth, 0, innerHeight-180, innerWidth, 180);
+    }
 }
