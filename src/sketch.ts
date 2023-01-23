@@ -94,12 +94,12 @@ function preload() {
 function setup() {
     createCanvas(windowWidth, windowHeight);
     frameRate(60);
-    // noCursor();
 
     // Move this and change player image 
-    player = new Player(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
+    player = new Player(images.playerBowl, createVector(width * 0.5, height * .70), createVector(290, 290), createVector(0, 0));
 
     game = new Game();
+
 }
 
 /**
@@ -108,20 +108,11 @@ function setup() {
  * you created in the setup function above
  */
 function draw() {
-    background('blue');
-    fill('green');
-    noStroke();
-    circle(width * .5, height * .5, width * 0.2);
+    background('#FDFDFD');
     textFont("Josefin Sans")
-    player.handleInput();
-    player.update();
-    player.draw();
     game.update();
     game.draw();
-    // menuButton.draw();
-    // restartButton.draw();
-    // menuButton.checkHover();
-    // restartButton.checkHover();
+
 }
 
 /**

@@ -12,8 +12,8 @@ class WinnerScene extends MessageBox {
     constructor(game: IScene) {
         super("Congrats!");
         this.game = game;
-        this.buttonNextLevel = new Button(createVector(innerWidth/2-220, innerHeight/2 + 155), "Next level");
-        this.buttonMenu = new Button(createVector(innerWidth/2+20, innerHeight/2 + 155), "Menu");
+        this.buttonNextLevel = new Button(createVector(innerWidth/2-220, innerHeight/2 + 155), "Next level", "levelScene");
+        this.buttonMenu = new Button(createVector(innerWidth/2+20, innerHeight/2 + 155), "Menu", "looserScene");
         // Recipe, will change to the current recipe 
         this.image = images.recipes.pancake;
         this.starFilled = images.starFilled;
@@ -23,9 +23,6 @@ class WinnerScene extends MessageBox {
     }
     
     public update() {
-        const wasClicked = this.buttonNextLevel.update();
-        this.buttonMenu.update();
-        // this.game.setActiveScene("play")
         this.buttonMenu.update();
         this.buttonNextLevel.update();
     }
