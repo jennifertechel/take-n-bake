@@ -20,7 +20,7 @@ class MenuScene {
     But make sure you don’t ruin the cake by \ncatching the wrong ingredient or you will have to start all over.`;
     this.buttonStartGame = new Button (createVector(innerWidth/2-225, 580), "Start", "recipeScene");
     this.buttonQuitGame = new Button (createVector(innerWidth/2+25, 580), "Quit", "startScene");
-    //första värdet vågrätt, andra värdet lodrätt
+    
   }
   public update() {
     this.buttonStartGame.update();
@@ -46,16 +46,5 @@ class MenuScene {
     this.buttonStartGame.checkHover();
     this.buttonQuitGame.checkHover();
   }
-
-  //textfärg: 808080
-  //font: Josefin Sans
     
 }
-
-//lägga till 1 logo ok
-//lägga till 1 bakgrundsbild ok
-//lägga till strössel ok
-//lägga till 2 texter
-//lägga till 2 knappar ok
-//lägga till hover effekt ok
-//lägga till tryckfunktion till nästa scen. 
