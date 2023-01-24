@@ -17,14 +17,14 @@ class Game implements IScene {
     constructor() {
       this.startScene = new StartScene();
       this.menuScene = new MenuScene(this);
-      this.recipeScene = new RecipeScene();
+      this.recipeScene = new RecipeScene(this, 1);
       this.levelScene = new LevelScene(this);
       // let time = Time.getTime();
       // Bör ändras till ett ice-statiskt värde
       // this.winnerScene = new WinnerScene(this, time);
       this.winnerScene = new WinnerScene(this, 1);
       this.looserScene = new LooserScene(this);
-      this.activeScene = "winnerScene";
+      this.activeScene = "recipeScene";
       this.time = 0;
     }
 
@@ -58,7 +58,7 @@ class Game implements IScene {
       } else if (this.activeScene === "menuScene") {
         this.menuScene.draw();
       } else if (this.activeScene === "recipeScene") {
-        //this.recipeScene.draw(); // todo ändra. 
+        this.recipeScene.draw();
       } else if (this.activeScene === "levelScene") {
         this.levelScene.draw();
         player.handleInput();
