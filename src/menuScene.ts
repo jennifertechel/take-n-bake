@@ -16,13 +16,14 @@ class MenuScene {
     this.logoImage = images.logo;
     this.sprinklesImage = images.backgroundObjects.sprinkles;
     this.gameRulesHeading = "Welcome!";
-    this.gameRules = "Lorem ipsum dolor set amet, \n och så lite mera lorem upsum \ndolor ser amet och hej å hå.";
+    this.gameRules = "Grandma is in a jam. \nShe doesn’t have the ingredients to bake for her grandkids. \nHelp her catch the right ingredients \nto complete the recipe.";
     this.buttonStartGame = new Button (createVector(innerWidth/2-225, 580), "Start", "recipeScene");
     this.buttonQuitGame = new Button (createVector(innerWidth/2+25, 580), "Quit", "startScene");
     //första värdet vågrätt, andra värdet lodrätt
   }
   public update() {
-  
+    this.buttonStartGame.update();
+    this.buttonQuitGame.update();
   }
 
   public draw() {
@@ -31,6 +32,7 @@ class MenuScene {
     image(this.sprinklesImage, width - this.sprinklesImage.width, height - this.sprinklesImage.height );
     fill("#808080");
     textAlign(CENTER);
+    textFont("Josefin Sans");
     textSize(40);
     text(this.gameRulesHeading, 970, 300);
     textSize(30);
