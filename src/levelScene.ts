@@ -44,7 +44,7 @@ class LevelScene extends Player {
 
     // Recipe text
     textSize(26);
-    fill("#A74272");
+    fill("#808080");
     textAlign(LEFT, TOP);
     noStroke()
     let recipe = this.recipeFactory.getRecipe(2);
