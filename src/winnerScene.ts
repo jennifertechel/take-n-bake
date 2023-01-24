@@ -7,19 +7,18 @@ class WinnerScene extends MessageBox {
     private starFilled: p5.Image;
     private starOutlined: p5.Image;
     private game: IScene;
-    private starCount: number;
+    private score: Score;
 
-    constructor(game: IScene) {
+    constructor(game: IScene, time: number) {
         super("Congrats!");
         this.game = game;
+        this.score = new Score(time);
         this.buttonNextLevel = new Button(createVector(innerWidth/2-220, innerHeight/2 + 155), "Next level", "levelScene");
         this.buttonMenu = new Button(createVector(innerWidth/2+20, innerHeight/2 + 155), "Menu", "looserScene");
         // Recipe, will change to the current recipe 
         this.image = images.recipes.pancake;
         this.starFilled = images.starFilled;
         this.starOutlined = images.starOutlined;
-        // starCount will change to something like score.numberOfStars
-        this.starCount = 2;
     }
     
     public update() {
@@ -33,11 +32,11 @@ class WinnerScene extends MessageBox {
         super.draw();
 
         // Add all stars
-        for (let i = 0; i < this.starCount; i++) {
+        for (let i = 0; i < this.score.getStars(); i++) {
             image(this.starFilled, innerWidth/2 - 110 + (i * 80), innerHeight/2 + 58);
         }
-        for (let i = 0; i < 3-this.starCount; i++) {
-            image(this.starOutlined, innerWidth/2 - 50 + (i * 80)+(this.starCount*50), innerHeight/2 + 58);
+        for (let i = 0; i < 3 - Number(this.score.getStars()); i++) {
+            image(this.starOutlined, innerWidth/2 - 50 + (i * 80)+ Number(this.score.getStars())*50, innerHeight/2 + 58);
         }
 
         this.buttonNextLevel.draw();

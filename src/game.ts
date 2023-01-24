@@ -16,13 +16,17 @@ class Game implements IScene {
     private timer: Time;
 
     constructor() {
-      this.startScene = new StartScene();
+      this.startScene = new StartScene(this);
       this.menuScene = new MenuScene(this);
       this.recipeScene = new RecipeScene();
       this.levelScene = new LevelScene(this);
-      this.winnerScene = new WinnerScene(this);
+      // let time = Time.getTime();
+      // Bör ändras till ett ice-statiskt värde
+      // this.winnerScene = new WinnerScene(this, time);
+      this.winnerScene = new WinnerScene(this, 1);
       this.looserScene = new LooserScene(this);
       this.activeScene = "levelScene";
+
       this.time = 0;
       this.timer = new Time();
 
@@ -38,11 +42,11 @@ class Game implements IScene {
       }
 
       if (this.activeScene === "startScene") {
-        this.menuScene.update();
+        this.startScene.update();
       } else if (this.activeScene === "menuScene") {
         this.menuScene.update();
       } else if (this.activeScene === "recipeScene") {
-        //this.recipeScene.update(); // todo ändra. 
+        this.recipeScene.update();
       } else if (this.activeScene === "levelScene") {
         this.levelScene.update();
         player.update();
@@ -55,14 +59,15 @@ class Game implements IScene {
 
     public draw() {
       if (this.activeScene === "startScene") {
-        // this.startScene.draw(); // todo ändra
+        this.startScene.draw();
       } else if (this.activeScene === "menuScene") {
         this.menuScene.draw();
       } else if (this.activeScene === "recipeScene") {
-        //this.recipeScene.draw(); // todo ändra. 
+        this.recipeScene.draw();
       } else if (this.activeScene === "levelScene") {
         this.levelScene.draw();
         player.handleInput();
+        player.update();
         player.draw();
       } else if (this.activeScene === "winnerScene") {
         this.winnerScene.draw();
