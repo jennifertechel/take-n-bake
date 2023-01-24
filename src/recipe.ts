@@ -5,9 +5,9 @@ class Recipe {
     private recipe: string;
     private recipeFactory: RecipeFactory;
 
- /* private ingredients: IIngredientData[];
-  private image: p5.Image;
-  private name: string;
+    private ingredients: IIngredientData[];
+    private image: p5.Image;
+    private name: string;
 
     /**
    * Creates an instance of Recipe.
@@ -19,18 +19,26 @@ class Recipe {
     this.recipe = "1 sugar \n4 eggs \n3 milk";
     this.recipeFactory = new RecipeFactory();
 
-    /*this.ingredients = recipe.ingredients;
+    this.ingredients = recipe.ingredients;
     this.image = recipe.image;
-    this.name = recipe.name;*/
+    this.name = recipe.name;
   } 
-
   // byt namn på update till mer konkret, ex reduceIngredient
   public update() {}
-
+  
   public drawRecipe(recipe: Recipe) {
     textSize(20);
     let currentRecipe = this.recipeFactory.getRecipe(1); // 1 är nivånummer
     this.drawRecipe(currentRecipe);
+  }
+  
+  public getName() {
+    return this.name;
+  } 
+
+  public getIngredients() {
+    return this.ingredients;
+  }
 
   // ritar ut texten 
   public draw() {
@@ -51,12 +59,12 @@ class Recipe {
     textStyle(BOLD);
     text(recipe.getName(), 60, 70);
 
-    /*textSize(20);
+    textSize(20);
     textAlign(LEFT, TOP);
-    this.ingredients.forEach((ingredient, index) => {
-      text(`${ingredient.amount} ${ingredient.name}`, 10, 10 + (index * 30));
-    });
+    // this.ingredients.forEach((ingredient, index) => {
+    //   text(`${ingredient.amount} ${ingredient.name}`, 10, 10 + (index * 30));
+    // });
     this.image,
-    this.name;*/
+    this.name;
   }
 }

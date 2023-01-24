@@ -13,6 +13,7 @@ class Game implements IScene {
     private winnerScene: WinnerScene;
     private activeScene: Scene;
     private time: number;
+    // private timer: Time;
 
     constructor() {
       this.startScene = new StartScene();
@@ -21,11 +22,14 @@ class Game implements IScene {
       this.levelScene = new LevelScene(this);
       this.winnerScene = new WinnerScene(this);
       this.looserScene = new LooserScene(this);
-      this.activeScene = "winnerScene";
+      this.activeScene = "levelScene";
       this.time = 0;
+      // this.timer = new Time();
     }
 
     public update() {
+      // this.timer.update();
+
 
       this.time += deltaTime;
       if (this.time > 1000) {
