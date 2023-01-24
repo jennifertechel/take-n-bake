@@ -10,7 +10,7 @@ class StartScene {
 
     constructor(game: IScene) { 
         this.game = game;
-        this.buttonGoToGame = new Button(createVector(innerWidth/2-100, 580), "Start game", "menuScene");
+        this.buttonGoToGame = new Button(createVector(innerWidth/2-100, 580), "Start", "menuScene");
         this.image = images.backgroundObjects.frostingBig;
         this.image2 = images.backgroundObjects.sprinkles;
         this.logo = images.logo;
