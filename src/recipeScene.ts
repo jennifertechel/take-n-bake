@@ -21,7 +21,7 @@ class RecipeScene extends MessageBox {
         super.draw(); //Messagebox
         this.RecipeSceneBackground
 
-        image(this.tableCloth, 0, innerHeight-180, innerWidth, 180); //imports tablecloth
+        image(this.tableCloth, 0, innerHeight-120, innerWidth, 180); //imports tablecloth
         this.buttonStartPlaying.draw();
         this.buttonStartPlaying.checkHover();
     }
