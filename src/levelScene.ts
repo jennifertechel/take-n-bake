@@ -36,7 +36,7 @@ class LevelScene extends Player {
     let recipeLines = this.recipe.split("\n");
     let yPos = 125; // start position for first line of text
     textSize(26);
-    fill("#A74272");
+    fill("#808080");
     textAlign(LEFT, TOP);
     noStroke()
 
