@@ -75,7 +75,7 @@ function preload() {
             chocolateCake: loadImage("assets/images/logo.svg")
         },
         backgroundObjects: {
-            frostingBig: loadImage("assets/images/frostingBig.svg"),
+            frostingBig: loadImage("assets/images/startFrosting.svg"),
             frostingSmall: loadImage("assets/images/frostingSmal.svg"),
             sprinkles: loadImage("assets/images/sprinkles.svg"),
             tableCloth: loadImage("assets/images/tableCloth.svg")

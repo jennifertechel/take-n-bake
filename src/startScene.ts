@@ -10,7 +10,7 @@ class StartScene {
 
     constructor(game: IScene) { 
         this.game = game;
-        this.buttonGoToGame = new Button(createVector(600, 600), "Start game");
+        this.buttonGoToGame = new Button(createVector(570, 490), "Start game");
         this.image = images.backgroundObjects.frostingBig;
         this.image2 = images.backgroundObjects.sprinkles;
         this.logo = images.logo;
@@ -23,9 +23,9 @@ class StartScene {
     public draw() {
         this.buttonGoToGame.draw();
         this.buttonGoToGame.checkHover();
-        image(this.image, 0, 0);
+        image(this.image, 0, -100);
         image(this.image2, width - this.image2.width, height - this.image2.height ); // position x y, bild x y
-        image(this.logo, 500, 300, 300, 200); // position x y, bild ändra storlek och kanske designen i figma eller 
+        image(this.logo, 500, 250, 300, 200); // position x y, bild ändra storlek och kanske designen i figma eller 
     }
 
     }

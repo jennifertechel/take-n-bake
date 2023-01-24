@@ -58,11 +58,11 @@ class Game implements IScene {
       this.menuScene.draw();
       // this.winnerScene.draw();
       // this.looserScene.draw();
-      this.levelScene.draw();
+      //this.levelScene.draw();
       this.startScene.draw();
 
         player.handleInput();
-        player.draw();
+        //player.draw();
     }
 
     public setActiveScene(scene: Scene) {
