@@ -15,7 +15,21 @@ class Ingredients extends MovingObject {
         super(image, position, size, velocity);
         this.name = name;
         this.image = images.ingredients[name];
+        this.randomizeStartPosition();
+        this.randomizeVelocity();
     }
+
+   public fall() {
+        this.position.y += this.velocity.y;
+   }
+ 
+   public randomizeStartPosition() {
+        this.position = createVector(random(width), 0);
+}
+   
+   public randomizeVelocity() {
+        this.velocity = createVector(0, 2);
+}
 
 }
 

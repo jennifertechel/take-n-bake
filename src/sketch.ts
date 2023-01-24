@@ -90,16 +90,15 @@ function preload() {
  * and save it as a global variable so it can be used
  * in the draw function below
  */
-
 function setup() {
     createCanvas(windowWidth, windowHeight);
     frameRate(60);
 
+    
     // Move this and change player image 
     player = new Player(images.playerBowl, createVector(width * 0.5, height * .70), createVector(290, 290), createVector(0, 0));
 
     game = new Game();
-
 }
 
 /**

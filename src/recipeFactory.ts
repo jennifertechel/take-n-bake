@@ -1,4 +1,4 @@
-/// //<reference path="sketch.ts" />
+/// <reference path="sketch.ts" />
 
 type Ingredient = "apple" | "banana" | "blueberry" | "butter" | "cherry" | "chocolate" | "egg" | "flour" | "milk" | "strawberry" | "sugar";
 
@@ -79,6 +79,7 @@ class RecipeFactory {
 
   public getRecipe(level: number) {
     const recipeData = this.recipes[level - 1];
+    console.log(recipeData)
     return new Recipe(recipeData)
   }
 
@@ -111,9 +112,3 @@ class RecipeFactory {
   }
 
 }
-
-//const factory = new RecipeFactory;
-//const recipe = factory.getRecipe(1)
-//console.log(recipe)
-//const ingredient = factory.getIngredient('apple')
-//console.log(ingredient)

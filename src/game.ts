@@ -14,6 +14,10 @@ class Game implements IScene {
     private activeScene: Scene;
     private time: number;
 
+    //testing code below 
+    private recipeFactory: RecipeFactory;
+    private ingredients: Ingredients[] = [];
+
     constructor() {
       this.startScene = new StartScene();
       this.menuScene = new MenuScene(this);
@@ -23,6 +27,10 @@ class Game implements IScene {
       this.looserScene = new LooserScene(this);
       this.activeScene = "winnerScene";
       this.time = 0;
+
+      //testing code below 
+      this.recipeFactory = new RecipeFactory();
+      this.ingredients = [];
     }
 
     public update() {
@@ -30,6 +38,9 @@ class Game implements IScene {
       this.time += deltaTime;
       if (this.time > 1000) {
        // skapa en ny ingrediens
+        this.ingredients.push(this.recipeFactory.getIngredient("strawberry")); // or any other ingredient you want to create
+        this.ingredients.push(this.recipeFactory.getIngredient("flour"));
+        
         this.time = 0;
       }
 
@@ -42,6 +53,10 @@ class Game implements IScene {
       } else if (this.activeScene === "levelScene") {
         this.levelScene.update();
         player.update();
+        // fall all the ingredients
+        for (let ingredient of this.ingredients) {
+          ingredient.fall();
+        }
       } else if (this.activeScene === "winnerScene") {
         this.winnerScene.update();
       } else if (this.activeScene === "looserScene") {
@@ -61,6 +76,12 @@ class Game implements IScene {
         player.handleInput();
         player.update();
         player.draw();
+        // draw all the ingredients
+        for (let ingredient of this.ingredients) {
+          ingredient.draw();
+        }
+        
+
       } else if (this.activeScene === "winnerScene") {
         this.winnerScene.draw();
       } else if (this.activeScene === "looserScene") {
