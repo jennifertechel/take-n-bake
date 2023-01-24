@@ -12,7 +12,7 @@ class MessageBox {
         stroke("#C6E3DE")
         fill("#F5F5F5");
         rect(innerWidth/2-525, innerHeight/2-306, 1050, 612);
-        fill("#946AA3")
+        fill("#808080")
         noStroke()
         textSize(64);
         textStyle(BOLD)
