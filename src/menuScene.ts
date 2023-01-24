@@ -5,6 +5,8 @@ class MenuScene {
   private bgImage: p5.Image;
   private logoImage: p5.Image;
   private sprinklesImage: p5.Image;
+  private gameRulesHeading: string;
+  private gameRules: string;
   private buttonStartGame: Button;
   private buttonQuitGame: Button;
 
@@ -13,23 +15,37 @@ class MenuScene {
     this.bgImage = images.backgroundObjects.frostingSmall;
     this.logoImage = images.logo;
     this.sprinklesImage = images.backgroundObjects.sprinkles;
+    this.gameRulesHeading = "Welcome!";
+    this.gameRules = "Lorem ipsum dolor set amet, \n och så lite mera lorem upsum \ndolor ser amet och hej å hå.";
     this.buttonStartGame = new Button (createVector(innerWidth/2-225, 580), "Start", "recipeScene");
     this.buttonQuitGame = new Button (createVector(innerWidth/2+25, 580), "Quit", "startScene");
     //första värdet vågrätt, andra värdet lodrätt
   }
   public update() {
-    
+  
   }
 
   public draw() {
     image(this.bgImage, 0, 0, innerWidth, this.bgImage.height);
     image(this.logoImage, 50, 150, 100, 100);
     image(this.sprinklesImage, width - this.sprinklesImage.width, height - this.sprinklesImage.height );
+    fill("#808080");
+    textAlign(CENTER);
+    textSize(40);
+    text(this.gameRulesHeading, 970, 300);
+    textSize(30);
+    textAlign(CENTER);
+    text(this.gameRules, 970, 430);
+    
+    
     this.buttonStartGame.draw();
     this.buttonQuitGame.draw();
     this.buttonStartGame.checkHover();
     this.buttonQuitGame.checkHover();
   }
+
+  //textfärg: 808080
+  //font: Josefin Sans
     
 }
 
