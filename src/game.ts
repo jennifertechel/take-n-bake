@@ -15,7 +15,7 @@ class Game implements IScene {
     private time: number;
 
     constructor() {
-      this.startScene = new StartScene();
+      this.startScene = new StartScene(this);
       this.menuScene = new MenuScene(this);
       this.recipeScene = new RecipeScene(this, 1);
       this.levelScene = new LevelScene(this);
@@ -37,7 +37,7 @@ class Game implements IScene {
       }
 
       if (this.activeScene === "startScene") {
-        this.menuScene.update();
+        this.startScene.update();
       } else if (this.activeScene === "menuScene") {
         this.menuScene.update();
       } else if (this.activeScene === "recipeScene") {
@@ -53,6 +53,14 @@ class Game implements IScene {
     }
 
     public draw() {
+      this.menuScene.draw();
+      // this.winnerScene.draw();
+      // this.looserScene.draw();
+      //this.levelScene.draw();
+      this.startScene.draw();
+
+        player.handleInput();
+        //player.draw();
       if (this.activeScene === "startScene") {
         // this.startScene.draw(); // todo ändra
       } else if (this.activeScene === "menuScene") {
