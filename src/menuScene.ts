@@ -2,7 +2,7 @@
 
 class MenuScene {
   private game: IScene;
-  private bgImage: p5.Image;
+  private smallFrostingImage: p5.Image;
   private logoImage: p5.Image;
   private sprinklesImage: p5.Image;
   private gameRulesHeading: string;
@@ -12,7 +12,7 @@ class MenuScene {
 
   constructor(game: IScene) {
     this.game = game;
-    this.bgImage = images.backgroundObjects.frostingSmall;
+    this.smallFrostingImage = images.backgroundObjects.frostingSmall;
     this.logoImage = images.logo;
     this.sprinklesImage = images.backgroundObjects.sprinkles;
     this.gameRulesHeading = "Welcome!";
@@ -26,8 +26,8 @@ class MenuScene {
   }
 
   public draw() {
-    image(this.bgImage, 0, 0, innerWidth, this.bgImage.height);
-    image(this.logoImage, 50, 150, 100, 100);
+    image(this.smallFrostingImage, 0, 0, innerWidth, this.smallFrostingImage.height);
+    image(this.logoImage, 50, 20, 180, 180);
     image(this.sprinklesImage, width - this.sprinklesImage.width, height - this.sprinklesImage.height );
     fill("#808080");
     textAlign(CENTER);
