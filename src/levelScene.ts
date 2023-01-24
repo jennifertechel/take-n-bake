@@ -54,7 +54,7 @@ class LevelScene extends Player {
     textSize(38);
 
     // Timer
-    text(this.timer.getTime(), windowWidth -70, 40);
+    text(this.timer.getTime(), windowWidth -120, 20);
 
     // Tablecloth
     image(this.tableCloth, 0, innerHeight-180, innerWidth, 180);
