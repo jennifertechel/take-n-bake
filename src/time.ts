@@ -11,6 +11,9 @@ class Time {
     }
     
     public getTime() {
-        return this.time;
+        let minutes = Math.floor(this.time / 60);
+        let seconds = this.time % 60;
+        let formattedTime = (minutes < 10 ? "0" : "") + minutes + ":" + (seconds < 10 ? "0" : "") + seconds;
+        return formattedTime;
     }
 }
