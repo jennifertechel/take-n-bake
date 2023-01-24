@@ -17,19 +17,19 @@ class Button {
         if (mouseX > this.position.x && mouseX < this.position.x + this.size.x && mouseY > this.position.y && mouseY < this.position.y + this.size.y) {
             if (mouseIsPressed) {
             this.onClick();
+            }
         }
-    }
     }
 
     public draw() {
         if (this.hover) {
-            fill("#93B9C6");
+            fill("#946AA3");
         } else {
-            fill("#B5DBD2");
+            fill("#B599BF");
         }
         rect(this.position.x, this.position.y, this.size.x, this.size.y, 0);
         fill("#fff");
-        textSize(35);
+        textSize(28);
         textStyle(NORMAL)
         textAlign(CENTER, CENTER)
         text(this.text, this.position.x + this.size.x / 2, this.position.y + this.size.y / 2);
