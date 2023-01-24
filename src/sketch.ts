@@ -51,7 +51,7 @@ interface Images {
 function preload() {
 
     images = {
-        logo: loadImage("assets/images/logo.svg"),
+        logo: loadImage("assets/images/logoBig.svg"),
         starOutlined: loadImage("assets/images/starOutline.svg"),
         starFilled: loadImage("assets/images/star.svg"),
         playerBowl: loadImage("assets/images/BOWL.svg"),
@@ -75,7 +75,7 @@ function preload() {
             chocolateCake: loadImage("assets/images/logo.svg")
         },
         backgroundObjects: {
-            frostingBig: loadImage("assets/images/frostingBig.svg"),
+            frostingBig: loadImage("assets/images/startFrosting.svg"),
             frostingSmall: loadImage("assets/images/frostingSmal.svg"),
             sprinkles: loadImage("assets/images/sprinkles.svg"),
             tableCloth: loadImage("assets/images/tableCloth.svg")
@@ -94,9 +94,11 @@ function preload() {
 function setup() {
     createCanvas(windowWidth, windowHeight);
     frameRate(60);
+    //noCursor();
 
     // Move this and change player image 
     player = new Player(images.playerBowl, createVector(width * 0.5, height * .70), createVector(290, 290), createVector(0, 0));
+
     game = new Game();
 
 }
@@ -111,7 +113,9 @@ function draw() {
     textFont("Josefin Sans")
     game.update();
     game.draw();
+
 }
+
 
 /**
  *  Built in windowResize listener function in P5
