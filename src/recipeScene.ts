@@ -8,7 +8,7 @@ class RecipeScene extends MessageBox {
     constructor(game: IScene, time: number) {
         super("Lets make a pancake!");
         this.game = game;
-        this.buttonStartGame = new Button(createVector(innerWidth/2-220, innerHeight/2 + 155), "Start game", "levelScene");
+        this.buttonStartGame = new Button(createVector(innerWidth/2-100, innerHeight/2 + 155), "Start game", "levelScene");
     
     }
     
