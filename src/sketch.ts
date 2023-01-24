@@ -51,7 +51,7 @@ interface Images {
 function preload() {
 
     images = {
-        logo: loadImage("assets/images/logo.svg"),
+        logo: loadImage("assets/images/logoStart.svg"),
         starOutlined: loadImage("assets/images/starOutline.svg"),
         starFilled: loadImage("assets/images/star.svg"),
         playerBowl: loadImage("assets/images/BOWL.svg"),
