@@ -17,8 +17,8 @@ class Button {
         if (mouseX > this.position.x && mouseX < this.position.x + this.size.x && mouseY > this.position.y && mouseY < this.position.y + this.size.y) {
             if (mouseIsPressed) {
             this.onClick();
+            }
         }
-    }
     }
 
     public draw() {
