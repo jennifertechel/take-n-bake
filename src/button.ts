@@ -3,15 +3,23 @@ class Button {
     private size: p5.Vector;
     private text: string;
     private hover: boolean;
+    private onClick: () => void;
 
-    constructor(position: p5.Vector, text: string) {
+    constructor(position: p5.Vector, text: string, scene: Scene) {
         this.position = position;
         this.size = createVector(200, 70);
         this.text = text;
         this.hover = false;
+        this.onClick = () => game.setActiveScene(scene)    
     }
 
-    public update() {}
+    public update() {
+        if (mouseX > this.position.x && mouseX < this.position.x + this.size.x && mouseY > this.position.y && mouseY < this.position.y + this.size.y) {
+            if (mouseIsPressed) {
+            this.onClick();
+            }
+        }
+    }
 
     public draw() {
         if (this.hover) {
