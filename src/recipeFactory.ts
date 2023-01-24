@@ -118,7 +118,7 @@ class RecipeFactory {
     }
   }
 
-
+}
 
 //const factory = new RecipeFactory;
 //const recipe = factory.getRecipe(1)
@@ -126,4 +126,4 @@ class RecipeFactory {
 //const ingredient = factory.getIngredient('apple')
 //console.log(ingredient)
 
-}
+

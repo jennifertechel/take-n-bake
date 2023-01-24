@@ -1,9 +1,9 @@
 class Score {
-    private time: number;
+    // private time: number;
     private stars: number;
 
     constructor(time: number) {
-        this.time = time;
+        // this.time = time;
         this.stars = this.setNrOfStars(time);
     }
 
