@@ -5,8 +5,9 @@ class LevelScene extends Player {
     private recipeTitle: string;
     private recipe: string;
     private recipeBackground: p5.Vector;
-    private timer: number;
     private game: IScene;
+    private timer: Time;
+
 
     constructor(game: IScene) {
         super(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
@@ -14,11 +15,13 @@ class LevelScene extends Player {
         this.recipeTitle = "Pancakes"
         this.recipe = "1 sugar \n4 eggs \n3 milk";
         this.recipeBackground = createVector((innerWidth/4-225), 580, 50);
-        this.timer = 0;
+        this.timer = new Time();
         this.game = game;
     }
 
     public update() {
+        this.timer.update();
+
         // this.game.setActiveScene("play")
     }
     
@@ -41,8 +44,10 @@ class LevelScene extends Player {
        textStyle(BOLD);
        text(this.recipeTitle, 60, 70);
        textSize(38);
+
        // Timer
-       text(this.timer, windowWidth -120, 40);
+       text(this.timer.getTime(), windowWidth -70, 40);
+
        // Tablecloth
        image(this.tableCloth, 0, innerHeight-180, innerWidth, 180);
 
