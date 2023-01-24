@@ -40,7 +40,6 @@ class Recipe {
     return this.ingredients;
   }
 
-  // ritar ut texten 
   public draw() {
 
     // Recipe text
