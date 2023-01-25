@@ -10,7 +10,6 @@ class LevelScene extends Player {
     private game: IScene;
     private timer: Time;
 
-
     constructor(game: IScene) {
         super(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
         this.tableCloth = images.backgroundObjects.tableCloth;
@@ -24,9 +23,7 @@ class LevelScene extends Player {
 
     public update() {
         this.timer.update();
-
         // this.game.setActiveScene("play")
-        this.timer.update();
     }
 
     public drawRecipe(recipe: Recipe) {
@@ -63,7 +60,6 @@ class LevelScene extends Player {
 
     // Timer
     text(this.timer.getTime(), windowWidth -120, 20);
-
 
     // Tablecloth
     image(this.tableCloth, 0, innerHeight-180, innerWidth, 180);
