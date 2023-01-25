@@ -1,4 +1,4 @@
-/// //<reference path="sketch.ts" />
+/// <reference path="sketch.ts" />
 
 type Ingredient = "apple" | "banana" | "blueberry" | "butter" | "cherry" | "chocolate" | "egg" | "flour" | "milk" | "strawberry" | "sugar";
 
@@ -79,6 +79,7 @@ class RecipeFactory {
 
   public getRecipe(level: number) {
     const recipeData = this.recipes[level - 1];
+    console.log(recipeData)
     return new Recipe(recipeData)
   }
 
@@ -86,32 +87,27 @@ class RecipeFactory {
   public getIngredient(name: Ingredient) {
     switch (name) {
       case "apple":
-        return new Ingredients(images.ingredients.apple, createVector(width * 0.5, height * .1), createVector(120, 120), createVector(0, 0), name)
+        return new Ingredients(images.ingredients.apple, createVector(width * 0.5, height * -5), createVector(120, 120), createVector(0, 0), name)
       case "banana":
-        return new Ingredients(images.ingredients.banana, createVector(width * 0.5, height * .1), createVector(120, 120), createVector(0, 0), name)
+        return new Ingredients(images.ingredients.banana, createVector(width * 0.5, height * -5), createVector(120, 120), createVector(0, 0), name)
       case "blueberry":
-        return new Ingredients(images.ingredients.blueberry, createVector(width * 0.5, height * .1), createVector(120, 120), createVector(0, 0), name)
+        return new Ingredients(images.ingredients.blueberry, createVector(width * 0.5, height * -5), createVector(120, 120), createVector(0, 0), name)
       case "butter":
-        return new Ingredients(images.ingredients.butter, createVector(width * 0.5, height * .1), createVector(120, 120), createVector(0, 0), name)
+        return new Ingredients(images.ingredients.butter, createVector(width * 0.5, height * -5), createVector(140, 140), createVector(0, 0), name)
       case "cherry":
-        return new Ingredients(images.ingredients.cherry, createVector(width * 0.5, height * .1), createVector(120, 120), createVector(0, 0), name)
+        return new Ingredients(images.ingredients.cherry, createVector(width * 0.5, height * -5), createVector(130, 130), createVector(0, 0), name)
       case "chocolate":
-        return new Ingredients(images.ingredients.chocolate, createVector(width * 0.5, height * .1), createVector(120, 120), createVector(0, 0), name)
+        return new Ingredients(images.ingredients.chocolate, createVector(width * 0.5, height * -5), createVector(130, 130), createVector(0, 0), name)
       case "egg":
-        return new Ingredients(images.ingredients.egg, createVector(width * 0.5, height * .1), createVector(120, 120), createVector(0, 0), name)
+        return new Ingredients(images.ingredients.egg, createVector(width * 0.5, height * -5), createVector(100, 100), createVector(0, 0), name)
       case "flour":
-        return new Ingredients(images.ingredients.flour, createVector(width * 0.5, height * .1), createVector(120, 120), createVector(0, 0), name)
+        return new Ingredients(images.ingredients.flour, createVector(width * 0.5, height * -5), createVector(150, 150), createVector(0, 0), name)
       case "milk":
-        return new Ingredients(images.ingredients.milk, createVector(width * 0.5, height * .1), createVector(120, 120), createVector(0, 0), name)
+        return new Ingredients(images.ingredients.milk, createVector(width * 0.5, height * -5), createVector(180, 180), createVector(0, 0), name)
       case "strawberry":
-        return new Ingredients(images.ingredients.strawberry, createVector(width * 0.5, height * .1), createVector(120, 120), createVector(0, 0), name)
+        return new Ingredients(images.ingredients.strawberry, createVector(width * 0.5, height * -5), createVector(120, 120), createVector(0, 0), name)
       case "sugar":
-        return new Ingredients(images.ingredients.sugar, createVector(width * 0.5, height * .1), createVector(120, 120), createVector(0, 0), name)
+        return new Ingredients(images.ingredients.sugar, createVector(width * 0.5, height * -5), createVector(130, 130), createVector(0, 0), name)
     }
   }
 }
-//const factory = new RecipeFactory;
-//const recipe = factory.getRecipe(1)
-//console.log(recipe)
-//const ingredient = factory.getIngredient('apple')
-//console.log(ingredient)
