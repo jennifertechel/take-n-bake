@@ -110,5 +110,4 @@ class RecipeFactory {
         return new Ingredients(images.ingredients.sugar, createVector(width * 0.5, height * -5), createVector(130, 130), createVector(0, 0), name)
     }
   }
-
 }

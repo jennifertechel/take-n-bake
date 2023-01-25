@@ -37,9 +37,12 @@ class Game implements IScene {
       this.recipeFactory = new RecipeFactory();
       this.ingredients = [];
       this.ingredientTypes = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
+      // this.timer = new Time();
     }
 
     public update() {
+      // this.timer.update();
+
 
       this.time += deltaTime;
       if (this.time > 1000) {
@@ -67,7 +70,7 @@ class Game implements IScene {
       } else if (this.activeScene === "menuScene") {
         this.menuScene.update();
       } else if (this.activeScene === "recipeScene") {
-        //this.recipeScene.update(); // todo ändra. 
+        this.recipeScene.update();
       } else if (this.activeScene === "levelScene") {
         this.levelScene.update();
         player.update();
@@ -83,20 +86,12 @@ class Game implements IScene {
     }
 
     public draw() {
-      //this.menuScene.draw();
-      // this.winnerScene.draw();
-      // this.looserScene.draw();
-      //this.levelScene.draw();
-      //this.startScene.draw();
-
-        //player.handleInput();
-        //player.draw();
       if (this.activeScene === "startScene") {
-        // this.startScene.draw(); // todo ändra
+        this.startScene.draw();
       } else if (this.activeScene === "menuScene") {
         this.menuScene.draw();
       } else if (this.activeScene === "recipeScene") {
-        //this.recipeScene.draw(); // todo ändra. 
+        this.recipeScene.draw();
       } else if (this.activeScene === "levelScene") {
         this.levelScene.draw();
         player.handleInput();
