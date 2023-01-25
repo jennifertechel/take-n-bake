@@ -12,15 +12,7 @@ class Game implements IScene {
     private looserScene: LooserScene;
     private winnerScene: WinnerScene;
     private activeScene: Scene;
-    private time: number;
     private timer: Time;
-
-
-    //testing code below 
-    private recipeFactory: RecipeFactory;
-    private ingredients: Ingredients[] = [];
-    private ingredientTypes: Ingredient[] = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
-
 
     constructor() {
       this.startScene = new StartScene(this);
@@ -32,42 +24,11 @@ class Game implements IScene {
       // this.winnerScene = new WinnerScene(this, time);
       this.winnerScene = new WinnerScene(this, 1);
       this.looserScene = new LooserScene(this);
-      this.time = 0;
       this.timer = new Time();
-      this.activeScene = "startScene";
-
-      //testing code below 
-      this.recipeFactory = new RecipeFactory();
-      this.ingredients = [];
-      this.ingredientTypes = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
-
+      this.activeScene = "levelScene";
     }
 
     public update() {
-      // this.timer.update();
-
-
-      this.time += deltaTime;
-      if (this.time > 1000) {
-       // skapa en ny ingrediens
-          const randomIngredient = this.ingredientTypes[Math.floor(Math.random()*this.ingredientTypes.length)];
-          const ingredient = this.recipeFactory.getIngredient(randomIngredient);
-          //ingredient.randomizeIngredient();
-          ingredient.randomizeStartPosition();
-          ingredient.randomizeVelocity();
-          this.ingredients.push(ingredient);
-
-
-        //const randomIndex = Math.floor(Math.random()* this.ingredientTypes.length)
-        //const randomIngredient = this.ingredientTypes[randomIndex];
-        //const ingredient = this.recipeFactory.getIngredient(randomIngredient);
-        //ingredient.randomizeStartPosition();
-        //ingredient.randomizeVelocity();
-        //this.ingredients.push(ingredient);
-        
-        this.time = 0;
-
-      }
 
       if (this.activeScene === "startScene") {
         this.startScene.update();
@@ -78,10 +39,6 @@ class Game implements IScene {
       } else if (this.activeScene === "levelScene") {
         this.levelScene.update();
         player.update();
-        // fall all the ingredients
-        for (let ingredient of this.ingredients) {
-          ingredient.fall();
-        }
       } else if (this.activeScene === "winnerScene") {
         this.winnerScene.update();
       } else if (this.activeScene === "looserScene") {
@@ -101,12 +58,6 @@ class Game implements IScene {
         player.handleInput();
         player.update();
         player.draw();
-        // draw all the ingredients
-        for (let ingredient of this.ingredients) {
-          ingredient.draw();
-        }
-        
-
       } else if (this.activeScene === "winnerScene") {
         this.winnerScene.draw();
       } else if (this.activeScene === "looserScene") {
