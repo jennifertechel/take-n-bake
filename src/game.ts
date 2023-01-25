@@ -15,26 +15,22 @@ class Game implements IScene {
     private time: number;
     private timer: Time;
 
-
     //testing code below 
     private recipeFactory: RecipeFactory;
     private ingredients: Ingredients[] = [];
     private ingredientTypes: Ingredient[] = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
-
 
     constructor() {
       this.startScene = new StartScene(this);
       this.menuScene = new MenuScene(this);
       this.recipeScene = new RecipeScene();
       this.levelScene = new LevelScene(this);
-      // let time = Time.getTime();
-      // Bör ändras till ett ice-statiskt värde
-      // this.winnerScene = new WinnerScene(this, time);
       this.winnerScene = new WinnerScene(this, 1);
       this.looserScene = new LooserScene(this);
       this.time = 0;
       this.timer = new Time();
-      this.activeScene = "startScene";
+      this.activeScene = "levelScene";
+      player = new Player(images.playerBowl, createVector(width * 0.5-110, height * .70), createVector(220, 200), createVector(0, 0));
 
       //testing code below 
       this.recipeFactory = new RecipeFactory();
@@ -44,8 +40,6 @@ class Game implements IScene {
     }
 
     public update() {
-      // this.timer.update();
-
 
       this.time += deltaTime;
       if (this.time > 1000) {
@@ -105,8 +99,6 @@ class Game implements IScene {
         for (let ingredient of this.ingredients) {
           ingredient.draw();
         }
-        
-
       } else if (this.activeScene === "winnerScene") {
         this.winnerScene.draw();
       } else if (this.activeScene === "looserScene") {
