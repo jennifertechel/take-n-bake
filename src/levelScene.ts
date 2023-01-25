@@ -10,7 +10,14 @@ class LevelScene extends Player {
     private timer: Time;
     private game: IScene;
 
-    constructor(game: IScene) {
+    //Exit Button
+    private position: p5.Vector;
+    private size: p5.Vector;
+    private text: string;
+    private hover: boolean;
+    private onClick: () => void;
+
+    constructor(game: IScene, position: p5.Vector, text: string, MenuScene: Scene) {
         super(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
         this.tableCloth = images.backgroundObjects.tableCloth;
         this.recipeTitle = "Pancakes"
@@ -19,11 +26,25 @@ class LevelScene extends Player {
         this.recipeBackground = createVector((innerWidth/4-225), 580, 50);
         this.timer = new Time();
         this.game = game;
+
+        //Exit Button
+        this.position = position;
+        this.size = createVector(200, 70);
+        this.text = text;
+        this.hover = false;
+        this.onClick = () => game.setActiveScene(MenuScene) 
     }
 
     public update() {
         // this.game.setActiveScene("play")
         this.timer.update();
+
+        //Exit Button
+        if (mouseX > this.position.x && mouseX < this.position.x + this.size.x && mouseY > this.position.y && mouseY < this.position.y + this.size.y) {
+            if (mouseIsPressed) {
+            this.onClick();
+            }
+        }
     }
 
     public drawRecipe(recipe: Recipe) {
@@ -63,5 +84,26 @@ class LevelScene extends Player {
 
     // Tablecloth
     image(this.tableCloth, 0, innerHeight-180, innerWidth, 180);
+
+    //Exit Button
+    if (this.hover) {
+        fill("#946AA3");
+    } else {
+        fill("#B599BF");
+    }
+    rect(this.position.x, this.position.y, this.size.x, this.size.y, 0);
+    fill("#fff");
+    textSize(28);
+    textStyle(NORMAL)
+    textAlign(CENTER, CENTER)
+    text(this.text, this.position.x + this.size.x / 2, this.position.y + this.size.y / 2);
+    }
+
+    public checkHover() {
+        if (mouseX > this.position.x && mouseX < this.position.x + this.size.x && mouseY > this.position.y && mouseY < this.position.y + this.size.y) {
+            this.hover = true;
+        } else {
+            this.hover = false;
+        }
     }
 }
