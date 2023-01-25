@@ -13,6 +13,8 @@ class Game implements IScene {
     private winnerScene: WinnerScene;
     private activeScene: Scene;
     private time: number;
+    private timer: Time;
+
 
     constructor() {
       this.startScene = new StartScene(this);
@@ -24,16 +26,21 @@ class Game implements IScene {
       // this.winnerScene = new WinnerScene(this, time);
       this.winnerScene = new WinnerScene(this, 1);
       this.looserScene = new LooserScene(this);
-      this.activeScene = "recipeScene";
       this.time = 0;
+      this.timer = new Time();
+      this.activeScene = "startScene";
+
     }
 
     public update() {
+      // this.timer.update();
+
 
       this.time += deltaTime;
       if (this.time > 1000) {
        // skapa en ny ingrediens
         this.time = 0;
+
       }
 
       if (this.activeScene === "startScene") {

@@ -6,6 +6,7 @@ let menuButton: Button;
 let restartButton: Button;
 let images: Images;
 let game: Game;
+let time: Time;
 
 type IngredientKey = keyof Images['ingredients'];
 type RecipeKey = keyof Images['recipes'];
@@ -100,7 +101,7 @@ function setup() {
     player = new Player(images.playerBowl, createVector(width * 0.5, height * .70), createVector(290, 290), createVector(0, 0));
 
     game = new Game();
-
+    time = new Time();
 }
 
 /**
