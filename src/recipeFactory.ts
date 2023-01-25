@@ -79,7 +79,6 @@ class RecipeFactory {
 
   public getRecipe(level: number) {
     const recipeData = this.recipes[level - 1];
-    console.log(recipeData)
     return new Recipe(recipeData)
   }
 
