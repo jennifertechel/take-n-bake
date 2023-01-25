@@ -13,7 +13,7 @@ class LevelScene extends Player {
     private time: number;
     private ingredients: Ingredients[] = [];
     private ingredientTypes: Ingredient[] = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
-
+    private lastIngredient: Ingredient | undefined;
 
     constructor(game: IScene) {
         super(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
@@ -24,11 +24,10 @@ class LevelScene extends Player {
         this.recipeBackground = createVector((innerWidth/4-225), 580, 50);
         this.timer = new Time();
         this.game = game;
-
         this.time = 0;
         this.ingredients = [];
         this.ingredientTypes = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
-
+        this.lastIngredient = undefined;
     }
 
     public drawRecipe(recipe: Recipe) {
@@ -38,13 +37,17 @@ class LevelScene extends Player {
     }
 
     public createIngredient() {
-        const randomIndex = Math.floor(Math.random()*this.ingredientTypes.length)
-        const randomIngredient = this.ingredientTypes[randomIndex];
+        let randomIngredient = this.ingredientTypes[Math.floor(Math.random()*this.ingredientTypes.length)];
+        while (randomIngredient === this.lastIngredient) {
+            randomIngredient = this.ingredientTypes[Math.floor(Math.random()*this.ingredientTypes.length)];
+        }
+        this.lastIngredient = randomIngredient;
         const ingredient = this.recipeFactory.getIngredient(randomIngredient);
         ingredient.randomizeStartPosition();
         ingredient.randomizeVelocity();
         this.ingredients.push(ingredient);
     }
+    
 
     public update() {
         this.timer.update();
@@ -60,10 +63,6 @@ class LevelScene extends Player {
     
     public draw() {
 
-        // Draw all the ingredients
-        for (let ingredient of this.ingredients) {
-            ingredient.draw();
-        }
         noCursor();
 
         // Recipe background
@@ -89,10 +88,15 @@ class LevelScene extends Player {
         textStyle(BOLD);
         text(recipe.getName(), 60, 70);
 
-    // Timer
-    text(this.timer.getTime(), windowWidth -120, 20);
+        // Timer
+        text(this.timer.getTime(), windowWidth -120, 20);
 
         // Tablecloth
         image(this.tableCloth, 0, innerHeight-180, innerWidth, 180);
+
+        // Draw all the ingredients
+        for (let ingredient of this.ingredients) {
+            ingredient.draw();
+        }
     }
 }
