@@ -103,6 +103,7 @@ class LevelScene extends Player {
                     console.log("Ingredient hit: " + ingredient.getName());
                     return true
                 } else {
+                    this.ingredients = [];
                     this.game.setActiveScene("looserScene");
                 }
             }
