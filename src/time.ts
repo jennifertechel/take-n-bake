@@ -18,6 +18,3 @@ class Time {
         return formattedTime;
     }
 }
-        return this.time;
-    }}
- }
