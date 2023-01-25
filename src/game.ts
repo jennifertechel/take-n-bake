@@ -13,6 +13,8 @@ class Game implements IScene {
     private winnerScene: WinnerScene;
     private activeScene: Scene;
     private time: number;
+    private timer: Time;
+
 
     //testing code below 
     private recipeFactory: RecipeFactory;
@@ -30,14 +32,10 @@ class Game implements IScene {
       // this.winnerScene = new WinnerScene(this, time);
       this.winnerScene = new WinnerScene(this, 1);
       this.looserScene = new LooserScene(this);
-      this.activeScene = "levelScene";
       this.time = 0;
+      this.timer = new Time();
+      this.activeScene = "startScene";
 
-      //testing code below 
-      this.recipeFactory = new RecipeFactory();
-      this.ingredients = [];
-      this.ingredientTypes = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
-      // this.timer = new Time();
     }
 
     public update() {
@@ -63,6 +61,7 @@ class Game implements IScene {
         //this.ingredients.push(ingredient);
         
         this.time = 0;
+
       }
 
       if (this.activeScene === "startScene") {
