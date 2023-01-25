@@ -17,6 +17,8 @@ class Game implements IScene {
     //testing code below 
     private recipeFactory: RecipeFactory;
     private ingredients: Ingredients[] = [];
+    private ingredientTypes: Ingredient[] = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
+
 
     constructor() {
       this.startScene = new StartScene(this);
@@ -28,12 +30,13 @@ class Game implements IScene {
       // this.winnerScene = new WinnerScene(this, time);
       this.winnerScene = new WinnerScene(this, 1);
       this.looserScene = new LooserScene(this);
-      this.activeScene = "startScene";
+      this.activeScene = "levelScene";
       this.time = 0;
 
       //testing code below 
       this.recipeFactory = new RecipeFactory();
       this.ingredients = [];
+      this.ingredientTypes = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
     }
 
     public update() {
@@ -41,8 +44,20 @@ class Game implements IScene {
       this.time += deltaTime;
       if (this.time > 1000) {
        // skapa en ny ingrediens
-        this.ingredients.push(this.recipeFactory.getIngredient("strawberry")); // or any other ingredient you want to create
-        this.ingredients.push(this.recipeFactory.getIngredient("flour"));
+          const randomIngredient = this.ingredientTypes[Math.floor(Math.random()*this.ingredientTypes.length)];
+          const ingredient = this.recipeFactory.getIngredient(randomIngredient);
+          //ingredient.randomizeIngredient();
+          ingredient.randomizeStartPosition();
+          ingredient.randomizeVelocity();
+          this.ingredients.push(ingredient);
+
+
+        //const randomIndex = Math.floor(Math.random()* this.ingredientTypes.length)
+        //const randomIngredient = this.ingredientTypes[randomIndex];
+        //const ingredient = this.recipeFactory.getIngredient(randomIngredient);
+        //ingredient.randomizeStartPosition();
+        //ingredient.randomizeVelocity();
+        //this.ingredients.push(ingredient);
         
         this.time = 0;
       }
@@ -68,13 +83,13 @@ class Game implements IScene {
     }
 
     public draw() {
-      this.menuScene.draw();
+      //this.menuScene.draw();
       // this.winnerScene.draw();
       // this.looserScene.draw();
       //this.levelScene.draw();
-      this.startScene.draw();
+      //this.startScene.draw();
 
-        player.handleInput();
+        //player.handleInput();
         //player.draw();
       if (this.activeScene === "startScene") {
         // this.startScene.draw(); // todo ändra
