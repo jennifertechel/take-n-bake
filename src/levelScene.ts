@@ -89,9 +89,8 @@ class LevelScene extends Player {
         textStyle(BOLD);
         text(recipe.getName(), 60, 70);
 
-        // Timer
-        text(this.timer.getTime(), windowWidth -120, 20);
-
+    // Timer
+    text(this.timer.getTime(), windowWidth -120, 20);
 
         // Tablecloth
         image(this.tableCloth, 0, innerHeight-180, innerWidth, 180);

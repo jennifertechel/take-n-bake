@@ -19,13 +19,12 @@ class Game implements IScene {
       this.menuScene = new MenuScene(this);
       this.recipeScene = new RecipeScene();
       this.levelScene = new LevelScene(this);
-      // let time = Time.getTime();
-      // Bör ändras till ett ice-statiskt värde
-      // this.winnerScene = new WinnerScene(this, time);
       this.winnerScene = new WinnerScene(this, 1);
       this.looserScene = new LooserScene(this);
       this.timer = new Time();
       this.activeScene = "levelScene";
+      player = new Player(images.playerBowl, createVector(width * 0.5-110, height * .70), createVector(220, 200), createVector(0, 0));
+
     }
 
     public update() {
