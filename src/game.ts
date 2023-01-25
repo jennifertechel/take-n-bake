@@ -36,6 +36,11 @@ class Game implements IScene {
       this.timer = new Time();
       this.activeScene = "startScene";
 
+      //testing code below 
+      this.recipeFactory = new RecipeFactory();
+      this.ingredients = [];
+      this.ingredientTypes = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
+
     }
 
     public update() {
