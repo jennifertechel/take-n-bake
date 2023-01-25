@@ -4,7 +4,6 @@ class Time {
     constructor() {
         this.time = millis();
     }
-    
 
     public update() {
         this.time = millis();
