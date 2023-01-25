@@ -5,6 +5,7 @@ class Time {
         this.time = millis();
     }
     
+
     public update() {
         this.time = millis();
         this.time = Math.floor(this.time / 1000);
@@ -17,3 +18,6 @@ class Time {
         return formattedTime;
     }
 }
+        return this.time;
+    }}
+ }

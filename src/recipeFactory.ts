@@ -109,9 +109,7 @@ class RecipeFactory {
         return new Ingredients(images.ingredients.sugar, createVector(width * 0.5, height * .1), createVector(120, 120), createVector(0, 0), name)
     }
   }
-
 }
-
 //const factory = new RecipeFactory;
 //const recipe = factory.getRecipe(1)
 //console.log(recipe)
