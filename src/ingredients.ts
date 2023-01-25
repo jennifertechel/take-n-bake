@@ -38,7 +38,7 @@ class Ingredients extends MovingObject {
    }
  
    public randomizeStartPosition() {
-        this.position = createVector(random(width), 0);
+        this.position = createVector(random(width), -10);
 }
    
    public randomizeVelocity() {
