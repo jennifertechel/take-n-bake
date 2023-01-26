@@ -5,12 +5,14 @@ class LooserScene extends MessageBox {
     private buttonQuit: Button;
     private image: p5.Image;
     private game: IScene;
+    private instruction: String;
 
     constructor(game: IScene) {
-        super("Ops...try again!");
+        super("Ops... \n ");
+        this.instruction = 'you caught the wrong ingridient...try again! ';
         this.game = game;
-        this.buttonRestart = new Button(createVector(innerWidth/2-225, 580), "Restart", "levelScene");
-        this.buttonQuit = new Button(createVector(innerWidth/2+25, 580), "Quit game", "startScene");
+        this.buttonRestart = new Button(createVector(innerWidth/2-225, 480), "Restart", "levelScene");
+        this.buttonQuit = new Button(createVector(innerWidth/2+25, 480), "Quit game", "startScene");
         this.image = images.spilledBowl;
     }
 
@@ -23,6 +25,9 @@ class LooserScene extends MessageBox {
 
     public draw() {
         super.draw();
+        textSize(30);
+        textAlign(CENTER);
+        text(this.instruction, innerWidth/2, 230);
         cursor(ARROW);
         this.buttonRestart.draw();
         this.buttonQuit.draw();
