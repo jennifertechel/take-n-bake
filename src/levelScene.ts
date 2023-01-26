@@ -52,7 +52,7 @@ class LevelScene extends Player {
     public update() {
         this.timer.update();
         this.time += deltaTime;
-        if (this.time > 1000) {
+        if (this.time > 1500) {
             this.createIngredient();
             this.time = 0;
         }
