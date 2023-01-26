@@ -17,7 +17,7 @@ class MessageBox {
         textSize(64);
         textStyle(BOLD)
         textAlign(CENTER)
-        text(this.title, innerWidth/2, innerHeight/2 - 200)
+        text(this.title, innerWidth/2, innerHeight/2 - 180)
     }
 }
 
