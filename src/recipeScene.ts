@@ -21,12 +21,13 @@ class RecipeScene extends MessageBox {
     public draw(){
 
         super.draw(); //Messagebox
-        textSize(26);
-        fill("#A74272");
-        textAlign(CENTER, CENTER);
+        textSize(34);
+        fill("#000000");
+        textAlign(LEFT);
         noStroke();
         let recipe = this.recipeFactory.getRecipe(2);
-        let yPos = 130; // start position for first line of text
+        let yPos = 430; // start position for first line of text
+        // let xPos = 100;
     
         for(let i = 0; i < recipe.getIngredients().length; i++) {
             text(recipe.getIngredients()[i].amount + " " + recipe.getIngredients()[i].name, 60, yPos+i*40);

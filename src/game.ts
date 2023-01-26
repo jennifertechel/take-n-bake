@@ -20,12 +20,12 @@ class Game implements IScene {
       this.levelScene = new LevelScene(this);
       this.winnerScene = new WinnerScene(this, 1);
       this.looserScene = new LooserScene(this);
-<<<<<<<<< Temporary merge branch 1
+   
       this.activeScene = "levelScene";
-=========
-      this.activeScene = "startScene";
->>>>>>>>> Temporary merge branch 2
-      this.time = 0;
+
+      this.activeScene = "recipeScene";
+   
+      // this.time = 0;
       // this.timer = new Time();
     }
 
