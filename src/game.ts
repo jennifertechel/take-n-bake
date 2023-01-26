@@ -20,14 +20,7 @@ class Game implements IScene {
       this.levelScene = new LevelScene(this);
       this.winnerScene = new WinnerScene(this, 1);
       this.looserScene = new LooserScene(this);
-<<<<<<< HEAD
-      this.timer = new Time();
       this.activeScene = "recipeScene";
-      player = new Player(images.playerBowl, createVector(width * 0.5-110, height * .70), createVector(220, 200), createVector(0, 0));
-
-=======
-      this.activeScene = "looserScene";
->>>>>>> origin
     }
 
     public update() {
