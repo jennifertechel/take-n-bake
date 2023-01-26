@@ -16,6 +16,9 @@ class LevelScene extends Player {
     private text: string;
     private hover: boolean;
     private onClick: () => void;
+   
+    
+    
 
     constructor(game: IScene, position: p5.Vector, text: string, MenuScene: Scene) {
         super(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
@@ -45,6 +48,7 @@ class LevelScene extends Player {
             this.onClick();
             }
         }
+  
     }
 
     public drawRecipe(recipe: Recipe) {

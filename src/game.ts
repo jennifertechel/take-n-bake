@@ -26,7 +26,7 @@ class Game implements IScene {
       this.winnerScene = new WinnerScene(this, 1);
       this.looserScene = new LooserScene(this);
       
-      this.activeScene = "startScene";
+      this.activeScene = "levelScene";
 
       this.time = 0;
       // this.timer = new Time();
