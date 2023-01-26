@@ -27,15 +27,21 @@ class RecipeScene extends MessageBox {
     public draw() {
         // Ritar ut messageBox
         super.draw();
-         // Recipe text
+        
+        // Recipe text
          textSize(26);
          fill("#808080");
-         textAlign(LEFT, TOP);
+         //textAlign(CENTER);
          noStroke()
          let recipe = this.recipeFactory.getRecipe(2);
-         let yPos = 130; // start position for first line of text
+         let xPos = 500;
+         let yPos = 300;
+
+         for(let i = 0; i < recipe.getIngredients().length; i++) {
+            text(recipe.getIngredients()[i].amount + " " + recipe.getIngredients()[i].name, 60, yPos+i*40);
 
         this.buttonStartGame.draw();
         this.buttonStartGame.checkHover();
+    }
     }
 }
