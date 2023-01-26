@@ -25,7 +25,7 @@ class RecipeScene extends MessageBox {
         fill("#000000");
         textAlign(LEFT);
         noStroke();
-        let recipe = this.recipeFactory.getRecipe(2);
+        let recipe = this.recipeFactory.getRecipe(1);
         let yPos = 430; // start position for first line of text
         // let xPos = 100;
     
