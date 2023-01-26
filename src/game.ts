@@ -12,34 +12,24 @@ class Game implements IScene {
     private looserScene: LooserScene;
     private winnerScene: WinnerScene;
     private activeScene: Scene;
-    private time: number;
-    // private timer: Time;
 
     constructor() {
       this.startScene = new StartScene(this);
       this.menuScene = new MenuScene(this);
       this.recipeScene = new RecipeScene(this);
       this.levelScene = new LevelScene(this);
-      // let time = Time.getTime();
-      // Bör ändras till ett ice-statiskt värde
-      // this.winnerScene = new WinnerScene(this, time);
       this.winnerScene = new WinnerScene(this, 1);
       this.looserScene = new LooserScene(this);
-      this.activeScene = "recipeScene";
-
+<<<<<<<<< Temporary merge branch 1
+      this.activeScene = "levelScene";
+=========
+      this.activeScene = "startScene";
+>>>>>>>>> Temporary merge branch 2
       this.time = 0;
       // this.timer = new Time();
     }
 
     public update() {
-      // this.timer.update();
-
-
-      this.time += deltaTime;
-      if (this.time > 1000) {
-       // skapa en ny ingrediens
-        this.time = 0;
-      }
 
       if (this.activeScene === "startScene") {
         this.startScene.update();
@@ -49,7 +39,6 @@ class Game implements IScene {
         this.recipeScene.update();
       } else if (this.activeScene === "levelScene") {
         this.levelScene.update();
-        player.update();
       } else if (this.activeScene === "winnerScene") {
         this.winnerScene.update();
       } else if (this.activeScene === "looserScene") {
@@ -74,9 +63,6 @@ class Game implements IScene {
         this.recipeScene.draw(); // todo ändra. 
       } else if (this.activeScene === "levelScene") {
         this.levelScene.draw();
-        player.handleInput();
-        player.update();
-        player.draw();
       } else if (this.activeScene === "winnerScene") {
         this.winnerScene.draw();
       } else if (this.activeScene === "looserScene") {

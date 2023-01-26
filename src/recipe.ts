@@ -4,7 +4,6 @@ class Recipe {
     private recipeTitle: string;
     private recipe: string;
     private recipeFactory: RecipeFactory;
-
     private ingredients: IIngredientData[];
     private image: p5.Image;
     private name: string;
@@ -26,21 +25,12 @@ class Recipe {
   // byt namn på update till mer konkret, ex reduceIngredient
   public update() {}
   
-  public drawRecipe(recipe: Recipe) {
-    textSize(20);
-    let currentRecipe = this.recipeFactory.getRecipe(1); // 1 är nivånummer
-    this.drawRecipe(currentRecipe);
-  }
-  
-  public getName() {
-    return this.name;
-  } 
+  // public drawRecipe(recipe: Recipe) {
+  //   textSize(20);
+  //   let currentRecipe = this.recipeFactory.getRecipe(1); // 1 är nivånummer
+  //   this.drawRecipe(currentRecipe);
+  // }
 
-  public getIngredients() {
-    return this.ingredients;
-  }
-
-  // ritar ut texten 
   public draw() {
 
     // Recipe text
@@ -66,5 +56,13 @@ class Recipe {
     // });
     this.image,
     this.name;
+  }
+
+  public getName() {
+    return this.name;
+  } 
+
+  public getIngredients() {
+    return this.ingredients;
   }
 }
