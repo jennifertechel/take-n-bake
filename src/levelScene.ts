@@ -37,7 +37,7 @@ class LevelScene extends Player {
 
         //Exit Button
         this.position = position;
-        this.size = createVector(200, 70);
+        this.size = createVector(innerWidth/2+25, 580), "Exit", "menuScene";
         this.text = text;
         this.hover = false;
         this.onClick = () => game.setActiveScene(MenuScene) 
@@ -46,9 +46,9 @@ class LevelScene extends Player {
         this.ingredients = [];
         this.ingredientTypes = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
 
-    public update() {
-        // this.game.setActiveScene("play")
-        this.timer.update();
+    // public update() {
+    //     // this.game.setActiveScene("play")
+    //     this.timer.update();
 
         //Exit Button
         if (mouseX > this.position.x && mouseX < this.position.x + this.size.x && mouseY > this.position.y && mouseY < this.position.y + this.size.y) {

@@ -18,7 +18,7 @@ class Game implements IScene {
       this.startScene = new StartScene(this);
       this.menuScene = new MenuScene(this);
       this.recipeScene = new RecipeScene();
-      this.levelScene = new LevelScene(this);
+      this.levelScene = new LevelScene(this,1);
       this.winnerScene = new WinnerScene(this, 1);
       this.looserScene = new LooserScene(this);
       this.timer = new Time();
