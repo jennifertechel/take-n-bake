@@ -30,22 +30,22 @@ class RecipeScene extends MessageBox {
         
 
     // Recipe text
-    textSize(26);
-    fill("#808080");
-    textAlign(LEFT, TOP);
-    noStroke()
-    let recipe = this.recipeFactory.getRecipe(2);
-    let yPos = 250; // start position for first line of text
-
-    for(let i = 0; i < recipe.getIngredients().length; i++) {
-    text(recipe.getIngredients()[i].amount + " " + recipe.getIngredients()[i].name, windowWidth/2, yPos+i*40);
-}
+        textSize(26);
+        fill("#808080");
+        noStroke()
+        let recipe = this.recipeFactory.getRecipe(2);
+        let yPos = 290; // start position for first line of text
+        for(let i = 0; i < recipe.getIngredients().length; i++) {
+        text(recipe.getIngredients()[i].amount + " " + recipe.getIngredients()[i].name, windowWidth/2, yPos+i*40);
+    }
 
     // Recipe title
-    textStyle(BOLD);
-    text(recipe.getName(), windowWidth/2, 250);
+        textStyle(BOLD);
+        textSize(35);
+        text(recipe.getName(), windowWidth/2, 240);
 
-    this.buttonStartGame.draw();
-    this.buttonStartGame.checkHover();
+        this.buttonStartGame.draw();
+        this.buttonStartGame.checkHover();
+    
     }
-    }
+}
