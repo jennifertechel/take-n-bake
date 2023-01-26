@@ -11,7 +11,8 @@ class LevelScene extends Player {
     private time: number;
     private ingredients: Ingredients[] = [];
     private ingredientTypes: Ingredient[] = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
-    private player: Player;
+    private player: Player;    
+    private lastIngredient: Ingredient | undefined;
 
     constructor(game: IScene) {
         super(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
@@ -25,12 +26,15 @@ class LevelScene extends Player {
         this.ingredients = [];
         this.ingredientTypes = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
         this.player = new Player(images.playerBowl, createVector(width * 0.5-110, height * .70), createVector(220, 200), createVector(0, 0));
+        this.lastIngredient = undefined;
+
     }
+    
 
     public update() {
         this.timer.update();
         this.time += deltaTime;
-        if (this.time > 1000) {
+        if (this.time > 1500) {
             this.createIngredient();
             this.time = 0;
         }
@@ -84,8 +88,11 @@ class LevelScene extends Player {
     }
 
     public createIngredient() {
-        const randomIndex = Math.floor(Math.random()*this.ingredientTypes.length)
-        const randomIngredient = this.ingredientTypes[randomIndex];
+        let randomIngredient = this.ingredientTypes[Math.floor(Math.random()*this.ingredientTypes.length)];
+        while (randomIngredient === this.lastIngredient) {
+            randomIngredient = this.ingredientTypes[Math.floor(Math.random()*this.ingredientTypes.length)];
+        }
+        this.lastIngredient = randomIngredient;
         const ingredient = this.recipeFactory.getIngredient(randomIngredient);
         ingredient.randomizeStartPosition();
         ingredient.randomizeVelocity();
