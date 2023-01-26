@@ -4,8 +4,6 @@
 
 class Ingredients extends MovingObject {
     protected name: string;
-    //private ingredientsTypes: Ingredient[];
-    //private previousIngredient: IngredientKey | undefined;
 
     constructor (
         image: p5.Image, 
@@ -17,7 +15,6 @@ class Ingredients extends MovingObject {
         super(image, position, size, velocity);
         this.name = name;
         this.image = images.ingredients[name];
-        this.size = size;
         this.randomizeStartPosition();
         this.randomizeVelocity();
     }
