@@ -108,6 +108,9 @@ class LevelScene extends Player {
             if (ingredient.isCollidingWithPlayer(this.player.getPosition(), this.player.getSize())) {
                 if (this.isIngredientInCurrentRecipe(ingredient.getName())){
                     console.log("Ingredient hit: " + ingredient.getName());
+                    // remove the caught ingredient
+                    let index = this.ingredients.indexOf(ingredient);
+                    this.ingredients.splice(index, 1);
                     return true
                 } else {
                     this.ingredients = [];
