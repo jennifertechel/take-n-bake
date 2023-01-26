@@ -23,4 +23,10 @@ class Player extends MovingObject {
           this.velocity.x = 0;
       }
     }
+    public getPosition() {
+        return this.position
+    }
+    public getSize() {
+        return this.size
+    }
 }
