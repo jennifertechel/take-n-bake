@@ -17,9 +17,6 @@ class Ingredients extends MovingObject {
         super(image, position, size, velocity);
         this.name = name;
         this.image = images.ingredients[name];
-        //this.ingredientsTypes = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
-        //this.previousIngredient = undefined;
-        //this.randomizeIngredient();
         this.randomizeStartPosition();
         this.randomizeVelocity();
     }
@@ -27,15 +24,6 @@ class Ingredients extends MovingObject {
    public fall() {
         this.position.y += this.velocity.y;
    }
-
-   /*public randomizeIngredient() {
-        let ingredient: IngredientKey;
-        do {
-            ingredient = this.ingredientsTypes[Math.floor(Math.random() * this.ingredientsTypes.length)];
-        } while (ingredient === this.previousIngredient);
-        this.previousIngredient = ingredient;
-        return ingredient;
-   }*/
  
    public randomizeStartPosition() {
         this.position = createVector(random(width), -10);
@@ -43,7 +31,18 @@ class Ingredients extends MovingObject {
    
    public randomizeVelocity() {
         this.velocity = createVector(0, 2);
-}
+   }
+
+    public isCollidingWithPlayer(playerPosition: p5.Vector, playerSize: p5.Vector): boolean {
+        return this.position.x + this.size.x > playerPosition.x
+            && this.position.x < playerPosition.x + playerSize.x
+            && this.position.y + this.size.y > playerPosition.y
+            && this.position.y < playerPosition.y + playerSize.y;
+    }
+
+    public getName(){
+        return this.name;
+    }
 
 }
 
