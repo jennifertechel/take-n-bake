@@ -23,6 +23,7 @@ class LooserScene extends MessageBox {
 
     public draw() {
         super.draw();
+        cursor(ARROW);
         this.buttonRestart.draw();
         this.buttonQuit.draw();
         this.buttonRestart.checkHover();
