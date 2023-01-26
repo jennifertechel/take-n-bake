@@ -10,7 +10,7 @@ class RecipeScene extends MessageBox {
     private game: IScene;
 
     constructor(game: IScene) {
-        super("Let's make a pancake!"); //Messagebox title
+        super(" "); //Messagebox title
     this.RecipeSceneBackground = createVector((innerWidth/4-225), 580, 50); //Scene size
     this.tableCloth = images.backgroundObjects.tableCloth; 
     this.buttonStartPlaying = new Button(createVector(innerWidth/2-110, 650), "Start", "startScene"); //Creates button to start game
@@ -21,17 +21,24 @@ class RecipeScene extends MessageBox {
     public draw(){
 
         super.draw(); //Messagebox
-        textSize(34);
+        textSize(60);
         fill("#000000");
         textAlign(LEFT);
         noStroke();
         let recipe = this.recipeFactory.getRecipe(1);
         let yPos = 430; // start position for first line of text
-        // let xPos = 100;
+        
     
         for(let i = 0; i < recipe.getIngredients().length; i++) {
             text(recipe.getIngredients()[i].amount + " " + recipe.getIngredients()[i].name, 60, yPos+i*40);
         }
+
+        textStyle(BOLD);
+        fill("#808080");
+        text(recipe.getName(), 820, 250);
+        textSize(100);
+        textAlign(CENTER, TOP);
+
         this.RecipeSceneBackground
 
         image(this.tableCloth, 0, innerHeight-120, innerWidth, 180); //imports tablecloth
