@@ -40,7 +40,7 @@ class MenuScene {
     textAlign(CENTER);
     textFont("Josefin Sans");
     textSize(40);
-    text(this.gameRulesHeading, innerWidth/2-480, innerHeight/2-200, 970, innerWidth/2-480);
+    text(this.gameRulesHeading, innerWidth/2-485, innerHeight/2-200, 970, innerWidth/2-485);
     textSize(30);
     textAlign(CENTER);
     text(this.gameRules, innerWidth, innerHeight/2-150, 440);
