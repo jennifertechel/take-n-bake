@@ -104,6 +104,7 @@ class LevelScene extends Player {
                     return true
                 } else {
                     this.ingredients = [];
+                    // Set timer to 0
                     this.game.setActiveScene("looserScene");
                 }
             }
