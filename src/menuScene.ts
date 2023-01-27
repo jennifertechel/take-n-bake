@@ -40,10 +40,10 @@ class MenuScene {
     textAlign(CENTER);
     textFont("Josefin Sans");
     textSize(40);
-    text(this.gameRulesHeading, innerWidth/2-485, innerHeight/2-200, 970, innerWidth/2-485);
+    text(this.gameRulesHeading, innerWidth/2-485, innerHeight/2-150, 970, innerWidth/2-485);
     textSize(30);
     textAlign(CENTER);
-    text(this.gameRules, innerWidth/2, innerHeight/2+60);
+    text(this.gameRules, innerWidth/2, innerHeight/2+80);
     this.buttonStartGame.draw();
     this.buttonQuitGame.draw();
     this.buttonStartGame.checkHover();
