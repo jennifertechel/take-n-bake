@@ -4,7 +4,6 @@
 class LevelScene extends Player {
     private tableCloth: p5.Image;
     private recipeFactory: RecipeFactory;
-    private currentRecipe: Recipe;
     private recipeBackground: p5.Vector;
     private game: IScene;
     private timer: Time;
@@ -13,13 +12,14 @@ class LevelScene extends Player {
     private ingredientTypes: Ingredient[] = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
     private player: Player;    
     private lastIngredient: Ingredient | undefined;
+    private level: number;
     private originalRecipe: Recipe;
+    private currentRecipe: Recipe;
 
     constructor(game: IScene) {
         super(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
         this.tableCloth = images.backgroundObjects.tableCloth;
         this.recipeFactory = new RecipeFactory();
-        this.currentRecipe = this.recipeFactory.getRecipe(2);
         this.recipeBackground = createVector((innerWidth/4-225), 580, 50);
         this.timer = new Time();
         this.game = game;
@@ -28,16 +28,24 @@ class LevelScene extends Player {
         this.ingredientTypes = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
         this.player = new Player(images.playerBowl, createVector(width * 0.5-110, height * .70), createVector(220, 200), createVector(0, 0));
         this.lastIngredient = undefined;
-        this.originalRecipe = this.recipeFactory.getRecipe(2);
+        this.level = 1;
+        this.originalRecipe = this.recipeFactory.getRecipe(this.level);
+        this.currentRecipe = this.recipeFactory.getRecipe(this.level);
     }
-    
+    public nextLevel(): void {
+        this.level++;
+        if (this.level > 3) {
+            this.level = 1;
+        }
+        this.currentRecipe = this.recipeFactory.getRecipe(this.level);
+    }
 
     public update() {
         this.timer.update();
         this.time += deltaTime;
         if (this.time > 1500) {
             this.createIngredient();
-            this.time = 0;
+            this.time = 1;
         }
         for (let ingredient of this.ingredients) {
             ingredient.fall();
@@ -48,10 +56,8 @@ class LevelScene extends Player {
     }
 
     private resetGame(): void {
-        this.currentRecipe = this.recipeFactory.getRecipe(2);
         this.timer.reset();
         this.ingredients = [];
-        console.log("reset")
     }
     
     public draw() {
@@ -111,6 +117,7 @@ class LevelScene extends Player {
     
                     // remove the caught ingredient from the currentRecipe
                     let ingredientInRecipe = this.currentRecipe.getIngredients().find(i => i.name === ingredient.getName())
+                    
                     if(ingredientInRecipe) {
                     // If amount is over 0 decrese amount
                     if(ingredientInRecipe.amount > 0) {
@@ -118,6 +125,7 @@ class LevelScene extends Player {
                         // Check for win
                         if(ingredientInRecipe.amount === 0) {
                             if(this.currentRecipe.getIngredients().every(i => i.amount === 0)) {
+                                this.nextLevel();
                                 this.resetGame();
                                 this.game.setActiveScene("winnerScene");
                             }
@@ -126,7 +134,6 @@ class LevelScene extends Player {
                 }
                 // draw recipe text
                 this.currentRecipe.draw();
-                console.log(this.currentRecipe)
                 return true
                 } else {
                     // Set timer to 0
@@ -139,7 +146,7 @@ class LevelScene extends Player {
     }
 
     resetCurrentRecipe(){
-        this.currentRecipe = this.originalRecipe;
+        // this.currentRecipe = this.originalRecipe;
     }
 }
 

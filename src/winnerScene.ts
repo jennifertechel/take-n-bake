@@ -28,6 +28,8 @@ class WinnerScene extends MessageBox {
     
     public draw() {
 
+        cursor(ARROW);
+
         // Draw the messageBox with title
         super.draw();
 
