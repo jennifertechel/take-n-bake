@@ -4,8 +4,6 @@
 
 class Ingredients extends MovingObject {
     protected name: string;
-    //private ingredientsTypes: Ingredient[];
-    //private previousIngredient: IngredientKey | undefined;
 
     constructor (
         image: p5.Image, 
