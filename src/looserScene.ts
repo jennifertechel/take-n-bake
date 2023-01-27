@@ -11,8 +11,8 @@ class LooserScene extends MessageBox {
         super("Ops... \n ");
         this.instruction = 'you caught the wrong ingridient...try again! ';
         this.game = game;
-        this.buttonRestart = new Button(createVector(innerWidth/2-225, 480), "Restart", "levelScene");
-        this.buttonQuit = new Button(createVector(innerWidth/2+25, 480), "Quit game", "startScene");
+        this.buttonRestart = new Button(createVector(innerWidth/2-225, 500), "Restart", "levelScene");
+        this.buttonQuit = new Button(createVector(innerWidth/2+25, 500), "Quit game", "startScene");
         this.image = images.spilledBowl;
     }
 
@@ -33,6 +33,6 @@ class LooserScene extends MessageBox {
         this.buttonQuit.draw();
         this.buttonRestart.checkHover();
         this.buttonQuit.checkHover();
-        image(this.image, innerWidth/2-150, innerHeight/2-145);
+        image(this.image, innerWidth/2-150, innerHeight/2-120);
     }
 }
