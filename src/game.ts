@@ -16,7 +16,7 @@ class Game implements IScene {
     constructor() {
       this.startScene = new StartScene(this);
       this.menuScene = new MenuScene(this);
-      this.recipeScene = new RecipeScene();
+      this.recipeScene = new RecipeScene(this, 1);
       this.levelScene = new LevelScene(this);
       this.winnerScene = new WinnerScene(this, 1);
       this.looserScene = new LooserScene(this);
