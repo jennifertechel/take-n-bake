@@ -13,6 +13,7 @@ class LevelScene extends Player {
     private ingredientTypes: Ingredient[] = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
     private player: Player;    
     private lastIngredient: Ingredient | undefined;
+    private originalRecipe: Recipe;
 
     constructor(game: IScene) {
         super(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
@@ -27,7 +28,7 @@ class LevelScene extends Player {
         this.ingredientTypes = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
         this.player = new Player(images.playerBowl, createVector(width * 0.5-110, height * .70), createVector(220, 200), createVector(0, 0));
         this.lastIngredient = undefined;
-
+        this.originalRecipe = this.recipeFactory.getRecipe(2);
     }
     
 
@@ -42,8 +43,15 @@ class LevelScene extends Player {
             ingredient.fall();
         }
         
-        this.ingredientCollisionWithPlayer();
+        this.handleCaughtIngredients();
         this.player.update();
+    }
+
+    private resetGame(): void {
+        this.currentRecipe = this.recipeFactory.getRecipe(2);
+        this.timer.reset();
+        this.ingredients = [];
+        console.log("reset")
     }
     
     public draw() {
@@ -55,24 +63,10 @@ class LevelScene extends Player {
         stroke("#C6E3DE")
         fill("#F5F5F5");
         rect(30, 30, 220, 362);
-
-        // Recipe text
-        textSize(26);
-        fill("#808080");
-        textAlign(LEFT, TOP);
-        noStroke()
-        let recipe = this.recipeFactory.getRecipe(2);
-        let yPos = 130; // start position for first line of text
         
-        for(let i = 0; i < recipe.getIngredients().length; i++) {
-            text(recipe.getIngredients()[i].amount + " " + recipe.getIngredients()[i].name, 60, yPos+i*40);
-        }
-
-        // Recipe title
-        textStyle(BOLD);
-        text(recipe.getName(), 60, 70);
-
         // Timer
+        noStroke();
+        fill("#808080")
         text(this.timer.getTime(), windowWidth -120, 20);
 
         // Tablecloth
@@ -85,6 +79,7 @@ class LevelScene extends Player {
 
         this.player.handleInput();
         this.player.draw();
+        this.currentRecipe.draw();
     }
 
     public createIngredient() {
@@ -103,29 +98,48 @@ class LevelScene extends Player {
         return this.currentRecipe.getIngredients().some(ingredientData => ingredientData.name === ingredientName);
     }
 
-    public ingredientCollisionWithPlayer(): boolean {
+    public handleCaughtIngredients(): boolean {
         for (let ingredient of this.ingredients) {
+
             if (ingredient.isCollidingWithPlayer(this.player.getPosition(), this.player.getSize())) {
+                
                 if (this.isIngredientInCurrentRecipe(ingredient.getName())){
                     console.log("Ingredient hit: " + ingredient.getName());
-                    // remove the caught ingredient
+                    // remove the caught ingredient from screen
                     let index = this.ingredients.indexOf(ingredient);
                     this.ingredients.splice(index, 1);
-                    return true
+    
+                    // remove the caught ingredient from the currentRecipe
+                    let ingredientInRecipe = this.currentRecipe.getIngredients().find(i => i.name === ingredient.getName())
+                    if(ingredientInRecipe) {
+                    // If amount is over 0 decrese amount
+                    if(ingredientInRecipe.amount > 0) {
+                        ingredientInRecipe.amount -= 1;
+                        // Check for win
+                        if(ingredientInRecipe.amount === 0) {
+                            if(this.currentRecipe.getIngredients().every(i => i.amount === 0)) {
+                                this.resetGame();
+                                this.game.setActiveScene("winnerScene");
+                            }
+                        }
+                    }
+                }
+                // draw recipe text
+                this.currentRecipe.draw();
+                console.log(this.currentRecipe)
+                return true
                 } else {
-                    this.ingredients = [];
                     // Set timer to 0
+                    this.resetGame();
                     this.game.setActiveScene("looserScene");
                 }
             }
         }
         return false;
-    }    
+    }
+
+    resetCurrentRecipe(){
+        this.currentRecipe = this.originalRecipe;
+    }
 }
 
-
-    // public drawRecipe(recipe: Recipe) {
-    //     textSize(20);
-    //     let currentRecipe = this.recipeFactory.getRecipe(1); // 1 är nivånummer
-    //     this.drawRecipe(currentRecipe);
-    // }
