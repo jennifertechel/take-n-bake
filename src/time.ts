@@ -5,6 +5,10 @@ class Time {
         this.time = millis();
     }
 
+    public reset() {
+        this.time = 0;
+    }
+
     public update() {
         this.time = millis();
         this.time = Math.floor(this.time / 1000);
