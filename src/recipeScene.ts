@@ -3,37 +3,36 @@
 
 class RecipeScene extends MessageBox {
     private game: IScene;
+    private gameLevel: ILevel;
     private recipeFactory: RecipeFactory;
     private buttonStartGame: Button;
 
-
-    constructor(game: IScene, time: number) {
+    constructor(game: IScene, time: number, gameLevel: ILevel) {
         super("Lets make a");
         this.game = game;
+        this.gameLevel = gameLevel;
         this.recipeFactory = new RecipeFactory();
         this.buttonStartGame = new Button(createVector(innerWidth/2-100, innerHeight/2 + 155), "Start", "levelScene");
+        
+    }
     
-    }
-    public drawRecipe(recipe: Recipe) {
-        textSize(20);
-        let currentRecipe = this.recipeFactory.getRecipe(1);
-        this.drawRecipe(currentRecipe);
-    }
-
     public update() {
         this.buttonStartGame.update();
     }
     
     public draw() {
+        let currentLevel = this.gameLevel.getCurrentLevel();
+
+        // let level = this.game.getCurrentLevel();
+        console.log("Current level:", currentLevel);
         // Ritar ut messageBox
         super.draw();
-        
 
-    // Recipe text
+        // Recipe text
         textSize(26);
         fill("#808080");
         noStroke()
-        let recipe = this.recipeFactory.getRecipe(2);
+        let recipe = this.recipeFactory.getRecipe(currentLevel);
         let yPos = 330; // start position for first line of text
         for(let i = 0; i < recipe.getIngredients().length; i++) {
         text(recipe.getIngredients()[i].amount + " " + recipe.getIngredients()[i].name, windowWidth/2, yPos+i*40);
