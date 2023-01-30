@@ -30,7 +30,6 @@ class Recipe {
       } else {
           fill("#808080");
       }
-
         text(this.ingredients[i].amount + " " + this.ingredients[i].name, 60, yPos + i * 40);
     }
 
