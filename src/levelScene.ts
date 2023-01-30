@@ -62,7 +62,7 @@ class LevelScene extends Player {
         strokeWeight(20);
         stroke("#C6E3DE")
         fill("#F5F5F5");
-        rect(30, 30, 220, 362);
+        rect(30, 30, 240, 405);
         
         // Timer
         noStroke();
