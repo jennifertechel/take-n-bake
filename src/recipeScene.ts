@@ -21,7 +21,7 @@ class RecipeScene extends MessageBox {
     public draw(){
 
         super.draw(); //Messagebox
-        textSize(55);
+        textSize(50);
         fill("#808080");
         textAlign(LEFT);
         noStroke();
@@ -37,7 +37,7 @@ class RecipeScene extends MessageBox {
         fill("#808080");
         text("Let's make " + recipe.getName() + "!", 470, 200);
         textAlign(CENTER, TOP);
-        textLeading(10);
+        
 
         this.RecipeSceneBackground
 
