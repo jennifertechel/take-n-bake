@@ -30,12 +30,12 @@ class RecipeScene extends MessageBox {
         
     
         for(let i = 0; i < recipe.getIngredients().length; i++) {
-            text(recipe.getIngredients()[i].amount + " " + recipe.getIngredients()[i].name, 665, yPos+i*40);
+            text(recipe.getIngredients()[i].amount + " " + recipe.getIngredients()[i].name, 625, yPos+i*40);
         }
 
         textStyle(BOLD);
         fill("#808080");
-        text(recipe.getName(), 635, 200);
+        text(recipe.getName(), 605, 200);
         textSize(100);
         textAlign(CENTER, TOP);
         textLeading(10);
