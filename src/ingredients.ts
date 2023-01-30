@@ -1,7 +1,6 @@
 /// <reference path="movingObject.ts" />
 /// <reference path="recipeFactory.ts" />
 
-
 class Ingredients extends MovingObject {
     protected name: string;
 
@@ -28,7 +27,7 @@ class Ingredients extends MovingObject {
 }
    
    public randomizeVelocity() {
-        this.velocity = createVector(0, 2);
+        this.velocity = createVector(0, 10);
    }
 
     public isCollidingWithPlayer(playerPosition: p5.Vector, playerSize: p5.Vector): boolean {
