@@ -1,12 +1,13 @@
 /// <reference path="player.ts" />
 /// <reference path="recipeFactory.ts" />
+/// <reference path="time.ts" />
 
 class LevelScene extends Player {
     private tableCloth: p5.Image;
     private recipeFactory: RecipeFactory;
     private recipeBackground: p5.Vector;
     private game: IScene;
-    private timer: Time;
+    private timer: Time; 
     private time: number;
     private ingredients: Ingredients[] = [];
     private ingredientTypes: Ingredient[] = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
@@ -15,6 +16,8 @@ class LevelScene extends Player {
     private level: number;
     private originalRecipe: Recipe;
     private currentRecipe: Recipe;
+    private resetTime: Time;
+    private currentTime: Time;
 
     constructor(game: IScene) {
         super(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
@@ -31,6 +34,8 @@ class LevelScene extends Player {
         this.level = 1;
         this.originalRecipe = this.recipeFactory.getRecipe(this.level);
         this.currentRecipe = this.recipeFactory.getRecipe(this.level);
+        this.currentTime = this.time.getTime(this.formattedTime);
+        this.resetTime = this.time.getTime(this.formattedaTime);
     }
     public nextLevel(): void {
         this.level++;
@@ -145,8 +150,10 @@ class LevelScene extends Player {
         return false;
     }
 
-    resetCurrentRecipe(){
-        // this.currentRecipe = this.originalRecipe;
-    }
+    resetLevelScene() {
+        this.currentTime = this.resetTime;
+        this.currentRecipe = this.originalRecipe;
+        updateDisplay();
+      }
 }
 
