@@ -1,8 +1,8 @@
 /// <reference path="messageBox.ts" />
-/// <reference path="recipe.ts" />
 /// <reference path="recipeFactory.ts" />
-
-class RecipeScene extends MessageBox {
+/// <reference path="recipe.ts" />
+    
+    class RecipeScene extends MessageBox {
 
     private RecipeSceneBackground: p5.Vector;
     // private tableCloth: p5.Image;
@@ -27,42 +27,7 @@ class RecipeScene extends MessageBox {
         textAlign(LEFT);
         noStroke();
         let recipe = this.recipeFactory.getRecipe(1);
-        let yPos = 325; // start position for first line of text
-        
-    
-
-    private game: IScene;
-    private gameLevel: ILevel;
-    private recipeFactory: RecipeFactory;
-    private buttonStartGame: Button;
-
-    constructor(game: IScene, time: number, gameLevel: ILevel) {
-        super("Lets make a");
-        this.game = game;
-        this.gameLevel = gameLevel;
-        this.recipeFactory = new RecipeFactory();
-        this.buttonStartGame = new Button(createVector(innerWidth/2-100, innerHeight/2 + 155), "Start", "levelScene");
-        
-    }
-    
-    public update() {
-        this.buttonStartGame.update();
-    }
-    
-    public draw() {
-        let currentLevel = this.gameLevel.getCurrentLevel();
-
-        // let level = this.game.getCurrentLevel();
-        console.log("Current level:", currentLevel);
-        // Ritar ut messageBox
-        super.draw();
-
-        // Recipe text
-        textSize(26);
-        fill("#808080");
-        noStroke()
-        let recipe = this.recipeFactory.getRecipe(currentLevel);
-        let yPos = 330; // start position for first line of text
+        let yPos = 320;
 
         for(let i = 0; i < recipe.getIngredients().length; i++) {
             text(recipe.getIngredients()[i].amount + " " + recipe.getIngredients()[i].name, 625, yPos+i*40);
@@ -70,9 +35,10 @@ class RecipeScene extends MessageBox {
 
         textStyle(BOLD);
         fill("#808080");
+        textSize(55);
         text("Let's make " + recipe.getName() + "!", 470, 200);
         textAlign(CENTER, TOP);
-        
+        textLeading(10);
 
         this.RecipeSceneBackground
 
@@ -80,5 +46,4 @@ class RecipeScene extends MessageBox {
         this.buttonStartPlaying.draw();
         this.buttonStartPlaying.checkHover();
     }
-
-}
+ }
