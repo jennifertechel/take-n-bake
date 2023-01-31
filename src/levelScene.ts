@@ -83,6 +83,7 @@ class LevelScene extends Player {
     }
 
     public createIngredient() {
+        let level = this.gameLevel.getCurrentLevel();
         let randomIngredient = this.ingredientTypes[Math.floor(Math.random()*this.ingredientTypes.length)];
         while (randomIngredient === this.lastIngredient) {
             randomIngredient = this.ingredientTypes[Math.floor(Math.random()*this.ingredientTypes.length)];
@@ -90,9 +91,10 @@ class LevelScene extends Player {
         this.lastIngredient = randomIngredient;
         const ingredient = this.recipeFactory.getIngredient(randomIngredient);
         ingredient.randomizeStartPosition();
-        ingredient.randomizeVelocity();
+        ingredient.setVelocityForLevels(level);
         this.ingredients.push(ingredient);
     }
+    
 
     private isIngredientInCurrentRecipe(ingredientName: string): boolean {
         return this.currentRecipe.getIngredients().some(ingredientData => ingredientData.name === ingredientName);
