@@ -50,7 +50,10 @@ public isCollidingWithPlayer(playerPosition: p5.Vector, playerSize: p5.Vector): 
         const pt = playerPosition.y;
         const verticalOverlap = ib > pt && it < pb;
 
-        return horizontalOverlap && verticalOverlap // && dx < dx; dx < p.w/2
+        const deltaX = Math.min(ir, pr) - Math.max(il, pl);
+        const deltaY = Math.min(ib, pb) - Math.max(it, pt);
+
+        return horizontalOverlap && verticalOverlap && deltaY < deltaX && deltaX < playerSize.y/2;
     }
     
     public getName(){
