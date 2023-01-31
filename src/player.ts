@@ -16,9 +16,9 @@ class Player extends MovingObject {
 
       // handle arrow key input to update the player's velocity
       if (keyIsDown(LEFT_ARROW)) {
-          this.velocity.x = -16;
+          this.velocity.x = -22;
       } else if (keyIsDown(RIGHT_ARROW)) {
-          this.velocity.x = 16;
+          this.velocity.x = 22;
       } else {
           this.velocity.x = 0;
       }
