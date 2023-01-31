@@ -13,6 +13,7 @@ class WinnerScene extends MessageBox {
         super("Congrats!");
         this.game = game;
         this.score = new Score(time);
+        this.score.setScorOfStars(time);
         this.buttonNextLevel = new Button(createVector(innerWidth/2-220, innerHeight/2 + 155), "Next level", "recipeScene");
         this.buttonMenu = new Button(createVector(innerWidth/2+20, innerHeight/2 + 155), "Menu", "menuScene");
         // Change image to the current recipe
@@ -39,7 +40,7 @@ class WinnerScene extends MessageBox {
         }
         for (let i = 0; i < 3 - Number(this.score.getStars()); i++) {
             image(this.starOutlined, innerWidth/2 - 50 + (i * 80)+ Number(this.score.getStars())*50, innerHeight/2 + 58);
-        }
+        }   
 
         this.buttonNextLevel.draw();
         this.buttonMenu.draw();
