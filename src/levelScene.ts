@@ -29,7 +29,7 @@ class LevelScene extends Player {
         this.time = 0;
         this.ingredients = [];
         this.ingredientTypes = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
-        this.player = new Player(images.playerBowl, createVector(width * 0.5-110, height * .70), createVector(220, 200), createVector(0, 0));
+        this.player = new Player(images.playerBowl, createVector(width * 0.5-110, height * .70), createVector(177, 146), createVector(0, 0));
         this.lastIngredient = undefined;
         this.gameLevel = gameLevel;
         this.currentRecipe = this.recipeFactory.getRecipe(1);
@@ -41,7 +41,20 @@ class LevelScene extends Player {
     public update() {
         this.timer.update();
         this.time += deltaTime;
-        if (this.time > 1500) {
+        let level = this.gameLevel.getCurrentLevel();
+        let timeBetweenIngredients = 1200;
+        switch(level) {
+            case 1:
+                timeBetweenIngredients = 1200;
+                break;
+            case 2:
+                timeBetweenIngredients = 800;
+                break;
+            case 3:
+                timeBetweenIngredients = 500;
+                break;
+        } 
+        if (this.time > timeBetweenIngredients) {
             this.createIngredient();
             this.time = 1;
         }
@@ -90,6 +103,7 @@ class LevelScene extends Player {
     }
 
     public createIngredient() {
+        let level = this.gameLevel.getCurrentLevel();
         let randomIngredient = this.ingredientTypes[Math.floor(Math.random()*this.ingredientTypes.length)];
         while (randomIngredient === this.lastIngredient) {
             randomIngredient = this.ingredientTypes[Math.floor(Math.random()*this.ingredientTypes.length)];
@@ -97,9 +111,10 @@ class LevelScene extends Player {
         this.lastIngredient = randomIngredient;
         const ingredient = this.recipeFactory.getIngredient(randomIngredient);
         ingredient.randomizeStartPosition();
-        ingredient.randomizeVelocity();
+        ingredient.setVelocityForLevels(level);
         this.ingredients.push(ingredient);
     }
+    
 
     private isIngredientInCurrentRecipe(ingredientName: string): boolean {
         return this.currentRecipe.getIngredients().some(ingredientData => ingredientData.name === ingredientName);
@@ -126,6 +141,7 @@ class LevelScene extends Player {
                         if(ingredientInRecipe.amount === 0) {
                             if(this.currentRecipe.getIngredients().every(i => i.amount === 0)) {
                                 this.gameLevel.nextLevel();
+                                this.ingredients = [];
                                 this.game.setActiveScene("winnerScene");
                             }
                         }

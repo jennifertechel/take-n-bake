@@ -29,6 +29,9 @@ class RecipeFactory {
       }, {
         name: 'milk',
         amount: 3
+      }, {
+        name: 'flour',
+        amount: 2
       }]
     }, {
       name: "Blueberry Pie",
