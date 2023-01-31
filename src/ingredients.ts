@@ -38,20 +38,20 @@ class Ingredients extends MovingObject {
     } }
 
 public isCollidingWithPlayer(playerPosition: p5.Vector, playerSize: p5.Vector): boolean {
-        return this.position.x + this.size.x > playerPosition.x
-        && this.position.x < playerPosition.x + playerSize.x
-        && this.position.y + this.size.y >= playerPosition.y
-        && this.position.y < playerPosition.y;
+        const ir = this.position.x + this.size.x;
+        const il = this.position.x;
+        const pr = playerPosition.x + playerSize.x;
+        const pl = playerPosition.x;
+        const horizontalOverlap = ir > pl && il < pr;
+        
+        const ib = this.position.y + this.size.y;
+        const it = this.position.y;
+        const pb = playerPosition.y + playerSize.y;
+        const pt = playerPosition.y;
+        const verticalOverlap = ib > pt && it < pb;
+
+        return horizontalOverlap && verticalOverlap // && dx < dx; dx < p.w/2
     }
-
-    //   Underifrån bara
-    //   public isCollidingWithPlayer(playerPosition: p5.Vector, playerSize: p5.Vector): boolean {
-    //     return this.position.x + this.size.x > playerPosition.x
-    //     && this.position.x < playerPosition.x + playerSize.x
-    //     && this.position.y < playerPosition.y + playerSize.y
-    //     && this.position.y + this.size.y >= playerPosition.y + playerSize.y;
-    // }
-
     
     public getName(){
         return this.name;
