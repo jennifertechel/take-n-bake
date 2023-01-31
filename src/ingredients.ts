@@ -28,7 +28,7 @@ class Ingredients extends MovingObject {
     public setVelocityForLevels(level: number) {
         switch (level) {
         case 1:
-        this.velocity = createVector(0, 6);
+        this.velocity = createVector(0, 4);
         break;
         case 2:
         this.velocity = createVector(0, 8);
