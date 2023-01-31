@@ -34,7 +34,20 @@ class LevelScene extends Player {
     public update() {
         this.timer.update();
         this.time += deltaTime;
-        if (this.time > 800) {
+        let level = this.gameLevel.getCurrentLevel();
+        let timeBetweenIngredients = 1200;
+        switch(level) {
+            case 1:
+                timeBetweenIngredients = 1200;
+                break;
+            case 2:
+                timeBetweenIngredients = 800;
+                break;
+            case 3:
+                timeBetweenIngredients = 500;
+                break;
+        } 
+        if (this.time > timeBetweenIngredients) {
             this.createIngredient();
             this.time = 1;
         }
