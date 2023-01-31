@@ -1,7 +1,11 @@
 /// <reference path="player.ts" />
 /// <reference path="recipeFactory.ts" />
 
-class LevelScene extends Player {
+interface ITime {
+    getTime: () => number;
+}
+
+class LevelScene implements ITime {
     private tableCloth: p5.Image;
     private recipeFactory: RecipeFactory;
     private recipeBackground: p5.Vector;
@@ -16,7 +20,7 @@ class LevelScene extends Player {
     private currentRecipe: Recipe;
 
     constructor(game: IScene, gameLevel: ILevel) {
-        super(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
+        // super(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
         this.tableCloth = images.backgroundObjects.tableCloth;
         this.recipeFactory = new RecipeFactory();
         this.recipeBackground = createVector((innerWidth/4-225), 580, 50);
@@ -49,6 +53,10 @@ class LevelScene extends Player {
     private resetGame(): void {
         this.timer.reset();
         this.ingredients = [];
+    }
+
+    public getTime() {
+        return this.timer.getRealTime();
     }
     
     public draw() {
