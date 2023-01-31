@@ -5,7 +5,7 @@ class Score {
 
     constructor(time: number) {
         this.time = time;
-        this.stars = this.setScorOfStars(time);
+        this.stars = this.setScoreOfStars(time);
         this.score = this.setScore(time);
     }
 
@@ -20,7 +20,7 @@ class Score {
         return this.stars;
     }*/
 
-    public setScorOfStars(time:number) {
+    public setScoreOfStars(time:number) {
         if (time <= 60) {
             this.stars = 3;
         } else if (time <= 30) {
@@ -34,7 +34,7 @@ class Score {
 
     }
 
-    public setScore(time:number) {
+    public setScore(time:number) {  
         this.score = Math.round(1000/time);
         return this.score;
     }
