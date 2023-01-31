@@ -119,6 +119,7 @@ class LevelScene extends Player {
                         if(ingredientInRecipe.amount === 0) {
                             if(this.currentRecipe.getIngredients().every(i => i.amount === 0)) {
                                 this.gameLevel.nextLevel();
+                                this.ingredients = [];
                                 this.game.setActiveScene("winnerScene");
                             }
                         }
