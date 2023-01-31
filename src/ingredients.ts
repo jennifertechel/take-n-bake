@@ -22,7 +22,7 @@ class Ingredients extends MovingObject {
    }
  
     public randomizeStartPosition() {
-        this.position = createVector(random(width), -10);
+        this.position = createVector(random(width - this.size.x), -this.size.y);
     }
    
     public setVelocityForLevels(level: number) {
