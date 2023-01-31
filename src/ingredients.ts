@@ -15,20 +15,27 @@ class Ingredients extends MovingObject {
         this.name = name;
         this.image = images.ingredients[name];
         this.randomizeStartPosition();
-        this.randomizeVelocity();
     }
 
    public fall() {
         this.position.y += this.velocity.y;
    }
  
-   public randomizeStartPosition() {
+    public randomizeStartPosition() {
         this.position = createVector(random(width), -10);
-}
+    }
    
-   public randomizeVelocity() {
+    public setVelocityForLevels(level: number) {
+        switch (level) {
+        case 1:
+        this.velocity = createVector(0, 4);
+        break;
+        case 2:
+        this.velocity = createVector(0, 8);
+        break;
+        case 3: 
         this.velocity = createVector(0, 10);
-   }
+    } }
 
     public isCollidingWithPlayer(playerPosition: p5.Vector, playerSize: p5.Vector): boolean {
         return this.position.x + this.size.x > playerPosition.x
