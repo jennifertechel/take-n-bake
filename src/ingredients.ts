@@ -37,13 +37,22 @@ class Ingredients extends MovingObject {
         this.velocity = createVector(0, 10);
     } }
 
-   public isCollidingWithPlayer(playerPosition: p5.Vector, playerSize: p5.Vector): boolean {
+public isCollidingWithPlayer(playerPosition: p5.Vector, playerSize: p5.Vector): boolean {
         return this.position.x + this.size.x > playerPosition.x
         && this.position.x < playerPosition.x + playerSize.x
         && this.position.y + this.size.y >= playerPosition.y
         && this.position.y < playerPosition.y;
     }
 
+    //   Underifrån bara
+    //   public isCollidingWithPlayer(playerPosition: p5.Vector, playerSize: p5.Vector): boolean {
+    //     return this.position.x + this.size.x > playerPosition.x
+    //     && this.position.x < playerPosition.x + playerSize.x
+    //     && this.position.y < playerPosition.y + playerSize.y
+    //     && this.position.y + this.size.y >= playerPosition.y + playerSize.y;
+    // }
+
+    
     public getName(){
         return this.name;
     }
