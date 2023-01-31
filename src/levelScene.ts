@@ -25,7 +25,7 @@ class LevelScene extends Player {
         this.time = 0;
         this.ingredients = [];
         this.ingredientTypes = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
-        this.player = new Player(images.playerBowl, createVector(width * 0.5-110, height * .70), createVector(220, 200), createVector(0, 0));
+        this.player = new Player(images.playerBowl, createVector(width * 0.5-110, height * .70), createVector(177, 146), createVector(0, 0));
         this.lastIngredient = undefined;
         this.gameLevel = gameLevel;
         this.currentRecipe = this.recipeFactory.getRecipe(1);
@@ -34,7 +34,7 @@ class LevelScene extends Player {
     public update() {
         this.timer.update();
         this.time += deltaTime;
-        if (this.time > 1500) {
+        if (this.time > 500) {
             this.createIngredient();
             this.time = 1;
         }
@@ -62,7 +62,7 @@ class LevelScene extends Player {
         strokeWeight(20);
         stroke("#C6E3DE")
         fill("#F5F5F5");
-        rect(30, 30, 220, 362);
+        rect(30, 30, 240, 405);
         
         // Timer
         noStroke();
@@ -121,6 +121,7 @@ class LevelScene extends Player {
                         if(ingredientInRecipe.amount === 0) {
                             if(this.currentRecipe.getIngredients().every(i => i.amount === 0)) {
                                 this.gameLevel.nextLevel();
+                                this.ingredients = [];
                                 this.game.setActiveScene("winnerScene");
                             }
                         }

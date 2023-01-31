@@ -1,7 +1,6 @@
 /// <reference path="movingObject.ts" />
 /// <reference path="recipeFactory.ts" />
 
-
 class Ingredients extends MovingObject {
     protected name: string;
 
