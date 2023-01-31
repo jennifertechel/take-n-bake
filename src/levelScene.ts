@@ -15,6 +15,7 @@ class LevelScene extends Player {
     private lastIngredient: Ingredient | undefined;
     private gameLevel: ILevel;
     private currentRecipe: Recipe;
+    private originalRecipe: Time;
     private resetTime: Time;
     private currentTime: Time;
 
@@ -32,6 +33,7 @@ class LevelScene extends Player {
         this.lastIngredient = undefined;
         this.gameLevel = gameLevel;
         this.currentRecipe = this.recipeFactory.getRecipe(1);
+        this.originalRecipe =
         this.currentTime = this.time.getTime(this.formattedTime);
         this.resetTime = this.time.getTime(this.formattedaTime);
     }
