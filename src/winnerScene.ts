@@ -13,8 +13,8 @@ class WinnerScene extends MessageBox {
         super("Congrats!");
         this.game = game;
         this.score = new Score(time);
-        this.buttonNextLevel = new Button(createVector(innerWidth/2-220, innerHeight/2 + 155), "Next level", "recipeScene");
-        this.buttonMenu = new Button(createVector(innerWidth/2+20, innerHeight/2 + 155), "Menu", "menuScene");
+        this.buttonNextLevel = new Button(createVector(innerWidth/2-220, innerHeight/2 + 160), "Next level", "recipeScene");
+        this.buttonMenu = new Button(createVector(innerWidth/2+20, innerHeight/2 + 160), "Menu", "menuScene");
         // Change image to the current recipe
         this.image = images.recipes.pancake;
         this.starFilled = images.starFilled;
