@@ -20,6 +20,7 @@ class Game implements IScene, ILevel {
 
     constructor() {
       this.currentLevel = 1;
+      randomSeed(1)
       this.startScene = new StartScene(this);
       this.menuScene = new MenuScene(this);
       this.levelScene = new LevelScene(this, this);
@@ -73,6 +74,7 @@ class Game implements IScene, ILevel {
 
   public nextLevel(): number {
     this.currentLevel++;
+    randomSeed(this.currentLevel)
     if (this.currentLevel > 3) {
       this.currentLevel = 1;
     }
