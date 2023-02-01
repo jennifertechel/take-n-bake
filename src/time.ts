@@ -14,6 +14,10 @@ class Time {
         this.time = Math.floor(this.time / 1000);
     }
     
+    public getRealTime() {
+        return this.time;
+    }
+
     public getTime() {
         let minutes = Math.floor(this.time / 60);
         let seconds = this.time % 60;
