@@ -68,7 +68,7 @@ class Game implements IScene, ILevel {
 
     public setActiveScene(scene: Scene) {
       this.activeScene = scene;
-      // todo: gör fler saker om det behövs...
+      new LevelScene(this, this)
     }
 
   public nextLevel(): number {

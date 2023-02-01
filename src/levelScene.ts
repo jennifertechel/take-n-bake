@@ -19,9 +19,6 @@ class LevelScene implements ITime {
     private lastIngredient: Ingredient | undefined;
     private gameLevel: ILevel;
     private currentRecipe: Recipe;
-    // private originalRecipe: Time;
-    // private resetTime: Time;
-    // private currentTime: Time;
 
     constructor(game: IScene, gameLevel: ILevel) {
         // super(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
@@ -37,9 +34,6 @@ class LevelScene implements ITime {
         this.lastIngredient = undefined;
         this.gameLevel = gameLevel;
         this.currentRecipe = this.recipeFactory.getRecipe(1);
-        // this.originalRecipe =
-        // this.currentTime = this.time.getTime(this.formattedTime);
-        // this.resetTime = this.time.getTime(this.formattedaTime);
     }
 
     public update() {
@@ -123,7 +117,6 @@ class LevelScene implements ITime {
         this.ingredients.push(ingredient);
     }
     
-
     private isIngredientInCurrentRecipe(ingredientName: string): boolean {
         return this.currentRecipe.getIngredients().some(ingredientData => ingredientData.name === ingredientName);
     }
