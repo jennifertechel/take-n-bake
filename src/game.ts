@@ -75,6 +75,7 @@ class Game implements IScene, ILevel {
     this.currentLevel++;
     if (this.currentLevel > 3) {
       this.currentLevel = 1;
+      new LevelScene(this, this);
     }
     return this.currentLevel;
   }
