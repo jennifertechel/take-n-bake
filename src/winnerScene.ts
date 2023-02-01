@@ -33,11 +33,25 @@ class WinnerScene extends MessageBox {
 
         // Add all stars
         for (let i = 0; i < this.getStars(); i++) {
-            image(this.starFilled, innerWidth/2 - 110 + (i * 80), innerHeight/2 + 58);
+            push();
+            let x = innerWidth/2 - 124 + (i * 95);
+            let y = innerHeight/2 + 55;
+            x = x / 0.45;
+            y = y / 0.45;
+            scale(0.45);
+            image(this.starFilled, x, y);
+            pop();
         }
         for (let i = 0; i < 3 - Number(this.getStars()); i++) {
-            image(this.starOutlined, innerWidth/2 - 50 + (i * 80)+ Number(this.getStars())*50, innerHeight/2 + 58);
-        }   
+            push();
+            let x = innerWidth/2 - 50 + (i * 80) + Number(this.getStars()) * 50;
+            let y = innerHeight/2 + 55;
+            x = x / 0.45;
+            y = y / 0.45;
+            scale(0.45);
+            image(this.starOutlined, x, y);
+            pop();
+        }  
 
         this.buttonNextLevel.draw();
         this.buttonMenu.draw();
