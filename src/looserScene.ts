@@ -9,7 +9,7 @@ class LooserScene extends MessageBox {
 
     constructor(game: IScene) {
         super("Ops... \n ");
-        this.instruction = 'you caught the wrong ingridient...try again! ';
+        this.instruction = 'You caught the wrong ingredient...try again! ';
         this.game = game;
         this.buttonRestart = new Button(createVector(innerWidth/2-225, 500), "Restart", "levelScene");
         this.buttonQuit = new Button(createVector(innerWidth/2+25, 500), "Quit game", "startScene");
