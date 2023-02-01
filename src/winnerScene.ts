@@ -3,18 +3,18 @@
 class WinnerScene extends MessageBox {
     private buttonNextLevel: Button;
     private buttonMenu: Button;
-    private image: p5.Image;
+    private image: p5.Image | undefined;
     private starFilled: p5.Image;
     private starOutlined: p5.Image;
     private level: ITime;
+    private gameLevel: ILevel;
 
-    constructor(level: ITime) {
+    constructor(level: ITime, gameLevel: ILevel) {
         super("Congrats!");
-        this.level = level;
         this.buttonNextLevel = new Button(createVector(innerWidth/2-220, innerHeight/2 + 155), "Next level", "recipeScene");
         this.buttonMenu = new Button(createVector(innerWidth/2+20, innerHeight/2 + 155), "Menu", "menuScene");
-        // Change image to the current recipe
-        this.image = images.recipes.pancake;
+        this.gameLevel = gameLevel;
+        this.level = level;
         this.starFilled = images.starFilled;
         this.starOutlined = images.starOutlined;
     }
@@ -38,6 +38,17 @@ class WinnerScene extends MessageBox {
         for (let i = 0; i < 3 - Number(this.getStars()); i++) {
             image(this.starOutlined, innerWidth/2 - 50 + (i * 80)+ Number(this.getStars())*50, innerHeight/2 + 58);
         }   
+
+        // Image of the recipe
+        if (this.gameLevel.getCurrentLevel() == 2) {
+            this.image = images.recipes.pancake;
+        }
+        else if (this.gameLevel.getCurrentLevel() == 3) {
+            this.image = images.recipes.pie;
+        }
+        else {
+            this.image = images.recipes.chocolateCake;
+        };
 
         this.buttonNextLevel.draw();
         this.buttonMenu.draw();
