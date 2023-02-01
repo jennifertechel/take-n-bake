@@ -48,6 +48,18 @@ class Ingredients extends MovingObject {
         return this.name;
     }
 
+    public animate(time: number) {
+        console.log("in animate")
+        const amplitude = 250;
+        const frequency = 0.03;
+        const elapsedTime = time;
+        const angle = elapsedTime * frequency;
+        const x = this.position.x + amplitude * Math.cos(angle);
+        const y = this.position.y + amplitude * Math.sin(angle) * Math.cos(elapsedTime / 1000);
+        this.position.x = x;
+        this.position.y = y;
+    }
+
 }
 
 
