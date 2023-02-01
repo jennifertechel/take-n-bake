@@ -1,3 +1,4 @@
+/// <reference path="messageBox.ts" />
 
 class FinalScene extends MessageBox {
     private buttonMenu: Button;

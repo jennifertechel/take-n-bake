@@ -22,16 +22,16 @@ class RecipeFactory {
       image: images.recipes.pancake,
       ingredients: [{
         name: 'egg',
-        amount: 2
-      }, {
-        name: 'butter',
         amount: 1
       }, {
+        name: 'butter',
+        amount: 0
+      }, {
         name: 'milk',
-        amount: 3
+        amount: 0
       }, {
         name: 'flour',
-        amount: 2
+        amount: 0
       }]
     }, {
       name: "Blueberry Pie",
