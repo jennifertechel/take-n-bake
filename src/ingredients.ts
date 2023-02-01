@@ -37,23 +37,11 @@ class Ingredients extends MovingObject {
         this.velocity = createVector(0, 12);
     } }
 
-public isCollidingWithPlayer(playerPosition: p5.Vector, playerSize: p5.Vector): boolean {
-        const ir = this.position.x + this.size.x;
-        const il = this.position.x;
-        const pr = playerPosition.x + playerSize.x;
-        const pl = playerPosition.x;
-        const horizontalOverlap = ir > pl && il < pr;
-        
-        const ib = this.position.y + this.size.y;
-        const it = this.position.y;
-        const pb = playerPosition.y + playerSize.y;
-        const pt = playerPosition.y;
-        const verticalOverlap = ib > pt && it < pb;
-
-        const deltaX = Math.min(ir, pr) - Math.max(il, pl);
-        const deltaY = Math.min(ib, pb) - Math.max(it, pt);
-
-        return horizontalOverlap && verticalOverlap && deltaY < deltaX && deltaX < playerSize.y/2;
+    public isCollidingWithPlayer(playerPosition: p5.Vector, playerSize: p5.Vector): boolean {
+        return this.position.x + this.size.x > playerPosition.x
+        && this.position.x < playerPosition.x + playerSize.x
+        && this.position.y + this.size.y >= playerPosition.y
+        && this.position.y < playerPosition.y;
     }
     
     public getName(){
