@@ -46,7 +46,7 @@ class WinnerScene extends MessageBox {
         }
 
         // Check if level is three 
-        if (this.gameLevel.getCurrentLevel() !== 3) {
+        if (this.gameLevel.getCurrentLevel() <= 2) {
             this.buttonNextLevel.draw();
             this.buttonNextLevel.checkHover();
         }
