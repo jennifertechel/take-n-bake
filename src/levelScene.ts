@@ -20,7 +20,6 @@ class LevelScene implements ITime {
     private currentRecipe: Recipe;
 
     constructor(game: IScene, gameLevel: ILevel) {
-        // super(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
         this.tableCloth = images.backgroundObjects.tableCloth;
         this.recipeFactory = new RecipeFactory();
         this.recipeBackground = createVector((innerWidth/4-225), 580, 50);
@@ -115,50 +114,87 @@ class LevelScene implements ITime {
         ingredient.setVelocityForLevels(level);
         this.ingredients.push(ingredient);
     }
-    
 
-    private isIngredientInCurrentRecipe(ingredientName: string): boolean {
-        return this.currentRecipe.getIngredients().some(ingredientData => ingredientData.name === ingredientName);
-    }
+    // public handleCaughtIngredients(): void {
+    //     for (let ingredient of this.ingredients) {
+
+    //         if (ingredient.isCollidingWithPlayer(this.player.getPosition(), this.player.getSize())) {
+                
+    //             if (this.isIngredientInCurrentRecipe(ingredient.getName())){
+    //                 // remove the caught ingredient from screen
+    //                 let index = this.ingredients.indexOf(ingredient);
+    //                 this.ingredients.splice(index, 1);
+    
+    //                 // remove the caught ingredient from the currentRecipe
+    //                 let ingredientInRecipe = this.currentRecipe.getIngredients().find(i => i.name === ingredient.getName())
+                    
+    //                 // If amount is over 0 decrese amount
+    //                 if(typeof ingredientInRecipe !== 'undefined' && ingredientInRecipe.amount > 0) {
+    //                     ingredientInRecipe.amount -= 1;
+    //                     // If won level: update level and move to winnerScene
+    //                     if(ingredientInRecipe.amount === 0) {
+    //                         if(this.currentRecipe.getIngredients().every(i => i.amount === 0)) {
+    //                             this.gameLevel.nextLevel();
+    //                             this.ingredients = [];
+    //                             this.game.setActiveScene("winnerScene");
+    //                         }
+    //                     }
+    //                 }
+                
+    //             // draw recipe text
+    //             this.currentRecipe.draw();
+    //             } else {
+    //                 // Set timer to 0
+    //                 this.resetGame();
+    //                 this.game.setActiveScene("looserScene");
+    //             }
+    //         }
+    //     }
+    // }
 
     public handleCaughtIngredients(): void {
         for (let ingredient of this.ingredients) {
-
-            if (ingredient.isCollidingWithPlayer(this.player.getPosition(), this.player.getSize())) {
-                
-                if (this.isIngredientInCurrentRecipe(ingredient.getName())){
-                    // remove the caught ingredient from screen
-                    let index = this.ingredients.indexOf(ingredient);
-                    this.ingredients.splice(index, 1);
-    
-                    // remove the caught ingredient from the currentRecipe
-                    let ingredientInRecipe = this.currentRecipe.getIngredients().find(i => i.name === ingredient.getName())
-                    
-                    if(ingredientInRecipe) {
-                    // If amount is over 0 decrese amount
-                    if(ingredientInRecipe.amount > 0) {
-                        ingredientInRecipe.amount -= 1;
-                        // If won level: update level and move to winnerScene
-                        if(ingredientInRecipe.amount === 0) {
-                            if(this.currentRecipe.getIngredients().every(i => i.amount === 0)) {
-                                this.gameLevel.nextLevel();
-                                this.ingredients = [];
-                                this.game.setActiveScene("winnerScene");
-                            }
-                        }
-                    }
-                }
-                // draw recipe text
-                this.currentRecipe.draw();
-                } else {
-                    // Set timer to 0
-                    this.resetGame();
-                    this.game.setActiveScene("looserScene");
-                }
+            if (this.isCollidingWithPlayer(ingredient)) {
+                this.removeIngredient(ingredient);
+                this.updateCurrentRecipe(ingredient.getName());
             }
         }
     }
 
+    private isCollidingWithPlayer(ingredient: Ingredients): boolean {
+        return ingredient.isCollidingWithPlayer(
+            this.player.getPosition(),
+            this.player.getSize()
+        );
+    }
+
+    private removeIngredient(ingredient: Ingredients): void {
+        let index = this.ingredients.indexOf(ingredient);
+        this.ingredients.splice(index, 1);
+    }
+
+    private isCurrentRecipeComplete(): boolean {
+        return this.currentRecipe.getIngredients().every(i => i.amount === 0);
+    }
+    
+    private updateCurrentRecipe(ingredientName: string): void {
+        let ingredientInRecipe = this.currentRecipe.getIngredients().find(i => i.name === ingredientName)
+    
+        if (typeof ingredientInRecipe !== 'undefined' && ingredientInRecipe.amount > 0) {
+            ingredientInRecipe.amount -= 1;
+            if (ingredientInRecipe.amount === 0) {
+                if (this.isCurrentRecipeComplete()) {
+                    this.gameLevel.nextLevel();
+                    this.ingredients = [];
+                    this.game.setActiveScene("winnerScene");
+                }// draw recipe text
+              this.currentRecipe.draw();
+               } else if (!ingredientInRecipe) {
+                this.game.setActiveScene("looserScene");
+            }
+            }
+        }
+        
     resetCurrentRecipe(){
     }
 }
