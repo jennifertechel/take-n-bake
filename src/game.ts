@@ -1,4 +1,4 @@
-type Scene = "startScene" | "menuScene" | "recipeScene" | "levelScene" | "winnerScene" | "looserScene" ;
+type Scene = "startScene" | "menuScene" | "recipeScene" | "levelScene" | "winnerScene" | "looserScene" | "finalScene";
 
 interface IScene {
   setActiveScene(scene: Scene): void;
@@ -15,6 +15,7 @@ class Game implements IScene, ILevel {
     private levelScene: LevelScene;
     private looserScene: LooserScene;
     private winnerScene: WinnerScene;
+    private finalScene: FinalScene;
     private activeScene: Scene;
     private currentLevel: number;
 
@@ -26,7 +27,9 @@ class Game implements IScene, ILevel {
       this.recipeScene = new RecipeScene(this, 1, this);
       this.winnerScene = new WinnerScene(this.levelScene);
       this.looserScene = new LooserScene(this);
-      this.activeScene = "levelScene";
+      this.finalScene = new FinalScene();
+
+      this.activeScene = "finalScene";
     }
 
     public update() {
@@ -43,6 +46,8 @@ class Game implements IScene, ILevel {
         this.winnerScene.update();
       } else if (this.activeScene === "looserScene") {
         this.looserScene.update();
+      } else if (this.activeScene === "finalScene") {
+        this.finalScene.update();
       }
     }
 
@@ -59,6 +64,8 @@ class Game implements IScene, ILevel {
         this.winnerScene.draw();
       } else if (this.activeScene === "looserScene") {
         this.looserScene.draw();
+      } else if (this.activeScene === "finalScene") {
+        this.finalScene.draw();
       }
     }
 
