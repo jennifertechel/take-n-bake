@@ -18,6 +18,7 @@ interface Images {
     starFilled: p5.Image;
     playerBowl: p5.Image;
     spilledBowl: p5.Image;
+    grandma: p5.Image;
     ingredients: {
         strawberry: p5.Image;
         apple: p5.Image;
@@ -57,6 +58,7 @@ function preload() {
         starFilled: loadImage("assets/images/star.svg"),
         playerBowl: loadImage("assets/images/BOWL.svg"),
         spilledBowl: loadImage("assets/images/spilled-bowl.svg"),
+        grandma: loadImage("assets/images/grandma.svg"),
         ingredients: {
             strawberry: loadImage("assets/images/Ingredients/strawberry.svg"),
             apple: loadImage("assets/images/Ingredients/apple.svg"),
