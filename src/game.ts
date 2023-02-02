@@ -20,11 +20,12 @@ class Game implements IScene, ILevel {
 
     constructor() {
       this.currentLevel = 1;
+      randomSeed(1)
       this.startScene = new StartScene(this);
       this.menuScene = new MenuScene(this);
       this.levelScene = new LevelScene(this, this);
       this.recipeScene = new RecipeScene(this, 1, this);
-      this.winnerScene = new WinnerScene(this, 1);
+      this.winnerScene = new WinnerScene(this.levelScene);
       this.looserScene = new LooserScene(this);
       this.activeScene = "winnerScene";
     }
@@ -68,13 +69,15 @@ class Game implements IScene, ILevel {
 
     public setActiveScene(scene: Scene) {
       this.activeScene = scene;
-      // todo: gör fler saker om det behövs...
+      this.levelScene = new LevelScene(this, this);
     }
 
   public nextLevel(): number {
     this.currentLevel++;
+    randomSeed(this.currentLevel)
     if (this.currentLevel > 3) {
       this.currentLevel = 1;
+      new LevelScene(this, this);
     }
     return this.currentLevel;
   }

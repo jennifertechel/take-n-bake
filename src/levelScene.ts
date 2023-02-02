@@ -1,12 +1,17 @@
 /// <reference path="player.ts" />
 /// <reference path="recipeFactory.ts" />
+/// <reference path="time.ts" />
 
-class LevelScene extends Player {
+interface ITime {
+    getTime: () => number;
+}
+
+class LevelScene implements ITime {
     private tableCloth: p5.Image;
     private recipeFactory: RecipeFactory;
     private recipeBackground: p5.Vector;
     private game: IScene;
-    private timer: Time;
+    private timer: Time; 
     private time: number;
     private ingredients: Ingredients[] = [];
     private ingredientTypes: Ingredient[] = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
@@ -16,7 +21,7 @@ class LevelScene extends Player {
     private currentRecipe: Recipe;
 
     constructor(game: IScene, gameLevel: ILevel) {
-        super(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
+        // super(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
         this.tableCloth = images.backgroundObjects.tableCloth;
         this.recipeFactory = new RecipeFactory();
         this.recipeBackground = createVector((innerWidth/4-225), 580, 50);
@@ -34,7 +39,20 @@ class LevelScene extends Player {
     public update() {
         this.timer.update();
         this.time += deltaTime;
-        if (this.time > 500) {
+        let level = this.gameLevel.getCurrentLevel();
+        let timeBetweenIngredients = 1200;
+        switch(level) {
+            case 1:
+                timeBetweenIngredients = 1200;
+                break;
+            case 2:
+                timeBetweenIngredients = 800;
+                break;
+            case 3:
+                timeBetweenIngredients = 500;
+                break;
+        } 
+        if (this.time > timeBetweenIngredients) {
             this.createIngredient();
             this.time = 1;
         }
@@ -49,6 +67,10 @@ class LevelScene extends Player {
     private resetGame(): void {
         this.timer.reset();
         this.ingredients = [];
+    }
+
+    public getTime() {
+        return this.timer.getRealTime();
     }
     
     public draw() {
@@ -83,17 +105,18 @@ class LevelScene extends Player {
     }
 
     public createIngredient() {
-        let randomIngredient = this.ingredientTypes[Math.floor(Math.random()*this.ingredientTypes.length)];
+        let level = this.gameLevel.getCurrentLevel();
+        let randomIngredient = this.ingredientTypes[Math.floor(random()*this.ingredientTypes.length)];
         while (randomIngredient === this.lastIngredient) {
-            randomIngredient = this.ingredientTypes[Math.floor(Math.random()*this.ingredientTypes.length)];
+            randomIngredient = this.ingredientTypes[Math.floor(random()*this.ingredientTypes.length)];
         }
         this.lastIngredient = randomIngredient;
         const ingredient = this.recipeFactory.getIngredient(randomIngredient);
         ingredient.randomizeStartPosition();
-        ingredient.randomizeVelocity();
+        ingredient.setVelocityForLevels(level);
         this.ingredients.push(ingredient);
     }
-
+    
     private isIngredientInCurrentRecipe(ingredientName: string): boolean {
         return this.currentRecipe.getIngredients().some(ingredientData => ingredientData.name === ingredientName);
     }
@@ -136,7 +159,10 @@ class LevelScene extends Player {
         }
     }
 
-    resetCurrentRecipe(){
-    }
+    resetLevelScene() {
+        // this.currentTime = this.resetTime;
+        // this.currentRecipe = this.originalRecipe;
+        // updateDisplay();
+      }
 }
 
