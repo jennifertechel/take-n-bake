@@ -7,10 +7,12 @@ class WinnerScene extends MessageBox {
     private starFilled: p5.Image;
     private starOutlined: p5.Image;
     private level: ITime;
+    private gameLevel: ILevel;
 
     constructor(level: ITime, gameLevel: ILevel) {
         super("Congrats!");
         this.level = level;
+        this.gameLevel = gameLevel;
         this.buttonMenu = new Button(createVector(innerWidth/2+20, innerHeight/2 + 155), "Menu", "menuScene");
 
         if (gameLevel.getCurrentLevel() === 3) {
