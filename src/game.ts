@@ -27,7 +27,7 @@ class Game implements IScene, ILevel {
       this.recipeScene = new RecipeScene(this, 1, this);
       this.winnerScene = new WinnerScene(this.levelScene, this);
       this.looserScene = new LooserScene(this);
-      this.activeScene = "levelScene";
+      this.activeScene = "winnerScene";
     }
 
     public update() {
@@ -71,6 +71,7 @@ class Game implements IScene, ILevel {
       this.activeScene = scene;
       this.currentLevel = this.getCurrentLevel();
       // todo: gör fler saker om det behövs...
+      this.levelScene = new LevelScene(this, this);
     }
 
   public nextLevel(): number {
@@ -78,6 +79,7 @@ class Game implements IScene, ILevel {
     randomSeed(this.currentLevel)
     if (this.currentLevel > 3) {
       this.currentLevel = 1;
+      new LevelScene(this, this);
     }
     return this.currentLevel;
   }
