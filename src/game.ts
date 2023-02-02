@@ -5,7 +5,7 @@ interface IScene {
 }
 interface ILevel {
   getCurrentLevel(): number;
-  nextLevel(): number;
+  nextLevel(): void;
 }
 
 class Game implements IScene, ILevel {
@@ -20,11 +20,11 @@ class Game implements IScene, ILevel {
     private currentLevel: number;
 
     constructor() {
-      this.currentLevel = 1;
+      this.currentLevel = 2;
       this.startScene = new StartScene(this);
       this.menuScene = new MenuScene(this);
       this.levelScene = new LevelScene(this, this);
-      this.recipeScene = new RecipeScene(this, 1, this);
+      this.recipeScene = new RecipeScene(this, this);
       this.winnerScene = new WinnerScene(this.levelScene, this);
       this.looserScene = new LooserScene(this);
       this.finalScene = new FinalScene();
@@ -75,15 +75,17 @@ class Game implements IScene, ILevel {
 
     public setActiveScene(scene: Scene) {
       this.activeScene = scene;
-      // todo: gör fler saker om det behövs...
+
+      if (scene === "levelScene") {
+        this.nextLevel();
+        this.winnerScene = new WinnerScene(this.levelScene, this);
+      }
     }
 
-  public nextLevel(): number {
+  public nextLevel() {
     this.currentLevel++;
     if (this.currentLevel > 3) {
       this.currentLevel = 1;
     }
-    return this.currentLevel;
   }
-
 }

@@ -41,41 +41,41 @@ class RecipeFactory {
         amount: 1
       }, {
         name: 'sugar',
-        amount: 2
+        amount: 0
       }, {
         name: 'butter',
-        amount: 1
+        amount: 0
       }, {
         name: 'flour',
-        amount: 3
+        amount: 0
       }, {
         name: 'blueberry',
-        amount: 4
+        amount: 0
       }]
     }, {
       name: "Chocolate Cake",
       image: images.recipes.chocolateCake,
       ingredients: [{
         name: 'egg',
-        amount: 3
-      }, {
-        name: 'butter',
         amount: 1
       }, {
+        name: 'butter',
+        amount: 0
+      }, {
         name: 'flour',
-        amount: 5
+        amount: 0
       }, {
         name: 'milk',
-        amount: 3
+        amount: 0
       }, {
         name: 'sugar',
-        amount: 2
+        amount: 0
       }, {
         name: 'chocolate',
-        amount: 3
+        amount: 0
       }, {
         name: 'strawberry',
-        amount: 4
+        amount: 0
       }]
     }]
   }

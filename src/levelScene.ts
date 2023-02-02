@@ -76,6 +76,7 @@ class LevelScene implements ITime {
         noCursor();
 
         let level = this.gameLevel.getCurrentLevel();
+        console.log(level);
         this.currentRecipe = this.recipeFactory.getRecipe(level);
 
         // Recipe background
@@ -143,7 +144,7 @@ class LevelScene implements ITime {
                             if(this.currentRecipe.getIngredients().every(i => i.amount === 0)) {
                                 this.ingredients = [];
                                 this.game.setActiveScene("winnerScene");
-                                this.gameLevel.nextLevel();
+                                console.log('NEXT LEVEL');
                             }
                         }
                     }
