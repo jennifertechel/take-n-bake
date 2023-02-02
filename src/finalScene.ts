@@ -25,7 +25,7 @@ class FinalScene extends MessageBox {
         text(this.instruction, innerWidth/2, 230);
         this.buttonMenu.draw();
         this.buttonMenu.checkHover();
-        image(this.image, innerWidth/2-150, innerHeight/2-120);
+        image(this.image, innerWidth/2-130, innerHeight/2-120, 250, 250);
 
 
     }
