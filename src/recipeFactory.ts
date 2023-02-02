@@ -22,16 +22,16 @@ class RecipeFactory {
       image: images.recipes.pancake,
       ingredients: [{
         name: 'egg',
-        amount: 1
+        amount: 2
       }, {
         name: 'butter',
-        amount: 0
+        amount: 1
       }, {
         name: 'milk',
-        amount: 0
+        amount: 3
       }, {
         name: 'flour',
-        amount: 0
+        amount: 2
       }]
     }, {
       name: "Blueberry Pie",
@@ -41,41 +41,41 @@ class RecipeFactory {
         amount: 1
       }, {
         name: 'sugar',
-        amount: 0
+        amount: 2
       }, {
         name: 'butter',
-        amount: 0
+        amount: 1
       }, {
         name: 'flour',
-        amount: 0
+        amount: 3
       }, {
         name: 'blueberry',
-        amount: 0
+        amount: 4
       }]
     }, {
       name: "Chocolate Cake",
       image: images.recipes.chocolateCake,
       ingredients: [{
         name: 'egg',
-        amount: 1
+        amount: 3
       }, {
         name: 'butter',
-        amount: 0
+        amount: 1
       }, {
         name: 'flour',
-        amount: 0
+        amount: 5
       }, {
         name: 'milk',
-        amount: 0
+        amount: 3
       }, {
         name: 'sugar',
-        amount: 0
+        amount: 2
       }, {
         name: 'chocolate',
-        amount: 0
+        amount: 3
       }, {
         name: 'strawberry',
-        amount: 0
+        amount: 4
       }]
     }]
   }
