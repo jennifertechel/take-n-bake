@@ -14,17 +14,16 @@ class WinnerScene extends MessageBox {
         this.level = level;
         this.gameLevel = gameLevel;
         this.buttonMenu = new Button(createVector(innerWidth/2+20, innerHeight/2 + 155), "Menu", "menuScene");
+        // this.image = new RecipeFactory().getRecipeData(gameLevel.getCurrentLevel()).image;
+        this.image = images.recipes.pancake;
+        this.starFilled = images.starFilled;
+        this.starOutlined = images.starOutlined; 
 
         if (gameLevel.getCurrentLevel() === 3) {
             this.buttonNextLevel = new Button(createVector(innerWidth/2-220, innerHeight/2 + 155), "Finish", "finalScene");
         } else {
             this.buttonNextLevel = new Button(createVector(innerWidth/2-220, innerHeight/2 + 155), "Next level", "recipeScene");
         }
-        
-        // Change image to the current recipe
-        this.image = images.recipes.pancake;
-        this.starFilled = images.starFilled;
-        this.starOutlined = images.starOutlined; 
     }
     
     public update() {
