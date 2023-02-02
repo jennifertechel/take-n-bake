@@ -111,4 +111,16 @@ class RecipeFactory {
         return new Ingredients(images.ingredients.sugar, createVector(width * 0.5, height * -5), createVector(131, 150), createVector(0, 0), name)
     }
   }
+
+  public getName(level: number) {
+    const recipeIndex = level - 1;
+    const recipeNames = ['pancake', 'pie', 'Chocolate Cake'];
+    const recipeName = recipeNames[recipeIndex];
+    return recipeName;
+  }
+
+
+  public getRecipeData(level: number): IRecipeData {
+    return this.recipes[level - 1];
+  }
 }

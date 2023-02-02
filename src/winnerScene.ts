@@ -45,6 +45,17 @@ class WinnerScene extends MessageBox {
             image(this.starOutlined, innerWidth/2 - 50 + (i * 80)+ Number(this.getStars())*50, innerHeight/2 + 58);
         }   
 
+        // Image of the recipe
+        if (this.gameLevel.getCurrentLevel() == 2) {
+            this.image = images.recipes.pancake;
+        }
+        else if (this.gameLevel.getCurrentLevel() == 3) {
+            this.image = images.recipes.pie;
+        }
+        else {
+            this.image = images.recipes.chocolateCake;
+        };
+
         this.buttonNextLevel.draw();
         this.buttonMenu.draw();
         this.buttonNextLevel.checkHover();
