@@ -5,6 +5,7 @@ class Recipe {
     private name: string;
     // private image: p5.Image
 
+
   constructor(recipe: IRecipeData) {
     this.ingredients = recipe.ingredients;
     this.name = recipe.name;
