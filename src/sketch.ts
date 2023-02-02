@@ -73,7 +73,7 @@ function preload() {
         recipes: {
             pancake: loadImage("assets/images/pancake.svg"),
             pie: loadImage("assets/images/pie.svg"),
-            chocolateCake: loadImage("assets/images/logo.svg")
+            chocolateCake: loadImage("assets/images/cocolateCake.svg")
         },
         backgroundObjects: {
             frostingBig: loadImage("assets/images/startFrosting.svg"),
