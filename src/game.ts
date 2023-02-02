@@ -28,6 +28,7 @@ class Game implements IScene, ILevel {
       this.winnerScene = new WinnerScene(this.levelScene);
       this.looserScene = new LooserScene(this);
       this.activeScene = "recipeScene";
+
     }
 
     public update() {
