@@ -20,7 +20,7 @@ class Game implements IScene, ILevel {
     private currentLevel: number;
 
     constructor() {
-      this.currentLevel = 1;
+      this.currentLevel = 0;
       randomSeed(1)
       this.startScene = new StartScene(this);
       this.menuScene = new MenuScene(this);
@@ -30,7 +30,7 @@ class Game implements IScene, ILevel {
       this.looserScene = new LooserScene(this);
       this.finalScene = new FinalScene();
 
-      this.activeScene = "levelScene";
+      this.activeScene = "startScene";
     }
 
     public update() {
@@ -76,10 +76,11 @@ class Game implements IScene, ILevel {
 
     public setActiveScene(scene: Scene) {
       this.activeScene = scene;
-
       if (scene === "levelScene") {
-        this.nextLevel();
+        this.levelScene = new LevelScene(this, this)
         this.winnerScene = new WinnerScene(this.levelScene, this);
+      } else if (scene === "recipeScene") {
+        this.nextLevel();
       }
     }
 
@@ -88,7 +89,6 @@ class Game implements IScene, ILevel {
     randomSeed(this.currentLevel)
     if (this.currentLevel > 3) {
       this.currentLevel = 1;
-      new LevelScene(this, this);
     }
   }
 }

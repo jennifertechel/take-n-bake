@@ -48,10 +48,10 @@ class WinnerScene extends MessageBox {
         }   
 
         // Image of the recipe
-        if (this.gameLevel.getCurrentLevel() == 2) {
+        if (this.gameLevel.getCurrentLevel() == 1) {
             this.image = images.recipes.pancake;
         }
-        else if (this.gameLevel.getCurrentLevel() == 3) {
+        else if (this.gameLevel.getCurrentLevel() == 2) {
             this.image = images.recipes.pie;
         }
         else {
