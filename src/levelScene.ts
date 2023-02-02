@@ -106,9 +106,9 @@ class LevelScene implements ITime {
 
     public createIngredient() {
         let level = this.gameLevel.getCurrentLevel();
-        let randomIngredient = this.ingredientTypes[Math.floor(Math.random()*this.ingredientTypes.length)];
+        let randomIngredient = this.ingredientTypes[Math.floor(random()*this.ingredientTypes.length)];
         while (randomIngredient === this.lastIngredient) {
-            randomIngredient = this.ingredientTypes[Math.floor(Math.random()*this.ingredientTypes.length)];
+            randomIngredient = this.ingredientTypes[Math.floor(random()*this.ingredientTypes.length)];
         }
         this.lastIngredient = randomIngredient;
         const ingredient = this.recipeFactory.getIngredient(randomIngredient);
