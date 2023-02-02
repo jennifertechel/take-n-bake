@@ -3,7 +3,7 @@
 class WinnerScene extends MessageBox {
     private buttonNextLevel: Button;
     private buttonMenu: Button;
-    private image: p5.Image | undefined;
+    private image: p5.Image;
     private starFilled: p5.Image;
     private starOutlined: p5.Image;
     private level: ITime;
@@ -17,6 +17,8 @@ class WinnerScene extends MessageBox {
         this.level = level;
         this.starFilled = images.starFilled;
         this.starOutlined = images.starOutlined;
+        
+        this.image = new RecipeFactory().getRecipeData(gameLevel.getCurrentLevel()).image;
     }
     
     public update() {

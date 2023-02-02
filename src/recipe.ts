@@ -3,6 +3,7 @@
 class Recipe {
     private ingredients: IIngredientData[];
     private name: string;
+    // private image: p5.Image
 
     /**
    * Creates an instance of Recipe.

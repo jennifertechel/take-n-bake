@@ -22,60 +22,60 @@ class RecipeFactory {
       image: images.recipes.pancake,
       ingredients: [{
         name: 'egg',
-        amount: 2
+        amount: 0
       }, {
         name: 'butter',
-        amount: 1
+        amount: 0
       }, {
         name: 'milk',
-        amount: 3
+        amount: 0
       }, {
         name: 'flour',
-        amount: 2
+        amount: 1
       }]
     }, {
       name: "Blueberry Pie",
       image: images.recipes.pie,
       ingredients: [{
         name: 'egg',
-        amount: 1
+        amount: 0
       }, {
         name: 'sugar',
-        amount: 2
+        amount: 0
       }, {
         name: 'butter',
         amount: 1
       }, {
         name: 'flour',
-        amount: 3
+        amount: 0
       }, {
         name: 'blueberry',
-        amount: 4
+        amount: 0
       }]
     }, {
       name: "Chocolate Cake",
       image: images.recipes.chocolateCake,
       ingredients: [{
         name: 'egg',
-        amount: 3
+        amount: 0
       }, {
         name: 'butter',
-        amount: 1
+        amount: 0
       }, {
         name: 'flour',
-        amount: 5
+        amount: 1
       }, {
         name: 'milk',
-        amount: 3
+        amount: 0
       }, {
         name: 'sugar',
-        amount: 2
+        amount: 0
       }, {
         name: 'chocolate',
-        amount: 3
+        amount: 0
       }, {
         name: 'strawberry',
-        amount: 4
+        amount: 0
       }]
     }]
   }
@@ -117,5 +117,10 @@ class RecipeFactory {
     const recipeNames = ['pancake', 'pie', 'Chocolate Cake'];
     const recipeName = recipeNames[recipeIndex];
     return recipeName;
+  }
+
+
+  public getRecipeData(level: number): IRecipeData {
+    return this.recipes[level - 1];
   }
 }
