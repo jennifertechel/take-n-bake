@@ -38,8 +38,10 @@ class WinnerScene extends MessageBox {
             image(this.starFilled, innerWidth/2 - 110 + (i * 80), innerHeight/2 + 58);
         }
         for (let i = 0; i < 3 - Number(this.getStars()); i++) {
-            image(this.starOutlined, innerWidth/2 - 50 + (i * 80)+ Number(this.getStars())*50, innerHeight/2 + 58);
+            image(this.starOutlined, innerWidth/2 - 110 + ((i + Number(this.getStars())) * 80), innerHeight/2 + 58);
         }   
+
+        console.log(this.level.getTime())
 
         // Image of the recipe
         if (this.gameLevel.getCurrentLevel() == 2) {
@@ -51,6 +53,8 @@ class WinnerScene extends MessageBox {
         else {
             this.image = images.recipes.chocolateCake;
         };
+
+        console.log(this.level.getTime())
 
         this.buttonNextLevel.draw();
         this.buttonMenu.draw();
