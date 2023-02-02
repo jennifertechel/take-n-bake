@@ -27,7 +27,7 @@ class LooserScene extends MessageBox {
         super.draw();
         textSize(30);
         textAlign(CENTER);
-        text(this.instruction, innerWidth/2, 250);
+        text(this.instruction, innerWidth/2, 350);
         cursor(ARROW);
         this.buttonRestart.draw();
         this.buttonQuit.draw();
