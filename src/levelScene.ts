@@ -1,5 +1,6 @@
 /// <reference path="player.ts" />
 /// <reference path="recipeFactory.ts" />
+/// <reference path="time.ts" />
 
 interface ITime {
     getTime: () => number;
@@ -10,7 +11,7 @@ class LevelScene implements ITime {
     private recipeFactory: RecipeFactory;
     private recipeBackground: p5.Vector;
     private game: IScene;
-    private timer: Time;
+    private timer: Time; 
     private time: number;
     private ingredients: Ingredients[] = [];
     private ingredientTypes: Ingredient[] = ["apple", "banana", "blueberry", "butter", "cherry", "chocolate", "egg", "flour", "milk", "strawberry", "sugar"];
@@ -116,7 +117,6 @@ class LevelScene implements ITime {
         this.ingredients.push(ingredient);
     }
     
-
     private isIngredientInCurrentRecipe(ingredientName: string): boolean {
         return this.currentRecipe.getIngredients().some(ingredientData => ingredientData.name === ingredientName);
     }
@@ -159,7 +159,10 @@ class LevelScene implements ITime {
         }
     }
 
-    resetCurrentRecipe(){
-    }
+    resetLevelScene() {
+        // this.currentTime = this.resetTime;
+        // this.currentRecipe = this.originalRecipe;
+        // updateDisplay();
+      }
 }
 

@@ -69,7 +69,7 @@ class Game implements IScene, ILevel {
 
     public setActiveScene(scene: Scene) {
       this.activeScene = scene;
-      // todo: gör fler saker om det behövs...
+      this.levelScene = new LevelScene(this, this);
     }
 
   public nextLevel(): number {
@@ -77,6 +77,7 @@ class Game implements IScene, ILevel {
     randomSeed(this.currentLevel)
     if (this.currentLevel > 3) {
       this.currentLevel = 1;
+      new LevelScene(this, this);
     }
     return this.currentLevel;
   }
