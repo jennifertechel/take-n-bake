@@ -1,9 +1,6 @@
 //---- GLOBAL VARIABLES ----//
 // let game: Game;
 // let sound: p5.SoundFile
-let player: Player;
-let menuButton: Button;
-let restartButton: Button;
 let images: Images;
 let game: Game;
 let time: Time;
@@ -58,7 +55,7 @@ function preload() {
         starFilled: loadImage("assets/images/star.svg"),
         playerBowl: loadImage("assets/images/BOWL.svg"),
         spilledBowl: loadImage("assets/images/spilled-bowl.svg"),
-        grandma: loadImage("assets/images/Ingredients/grandma.svg"),
+        grandma: loadImage("assets/images/grandma.svg"),
         ingredients: {
             strawberry: loadImage("assets/images/Ingredients/strawberry.svg"),
             apple: loadImage("assets/images/Ingredients/apple.svg"),

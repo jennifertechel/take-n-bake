@@ -11,14 +11,19 @@ class WinnerScene extends MessageBox {
 
     constructor(level: ITime, gameLevel: ILevel) {
         super("Congrats!");
-        this.buttonNextLevel = new Button(createVector(innerWidth/2-220, innerHeight/2 + 155), "Next level", "recipeScene");
-        this.buttonMenu = new Button(createVector(innerWidth/2+20, innerHeight/2 + 155), "Menu", "menuScene");
         this.gameLevel = gameLevel;
         this.level = level;
         this.starFilled = images.starFilled;
         this.starOutlined = images.starOutlined;
-        
-        this.image = new RecipeFactory().getRecipeData(gameLevel.getCurrentLevel()).image;
+        this.buttonMenu = new Button(createVector(innerWidth/2+20, innerHeight/2 + 155), "Menu", "menuScene");
+
+        if (gameLevel.getCurrentLevel() === 3) {
+            this.buttonNextLevel = new Button(createVector(innerWidth/2-220, innerHeight/2 + 155), "Finish", "finalScene");
+        } else {
+            this.buttonNextLevel = new Button(createVector(innerWidth/2-220, innerHeight/2 + 155), "Next level", "recipeScene");
+        }
+        this.image = images.recipes.pancake;
+        //this.image = new RecipeFactory().getRecipeData(gameLevel.getCurrentLevel()).image;
     }
     
     public update() {
@@ -41,16 +46,16 @@ class WinnerScene extends MessageBox {
             image(this.starOutlined, innerWidth/2 - 50 + (i * 80)+ Number(this.getStars())*50, innerHeight/2 + 58);
         }   
 
-        // Image of the recipe
-        if (this.gameLevel.getCurrentLevel() == 2) {
+        /*// Image of the recipe
+        if (this.gameLevel.getCurrentLevel() == 1) {
             this.image = images.recipes.pancake;
         }
-        else if (this.gameLevel.getCurrentLevel() == 3) {
+        else if (this.gameLevel.getCurrentLevel() == 2) {
             this.image = images.recipes.pie;
         }
         else {
             this.image = images.recipes.chocolateCake;
-        };
+        };*/
 
         this.buttonNextLevel.draw();
         this.buttonMenu.draw();

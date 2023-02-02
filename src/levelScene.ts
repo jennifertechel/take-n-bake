@@ -21,7 +21,6 @@ class LevelScene implements ITime {
     private currentRecipe: Recipe;
 
     constructor(game: IScene, gameLevel: ILevel) {
-        // super(images.playerBowl, createVector(width * 0.5, height * .75), createVector(220, 220), createVector(0, 0));
         this.tableCloth = images.backgroundObjects.tableCloth;
         this.recipeFactory = new RecipeFactory();
         this.recipeBackground = createVector((innerWidth/4-225), 580, 50);
@@ -143,7 +142,7 @@ class LevelScene implements ITime {
                             if(this.currentRecipe.getIngredients().every(i => i.amount === 0)) {
                                 this.ingredients = [];
                                 this.game.setActiveScene("winnerScene");
-                                this.gameLevel.nextLevel();
+                                //this.gameLevel.nextLevel();
                             }
                         }
                     }
@@ -158,11 +157,5 @@ class LevelScene implements ITime {
             }
         }
     }
-
-    resetLevelScene() {
-        // this.currentTime = this.resetTime;
-        // this.currentRecipe = this.originalRecipe;
-        // updateDisplay();
-      }
 }
 
