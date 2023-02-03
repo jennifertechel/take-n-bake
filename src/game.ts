@@ -29,7 +29,6 @@ class Game implements IScene, ILevel {
       this.winnerScene = new WinnerScene(this.levelScene, this);
       this.looserScene = new LooserScene(this);
       this.finalScene = new FinalScene();
-
       this.activeScene = "startScene";
     }
 

@@ -5,8 +5,6 @@ class MessageBox {
         this.title = title;
     }
 
-    public update() {}
-
     public draw() {
         strokeWeight(60);
         stroke("#C6E3DE")

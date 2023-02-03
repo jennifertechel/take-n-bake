@@ -47,7 +47,6 @@ class Ingredients extends MovingObject {
     public getName(){
         return this.name;
     }
-
 }
 
 

@@ -1,6 +1,4 @@
 //---- GLOBAL VARIABLES ----//
-// let game: Game;
-// let sound: p5.SoundFile
 let player: Player;
 let menuButton: Button;
 let restartButton: Button;
