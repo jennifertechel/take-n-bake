@@ -4,20 +4,32 @@ class Button {
     private text: string;
     private hover: boolean;
     private onClick: () => void;
+    private timeout = 500; // timeout in milliseconds
+    private static lastClicked: number = 0;
 
     constructor(position: p5.Vector, text: string, scene: Scene) {
         this.position = position;
         this.size = createVector(200, 70);
         this.text = text;
         this.hover = false;
+        // Todo: ta in game instansen istället för att använda den globalt.
         this.onClick = () => game.setActiveScene(scene)    
     }
 
     public update() {
-        if (mouseX > this.position.x && mouseX < this.position.x + this.size.x && mouseY > this.position.y && mouseY < this.position.y + this.size.y) {
+        if (
+            mouseX > this.position.x &&
+            mouseX < this.position.x + this.size.x &&
+            mouseY > this.position.y &&
+            mouseY < this.position.y + this.size.y
+          ) {
             if (mouseIsPressed) {
-            this.onClick();
-            }
+                const currentTime = Date.now();
+                if (currentTime - Button.lastClicked >= this.timeout) {
+                  this.onClick();
+                  Button.lastClicked = currentTime;
+                }
+              }
         }
     }
 

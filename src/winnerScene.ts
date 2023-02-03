@@ -11,14 +11,19 @@ class WinnerScene extends MessageBox {
 
     constructor(level: ITime, gameLevel: ILevel) {
         super("Congrats!");
-        this.buttonNextLevel = new Button(createVector(innerWidth/2-220, innerHeight/2 + 155), "Next level", "recipeScene");
-        this.buttonMenu = new Button(createVector(innerWidth/2+20, innerHeight/2 + 155), "Menu", "menuScene");
-        this.gameLevel = gameLevel;
         this.level = level;
+        this.gameLevel = gameLevel;
+        this.buttonMenu = new Button(createVector(innerWidth/2+20, innerHeight/2 + 155), "Menu", "menuScene");
+        // this.image = new RecipeFactory().getRecipeData(gameLevel.getCurrentLevel()).image;
+        this.image = images.recipes.pancake;
         this.starFilled = images.starFilled;
-        this.starOutlined = images.starOutlined;
-        
-        this.image = new RecipeFactory().getRecipeData(gameLevel.getCurrentLevel()).image;
+        this.starOutlined = images.starOutlined; 
+
+        if (gameLevel.getCurrentLevel() === 3) {
+            this.buttonNextLevel = new Button(createVector(innerWidth/2-220, innerHeight/2 + 155), "Finish", "finalScene");
+        } else {
+            this.buttonNextLevel = new Button(createVector(innerWidth/2-220, innerHeight/2 + 155), "Next level", "recipeScene");
+        }
     }
     
     public update() {
@@ -34,18 +39,22 @@ class WinnerScene extends MessageBox {
         super.draw();
 
         // Add all stars
+        const starDistance = 80;
+        let x = innerWidth/2 - 110;
         for (let i = 0; i < this.getStars(); i++) {
-            image(this.starFilled, innerWidth/2 - 110 + (i * 80), innerHeight/2 + 58);
+            image(this.starFilled, x, innerHeight/2 + 58);
+            x += starDistance;
         }
         for (let i = 0; i < 3 - Number(this.getStars()); i++) {
-            image(this.starOutlined, innerWidth/2 - 50 + (i * 80)+ Number(this.getStars())*50, innerHeight/2 + 58);
-        }   
+            image(this.starOutlined, x, innerHeight/2 + 58);
+            x += starDistance;
+        }
 
         // Image of the recipe
-        if (this.gameLevel.getCurrentLevel() == 2) {
+        if (this.gameLevel.getCurrentLevel() == 1) {
             this.image = images.recipes.pancake;
         }
-        else if (this.gameLevel.getCurrentLevel() == 3) {
+        else if (this.gameLevel.getCurrentLevel() == 2) {
             this.image = images.recipes.pie;
         }
         else {
