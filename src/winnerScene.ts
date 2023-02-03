@@ -38,12 +38,16 @@ class WinnerScene extends MessageBox {
         super.draw();
 
         // Add all stars
+        const starDistance = 80;
+        let x = innerWidth/2 - 110;
         for (let i = 0; i < this.getStars(); i++) {
-            image(this.starFilled, innerWidth/2 - 110 + (i * 80), innerHeight/2 + 58);
+            image(this.starFilled, x, innerHeight/2 + 58);
+            x += starDistance;
         }
         for (let i = 0; i < 3 - Number(this.getStars()); i++) {
-            image(this.starOutlined, innerWidth/2 - 50 + (i * 80)+ Number(this.getStars())*50, innerHeight/2 + 58);
-        }   
+            image(this.starOutlined, x, innerHeight/2 + 58);
+            x += starDistance;
+        }
 
         // Image of the recipe
         if (this.gameLevel.getCurrentLevel() == 1) {

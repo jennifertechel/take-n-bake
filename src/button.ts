@@ -4,6 +4,8 @@ class Button {
     private text: string;
     private hover: boolean;
     private onClick: () => void;
+    private timeout = 500; // timeout in milliseconds
+    private static lastClicked: number = 0;
 
     constructor(position: p5.Vector, text: string, scene: Scene) {
         this.position = position;
@@ -14,10 +16,19 @@ class Button {
     }
 
     public update() {
-        if (mouseX > this.position.x && mouseX < this.position.x + this.size.x && mouseY > this.position.y && mouseY < this.position.y + this.size.y) {
+        if (
+            mouseX > this.position.x &&
+            mouseX < this.position.x + this.size.x &&
+            mouseY > this.position.y &&
+            mouseY < this.position.y + this.size.y
+          ) {
             if (mouseIsPressed) {
-            this.onClick();
-            }
+                const currentTime = Date.now();
+                if (currentTime - Button.lastClicked >= this.timeout) {
+                  this.onClick();
+                  Button.lastClicked = currentTime;
+                }
+              }
         }
     }
 

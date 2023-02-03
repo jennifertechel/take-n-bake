@@ -34,7 +34,7 @@ class Ingredients extends MovingObject {
         this.velocity = createVector(0, 8);
         break;
         case 3: 
-        this.velocity = createVector(0, 12);
+        this.velocity = createVector(0, 10);
     } }
 
     public isCollidingWithPlayer(playerPosition: p5.Vector, playerSize: p5.Vector): boolean {

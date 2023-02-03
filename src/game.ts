@@ -85,7 +85,7 @@ class Game implements IScene, ILevel {
 
   public nextLevel() {
     this.currentLevel++;
-    randomSeed(this.currentLevel)
+    randomSeed(this.currentLevel + 5)
     if (this.currentLevel > 3) {
       this.currentLevel = 1;
     }
