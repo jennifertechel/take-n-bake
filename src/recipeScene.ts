@@ -13,7 +13,6 @@ class RecipeScene extends MessageBox {
         this.gameLevel = gameLevel;
         this.recipeFactory = new RecipeFactory();
         this.buttonStartGame = new Button(createVector(innerWidth/2-100, innerHeight/2 + 155), "Start", "levelScene");
-        
     }
     
     public update() {
@@ -23,8 +22,6 @@ class RecipeScene extends MessageBox {
     public draw() {
         let currentLevel = this.gameLevel.getCurrentLevel();
 
-        // let level = this.game.getCurrentLevel();
-        console.log("Current level:", currentLevel);
         // Ritar ut messageBox
         super.draw();
 
@@ -42,9 +39,7 @@ class RecipeScene extends MessageBox {
         textStyle(BOLD);
         textSize(35);
         text(recipe.getName(), windowWidth/2, 270);
-
         this.buttonStartGame.draw();
         this.buttonStartGame.checkHover();
-    
     }
 }

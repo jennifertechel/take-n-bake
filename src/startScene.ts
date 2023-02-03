@@ -22,10 +22,8 @@ class StartScene {
         noStroke();
         this.buttonGoToGame.draw();
         this.buttonGoToGame.checkHover();
-
         image(this.image, 0, -100, innerWidth);
-        image(this.image2, width - this.image2.width, height - this.image2.height ); // position x y, bild x y
-        image(this.logo, innerWidth/2-220, innerHeight/2-210, 417, 293); // position x y, bild ändra storlek och kanske designen i figma eller 
+        image(this.image2, width - this.image2.width, height - this.image2.height ); 
+        image(this.logo, innerWidth/2-220, innerHeight/2-210, 417, 293); 
     }
-
-    }
+}

@@ -5,7 +5,6 @@ class FinalScene extends MessageBox {
     private image: p5.Image;
     private instruction: String;
 
-
     constructor() {
         super("Grandma's happy!\n");
         this.instruction = "You finished all of her recipes"

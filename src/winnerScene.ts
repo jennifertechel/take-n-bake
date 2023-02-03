@@ -14,7 +14,6 @@ class WinnerScene extends MessageBox {
         this.level = level;
         this.gameLevel = gameLevel;
         this.buttonMenu = new Button(createVector(innerWidth/2+20, innerHeight/2 + 155), "Menu", "menuScene");
-        // this.image = new RecipeFactory().getRecipeData(gameLevel.getCurrentLevel()).image;
         this.image = images.recipes.pancake;
         this.starFilled = images.starFilled;
         this.starOutlined = images.starOutlined; 

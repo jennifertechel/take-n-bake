@@ -119,7 +119,6 @@ class RecipeFactory {
     return recipeName;
   }
 
-
   public getRecipeData(level: number): IRecipeData {
     return this.recipes[level - 1];
   }

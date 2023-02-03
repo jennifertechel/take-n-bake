@@ -10,7 +10,6 @@ class Button {
         this.size = createVector(200, 70);
         this.text = text;
         this.hover = false;
-        // Todo: ta in game instansen istället för att använda den globalt.
         this.onClick = () => game.setActiveScene(scene)    
     }
 
